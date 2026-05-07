@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("2oH5xucgFou3ctMSfoZMFAwcnFGdLff99RxPEN9mCsEV");
+declare_id!("8zCF4zrtbgibaXJ77q84jZaJacyMopW8nL1afE4jUE2z");
 
 pub const PROFILE_SEED: &[u8] = b"profile";
 pub const POST_SEED: &[u8] = b"post";
@@ -16,7 +16,7 @@ pub const POLL_VOTE_SEED: &[u8] = b"poll_vote";
 pub const LIKE_SEED: &[u8] = b"like";
 
 /// Hardcoded treasury wallet — ALL rent refunds MUST go here.
-pub const TREASURY_PUBKEY: Pubkey = pubkey!("4tpjCdXS1fKiYoBYLvTNNyHwzTAhuigB3TY6Wd2QbxT9");
+pub const TREASURY_PUBKEY: Pubkey = pubkey!("R5pguWzirJuX8Df9VwLYSnXbQLUtFGjUoW3zM16UvAh");
 
 #[program]
 pub mod sinsol {

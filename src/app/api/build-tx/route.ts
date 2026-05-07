@@ -23,8 +23,8 @@ import idl from "@/lib/idl.json";
  * The client NEVER builds instructions — the server controls what goes in the tx.
  */
 
-const PROGRAM_ID = new PublicKey("2oH5xucgFou3ctMSfoZMFAwcnFGdLff99RxPEN9mCsEV");
-const RPC_URL = `https://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY_PRIVATE}`;
+const PROGRAM_ID = new PublicKey("8zCF4zrtbgibaXJ77q84jZaJacyMopW8nL1afE4jUE2z");
+const RPC_URL = `https://devnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY_PRIVATE}`;
 
 // ========== PDA Seeds ==========
 const PROFILE_SEED = Buffer.from("profile");

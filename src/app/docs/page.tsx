@@ -34,7 +34,7 @@ import {
    Constants
    ──────────────────────────────────────────── */
 
-const PROGRAM_ID = "2oH5xucgFou3ctMSfoZMFAwcnFGdLff99RxPEN9mCsEV";
+const PROGRAM_ID = "8zCF4zrtbgibaXJ77q84jZaJacyMopW8nL1afE4jUE2z";
 
 const SECTIONS = [
   { id: "overview", label: "Overview" },

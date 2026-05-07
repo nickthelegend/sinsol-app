@@ -99,7 +99,7 @@ export default function Landing() {
           <a href="/docs" className="hidden sm:flex items-center gap-1 text-xs text-[#888] hover:text-[#e11d48] transition-colors">
             <Zap className="w-3 h-3" /> Docs
           </a>
-          <a href="https://explorer.solana.com/address/2oH5xucgFou3ctMSfoZMFAwcnFGdLff99RxPEN9mCsEV" target="_blank" rel="noopener noreferrer" className="hidden sm:flex items-center gap-1 text-xs text-[#888] hover:text-[#e11d48] transition-colors">
+          <a href="https://explorer.solana.com/address/8zCF4zrtbgibaXJ77q84jZaJacyMopW8nL1afE4jUE2z" target="_blank" rel="noopener noreferrer" className="hidden sm:flex items-center gap-1 text-xs text-[#888] hover:text-[#e11d48] transition-colors">
             <Zap className="w-3 h-3" /> On-Chain Program
           </a>
           <button
@@ -577,7 +577,7 @@ export default function Landing() {
           <Wallet className="w-4 h-4" /> {authenticated ? "Enter SinSol" : "Get Started — It's Free"}
         </button>
         <p className="text-[10px] text-[#94A3B8] mt-4">
-          Program: 2oH5xucgFou3ctMSfoZMFAwcnFGdLff99RxPEN9mCsEV · Mainnet
+          Program: 8zCF4zrtbgibaXJ77q84jZaJacyMopW8nL1afE4jUE2z · Mainnet
         </p>
       </div>
 

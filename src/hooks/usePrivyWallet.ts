@@ -14,12 +14,9 @@ import { Connection, PublicKey, Transaction, VersionedTransaction } from "@solan
 const RPC_PROXY = typeof window !== "undefined"
   ? `${window.location.origin}/api/rpc`
   : (process.env.HELIUS_API_KEY_PRIVATE
-      ? `https://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY_PRIVATE}`
-      : `https://mainnet.helius-rpc.com/?api-key=${process.env.NEXT_PUBLIC_HELIUS_API_KEY}`);
-export const HELIUS_MAINNET_RPC = RPC_PROXY;
-
-/** @deprecated kept for any old references */
-export const HELIUS_DEVNET_RPC = HELIUS_MAINNET_RPC;
+      ? `https://devnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY_PRIVATE}`
+      : `https://devnet.helius-rpc.com/?api-key=${process.env.NEXT_PUBLIC_HELIUS_API_KEY}`);
+export const HELIUS_DEVNET_RPC = RPC_PROXY;
 
 /**
  * Poll-based transaction confirmation — NO WebSocket needed.
@@ -48,11 +45,11 @@ export async function pollConfirmation(
   return false;
 }
 
-/** Shared connection (mainnet — for Shadowspace program via Anchor) */
+/** Shared connection (devnet — for SinSol program via Anchor) */
 let _sharedConnection: Connection | null = null;
 export function getSharedConnection(): Connection {
   if (!_sharedConnection) {
-    _sharedConnection = new Connection(HELIUS_MAINNET_RPC, {
+    _sharedConnection = new Connection(HELIUS_DEVNET_RPC, {
       commitment: "confirmed",
       wsEndpoint: undefined,
       disableRetryOnRateLimit: false,

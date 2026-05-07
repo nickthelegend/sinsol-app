@@ -10,19 +10,19 @@ const solanaConnectors = toSolanaWalletConnectors({
 });
 
 // RPC key is now hidden behind /api/rpc proxy — no key in the client bundle
-const HELIUS_MAINNET = typeof window !== "undefined"
+const HELIUS_DEVNET = typeof window !== "undefined"
   ? `${window.location.origin}/api/rpc`
-  : `https://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY_PRIVATE}`;
+  : `https://devnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY_PRIVATE}`;
 
 // WSS: use Helius directly for server-side only; on client we use polling instead of subscriptions.
 // We still need a valid URL for Privy config — use the private key (only available in SSR, harmless if empty client-side).
-const WSS_URL = `wss://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY_PRIVATE || "unused"}`;
+const WSS_URL = `wss://devnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY_PRIVATE || "unused"}`;
 
 const solanaRpcs = {
-  "solana:mainnet": {
-    rpc: createSolanaRpc(HELIUS_MAINNET),
+  "solana:devnet": {
+    rpc: createSolanaRpc(HELIUS_DEVNET),
     rpcSubscriptions: createSolanaRpcSubscriptions(WSS_URL),
-    blockExplorerUrl: "https://explorer.solana.com",
+    blockExplorerUrl: "https://explorer.solana.com?cluster=devnet",
   },
 } as const;
 

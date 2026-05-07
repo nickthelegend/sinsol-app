@@ -4,8 +4,8 @@
  * Note that this is only a type helper and is not the actual IDL. The original
  * IDL can be found at `target/idl/sinsol.json`.
  */
-export type Shadowspace = {
-  "address": "2oH5xucgFou3ctMSfoZMFAwcnFGdLff99RxPEN9mCsEV",
+export type Sinsol = {
+  "address": "8zCF4zrtbgibaXJ77q84jZaJacyMopW8nL1afE4jUE2z",
   "metadata": {
     "name": "sinsol",
     "version": "0.1.0",
@@ -1165,6 +1165,66 @@ export type Shadowspace = {
       ]
     },
     {
+      "name": "editPost",
+      "discriminator": [
+        218,
+        25,
+        82,
+        105,
+        200,
+        189,
+        238,
+        75
+      ],
+      "accounts": [
+        {
+          "name": "post",
+          "docs": [
+            "The post PDA — seeded by the author's pubkey, so only the real author's post is found"
+          ],
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  115,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "author"
+              },
+              {
+                "kind": "arg",
+                "path": "postId"
+              }
+            ]
+          }
+        },
+        {
+          "name": "author",
+          "docs": [
+            "Must be the original author — if anyone else signs, the seed/constraint check fails"
+          ],
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "postId",
+          "type": "u64"
+        },
+        {
+          "name": "newContent",
+          "type": "string"
+        }
+      ]
+    },
+    {
       "name": "followUser",
       "discriminator": [
         126,
@@ -1487,6 +1547,9 @@ export type Shadowspace = {
         },
         {
           "name": "user",
+          "docs": [
+            "Must be the profile owner — prevents others from kicking members"
+          ],
           "writable": true,
           "signer": true
         },
@@ -2314,6 +2377,19 @@ export type Shadowspace = {
       ]
     },
     {
+      "name": "likeRecord",
+      "discriminator": [
+        179,
+        237,
+        53,
+        5,
+        91,
+        236,
+        161,
+        50
+      ]
+    },
+    {
       "name": "membership",
       "discriminator": [
         231,
@@ -2460,6 +2536,21 @@ export type Shadowspace = {
       "code": 6010,
       "name": "pollAlreadyEnded",
       "msg": "Poll has ended"
+    },
+    {
+      "code": 6011,
+      "name": "alreadyLiked",
+      "msg": "Already liked this post"
+    },
+    {
+      "code": 6012,
+      "name": "cannotLikeOwnPost",
+      "msg": "Cannot like your own post"
+    },
+    {
+      "code": 6013,
+      "name": "invalidReactionType",
+      "msg": "Invalid reaction type"
     }
   ],
   "types": [
@@ -2567,6 +2658,26 @@ export type Shadowspace = {
           {
             "name": "following",
             "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "likeRecord",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "post",
+            "type": "pubkey"
+          },
+          {
+            "name": "liker",
+            "type": "pubkey"
+          },
+          {
+            "name": "likedAt",
+            "type": "i64"
           }
         ]
       }
@@ -2754,6 +2865,10 @@ export type Shadowspace = {
           },
           {
             "name": "createdAt",
+            "type": "i64"
+          },
+          {
+            "name": "updatedAt",
             "type": "i64"
           }
         ]

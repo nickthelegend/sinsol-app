@@ -3,7 +3,7 @@ import { Connection, PublicKey } from "@solana/web3.js";
 import { Program, AnchorProvider, Idl } from "@coral-xyz/anchor";
 import idl from "@/lib/idl.json";
 
-const PROGRAM_ID = new PublicKey("2oH5xucgFou3ctMSfoZMFAwcnFGdLff99RxPEN9mCsEV");
+const PROGRAM_ID = new PublicKey("8zCF4zrtbgibaXJ77q84jZaJacyMopW8nL1afE4jUE2z");
 const RPC_URL = `https://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY_PRIVATE}`;
 
 const PROFILE_SEED = Buffer.from("profile");

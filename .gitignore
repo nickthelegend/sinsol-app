@@ -40,5 +40,16 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# solana keys
+# solana
+target/
+**/*.so
+**/*.deploy
 treasury.json
+
+# rust
+Cargo.lock
+
+# misc
+.DS_Store
+*.pem
+src/app/.!*

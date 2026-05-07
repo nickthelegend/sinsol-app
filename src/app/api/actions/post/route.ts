@@ -20,7 +20,7 @@ import idl from "@/lib/idl.json";
  * directly from Twitter, Discord, or any Blink-compatible client.
  */
 
-const PROGRAM_ID = new PublicKey("2oH5xucgFou3ctMSfoZMFAwcnFGdLff99RxPEN9mCsEV");
+const PROGRAM_ID = new PublicKey("8zCF4zrtbgibaXJ77q84jZaJacyMopW8nL1afE4jUE2z");
 const RPC_URL = `https://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY_PRIVATE}`;
 
 // ── PDA helpers ──

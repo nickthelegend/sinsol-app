@@ -19,7 +19,7 @@ import { useAppStore } from "@/lib/store";
  */
 
 const MAGICBLOCK_API = "https://payments.magicblock.app";
-const USDC_MINT_MAINNET = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v";
+const USDC_MINT_DEVNET = "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU";
 
 // MagicBlock ephemeral rollup RPC (for sending to ephemeral when sendTo === "ephemeral")
 const MAGICBLOCK_EPHEMERAL_RPC = "https://ephemeral.magicblock.app";
@@ -82,12 +82,12 @@ export function useMagicBlockPayment() {
         const basePay = {
           from: publicKey.toBase58(),
           to: recipientPubkey.toBase58(),
-          mint: USDC_MINT_MAINNET,
+          mint: USDC_MINT_DEVNET,
           amount: usdcAmount,
           visibility,
           fromBalance: "base",
           toBalance: "base",
-          cluster: "mainnet",
+          cluster: "devnet",
         };
 
         // Strategy: try with only ATA init (keeps tx small), then escalate if needed

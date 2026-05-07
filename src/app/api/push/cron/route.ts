@@ -32,7 +32,7 @@ import { pushToWallets } from "@/lib/expo-push";
 export const runtime = "nodejs";
 export const maxDuration = 60; // seconds — cron should finish well under this
 
-const PROGRAM_ID = new PublicKey("2oH5xucgFou3ctMSfoZMFAwcnFGdLff99RxPEN9mCsEV");
+const PROGRAM_ID = new PublicKey("8zCF4zrtbgibaXJ77q84jZaJacyMopW8nL1afE4jUE2z");
 const RPC_URL = `https://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY_PRIVATE}`;
 const REACTIONS_EMOJI = ["❤️", "🔥", "🚀", "😂", "👏", "💡"];
 

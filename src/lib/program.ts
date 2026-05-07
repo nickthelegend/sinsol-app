@@ -12,7 +12,7 @@ import {
 } from "./encryption";
 import { checkUsername } from "./reserved-usernames";
 
-const PROGRAM_ID = new PublicKey("2oH5xucgFou3ctMSfoZMFAwcnFGdLff99RxPEN9mCsEV");
+const PROGRAM_ID = new PublicKey("8zCF4zrtbgibaXJ77q84jZaJacyMopW8nL1afE4jUE2z");
 
 // ========== IPFS URL Helpers ==========
 // On-chain fields are limited to 128 bytes. Full IPFS URLs can be 130+ chars.

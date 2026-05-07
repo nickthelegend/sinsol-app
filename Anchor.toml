@@ -6,17 +6,20 @@ resolution = true
 skip-lint = false
 
 [programs.mainnet]
-sinsol = "2oH5xucgFou3ctMSfoZMFAwcnFGdLff99RxPEN9mCsEV"
+shadowspace = "8zCF4zrtbgibaXJ77q84jZaJacyMopW8nL1afE4jUE2z"
 
 [programs.localnet]
-sinsol = "2oH5xucgFou3ctMSfoZMFAwcnFGdLff99RxPEN9mCsEV"
+shadowspace = "8zCF4zrtbgibaXJ77q84jZaJacyMopW8nL1afE4jUE2z"
+
+[programs.devnet]
+shadowspace = "8zCF4zrtbgibaXJ77q84jZaJacyMopW8nL1afE4jUE2z"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
 cluster = "devnet"
-wallet = "~/.config/solana/devnet-treasury.json"
+wallet = "./treasury.json"
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 120000 tests/**/*.ts"

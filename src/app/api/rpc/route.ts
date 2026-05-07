@@ -8,7 +8,7 @@ import { NextRequest, NextResponse } from "next/server";
  * never sent to the client.
  */
 
-const HELIUS_RPC_URL = `https://mainnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY_PRIVATE}`;
+const HELIUS_RPC_URL = `https://devnet.helius-rpc.com/?api-key=${process.env.HELIUS_API_KEY_PRIVATE}`;
 
 // Simple rate limiting — 200 requests per IP per minute
 const ipTimestamps = new Map<string, number[]>();
