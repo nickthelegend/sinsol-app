@@ -1,65 +1,130 @@
-import Image from "next/image";
+"use client";
+
+import { useState, useEffect } from "react";
+import { useWallet } from "@/hooks/usePrivyWallet";
+import Sidebar from "@/components/Sidebar";
+import MobileNav from "@/components/MobileNav";
+import Header from "@/components/Header";
+import Feed from "@/components/Feed";
+import Chat from "@/components/Chat";
+import Payments from "@/components/Payments";
+import Profile from "@/components/Profile";
+import CreatorDashboard from "@/components/CreatorDashboard";
+import Friends from "@/components/Friends";
+import Tokens from "@/components/Tokens";
+import Communities from "@/components/Communities";
+import TrendingSidebar from "@/components/TrendingSidebar";
+import ToastContainer from "@/components/Toast";
+import Landing from "@/components/Landing";
+import OnboardingDemo from "@/components/OnboardingDemo";
+import ProfileSetup from "@/components/ProfileSetup";
+import { useAppStore } from "@/lib/store";
+import { useProgram } from "@/hooks/useProgram";
 
 export default function Home() {
+  const { activeTab, currentUser } = useAppStore();
+  const { connected, publicKey } = useWallet();
+  const program = useProgram();
+  const [mounted, setMounted] = useState(false);
+  const [showOnboarding, setShowOnboarding] = useState(false);
+  const [hasSeenDemo, setHasSeenDemo] = useState(false);
+  const [needsProfile, setNeedsProfile] = useState(false);
+  const [checkingProfile, setCheckingProfile] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const hasSeenDemo = localStorage.getItem("sinsol_onboarding_seen");
+    setHasSeenDemo(!!hasSeenDemo);
+    if (!hasSeenDemo && connected) {
+      setShowOnboarding(true);
+    }
+  }, [connected]);
+
+  // Check if user has an on-chain profile after connecting
+  useEffect(() => {
+    if (!connected || !program || !publicKey || showOnboarding) return;
+    // If we already have a currentUser in store, no need to check
+    if (currentUser) {
+      setNeedsProfile(false);
+      return;
+    }
+    let cancelled = false;
+    const checkProfile = async () => {
+      setCheckingProfile(true);
+      try {
+        const profile = await program.getProfile(publicKey);
+        if (!cancelled) {
+          setNeedsProfile(!profile);
+        }
+      } catch {
+        if (!cancelled) setNeedsProfile(true);
+      }
+      if (!cancelled) setCheckingProfile(false);
+    };
+    checkProfile();
+    return () => { cancelled = true; };
+  }, [connected, program, publicKey, showOnboarding, currentUser]);
+
+  if (!mounted) {
+    return (
+      <div className="min-h-screen bg-[#FAFBFC] flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2563EB] to-[#16A34A] flex items-center justify-center mx-auto mb-3 animate-pulse">
+            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          </div>
+          <p className="text-sm text-[#64748B]">Loading SinSol...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!connected) {
+    return (
+      <div className="h-screen flex flex-col overflow-hidden bg-[#FAFBFC]">
+        <ToastContainer />
+        <div className="flex-1 overflow-y-auto overflow-x-hidden">
+          <Landing />
+        </div>
+      </div>
+    );
+  }
+
+  const handleOnboardingComplete = () => {
+    localStorage.setItem("sinsol_onboarding_seen", "true");
+    setShowOnboarding(false);
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <ToastContainer />
+      {showOnboarding && <OnboardingDemo onComplete={handleOnboardingComplete} />}
+      {needsProfile && !showOnboarding && (
+        <ProfileSetup onComplete={() => setNeedsProfile(false)} />
+      )}
+      <Sidebar />
+      <div className="md:ml-64 h-screen flex flex-col bg-[#FAFBFC] overflow-hidden">
+        <Header />
+        <main className="flex-1 overflow-y-auto overflow-x-hidden px-3 py-3 sm:px-4 sm:py-4 md:p-6 pb-[80px] md:pb-6 pt-0">
+          {activeTab === "feed" && (
+            <div className="flex gap-6 max-w-5xl mx-auto">
+              <div className="flex-1 min-w-0">
+                <Feed />
+              </div>
+              <div className="hidden lg:block sticky top-0 self-start pt-0">
+                <TrendingSidebar />
+              </div>
+            </div>
+          )}
+          {activeTab === "chat" && <Chat />}
+          {activeTab === "friends" && <Friends />}
+          {activeTab === "tokens" && <Tokens />}
+          {activeTab === "communities" && <Communities />}
+          {activeTab === "payments" && <Payments />}
+          {activeTab === "dashboard" && <CreatorDashboard />}
+          {activeTab === "profile" && <Profile />}
+        </main>
+      </div>
+      <MobileNav />
+    </>
   );
 }
