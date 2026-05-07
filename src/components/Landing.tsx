@@ -61,7 +61,7 @@ const features = [
 export default function Landing() {
   const [activeFeature, setActiveFeature] = useState(0);
   const [showApp, setShowApp] = useState(false);
-  const { login, ready } = useWallet();
+  const { login, ready, authenticated } = useWallet();
   const { theme, toggleTheme } = useAppStore();
   const [stats, setStats] = useState<{
     profiles: number; posts: number; follows: number;
@@ -118,7 +118,7 @@ export default function Landing() {
             disabled={!ready}
             className="flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-gradient-to-r from-[#e11d48] to-[#c026d3] hover:from-[#ff0022] hover:to-[#d946ef] text-white rounded-lg transition-all disabled:opacity-50 shadow-[0_0_20px_rgba(225,29,72,0.4)]"
           >
-            Sign In
+            {authenticated ? "Enter App" : "Sign In"}
           </button>
         </div>
       </nav>
@@ -150,7 +150,7 @@ export default function Landing() {
               disabled={!ready}
               className="flex items-center gap-2 px-8 py-4 text-base font-semibold bg-gradient-to-r from-[#e11d48] to-[#c026d3] hover:from-[#ff0022] hover:to-[#d946ef] text-white rounded-xl transition-all disabled:opacity-50 shadow-[0_0_30px_rgba(225,29,72,0.5)] hover:shadow-[0_0_50px_rgba(225,29,72,0.7)]"
             >
-              <Wallet className="w-5 h-5" /> Enter SinSol
+              <Wallet className="w-5 h-5" /> {authenticated ? "Enter SinSol" : "Sign In"}
             </button>
           </div>
           <button
@@ -574,7 +574,7 @@ export default function Landing() {
           disabled={!ready}
           className="flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-[#2563EB] hover:bg-[#1D4ED8] text-white rounded-xl transition-colors disabled:opacity-50 shadow-lg shadow-blue-200 mx-auto"
         >
-          <Wallet className="w-4 h-4" /> Get Started — It&apos;s Free
+          <Wallet className="w-4 h-4" /> {authenticated ? "Enter SinSol" : "Get Started — It's Free"}
         </button>
         <p className="text-[10px] text-[#94A3B8] mt-4">
           Program: 2oH5xucgFou3ctMSfoZMFAwcnFGdLff99RxPEN9mCsEV · Mainnet

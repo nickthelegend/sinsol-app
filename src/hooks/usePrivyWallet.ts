@@ -136,7 +136,9 @@ export function useWallet() {
     signTransaction,
     signAllTransactions,
     wallet: solanaWallet,
-    login,
+    login: () => {
+      if (!authenticated) login();
+    },
     logout,
     ready,
     authenticated,

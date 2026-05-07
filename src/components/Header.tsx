@@ -28,7 +28,7 @@ const subtitles: Record<string, string> = {
 
 export default function Header() {
   const { activeTab, setCurrentUser, setConnected, notifications, markAllNotificationsRead, setActiveTab, theme, toggleTheme, navigateToProfile, setFocusPostKey } = useAppStore();
-  const { publicKey, connected, login, logout, ready } = useWallet();
+  const { publicKey, connected, login, logout, ready, authenticated } = useWallet();
   const program = useProgram();
   const [showSetup, setShowSetup] = useState(false);
   const [profileLoaded, setProfileLoaded] = useState(false);
@@ -296,13 +296,13 @@ export default function Header() {
                 <LogOut className="w-3.5 h-3.5" />
               </button>
             ) : (
-              <button
-                onClick={login}
-                disabled={!ready}
-                className="flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-[#2563EB] hover:bg-[#1D4ED8] text-white rounded-lg transition-colors disabled:opacity-50"
-              >
-                Sign In
-              </button>
+                <button
+                  onClick={login}
+                  disabled={!ready}
+                  className="flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-[#2563EB] hover:bg-[#1D4ED8] text-white rounded-lg transition-colors disabled:opacity-50"
+                >
+                  {authenticated ? "Connecting..." : "Sign In"}
+                </button>
             )}
           </div>
         </div>
