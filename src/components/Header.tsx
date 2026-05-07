@@ -156,15 +156,15 @@ export default function Header() {
 
   return (
     <>
-      <header className="relative z-10 bg-white border-b border-[#E2E8F0]">
+      <header className="relative z-10 bg-black/80 backdrop-blur-md border-b border-purple-900/30">
         <div className="flex items-center justify-between px-3 sm:px-4 md:px-8 py-2.5 sm:py-3">
           <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
             <img src="/sinsollogo.png" alt="SinSol" className="sinsol-logo md:hidden w-11 h-11 sm:w-12 sm:h-12 flex-shrink-0" />
             <div className="min-w-0">
-              <h2 className="text-base sm:text-lg font-bold text-[#1A1A2E] truncate">{titles[activeTab] || "Feed"}</h2>
-              <p className="text-[10px] sm:text-xs text-[#64748B] truncate">
+              <h2 className="text-base sm:text-lg font-bold text-white truncate">{titles[activeTab] || "Feed"}</h2>
+              <p className="text-[10px] sm:text-xs text-gray-400 truncate">
                 <span className="sm:hidden">{subtitles[activeTab] || "Encrypted via PER"}</span>
-                <span className="hidden sm:inline">On-chain social on Solana</span>
+                <span className="hidden sm:inline">Sin on Solana</span>
               </p>
             </div>
           </div>
@@ -172,13 +172,13 @@ export default function Header() {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="flex items-center justify-center w-9 h-9 rounded-lg bg-[#F1F5F9] hover:bg-[#E2E8F0] transition-all duration-300"
+              className="flex items-center justify-center w-9 h-9 rounded-lg bg-purple-900/30 hover:bg-purple-900/50 transition-all duration-300"
               title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
             >
               {theme === "light" ? (
-                <Moon className="w-4 h-4 text-[#64748B]" />
+                <Moon className="w-4 h-4 text-gray-400" />
               ) : (
-                <Sun className="w-4 h-4 text-[#F59E0B]" />
+                <Sun className="w-4 h-4 text-[#fbbf24]" />
               )}
             </button>
 

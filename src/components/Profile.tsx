@@ -42,6 +42,7 @@ import { RichContent } from "@/components/RichContent";
 import { uploadImage } from "@/components/RichContent";
 import { SinSolClient, clearRpcCache } from "@/lib/program";
 import FollowListModal from "@/components/FollowListModal";
+import ProfileTokenSection from "@/components/ProfileTokenSection";
 
 /* ───────── Types ───────── */
 interface OnChainPost {
@@ -116,6 +117,7 @@ export default function Profile() {
   const [allReactions, setAllReactions] = useState<any[]>([]);
   const [profileMap, setProfileMap] = useState<Record<string, any>>({});
   const [activeTab, setActiveTab] = useState<"posts" | "likes">("posts");
+  const [showTokenTrade, setShowTokenTrade] = useState(false);
   const [copied, setCopied] = useState(false);
   const [realFollowerCount, setRealFollowerCount] = useState(0);
   const [realFollowingCount, setRealFollowingCount] = useState(0);
@@ -919,8 +921,21 @@ export default function Profile() {
       </div>
       )}
 
+      {/* ── Creator Token Section ── */}
+      <div className="px-4 py-4 bg-black/40 border-x border-[#333]">
+        <ProfileTokenSection
+          username={profileUsername}
+          displayName={profileName}
+          avatar={avatarUrl}
+          tokenMint={onChainProfile?.tokenMint}
+          tokenSymbol={onChainProfile?.tokenSymbol}
+          tokenImage={avatarUrl}
+          onBuyClick={() => setShowTokenTrade(true)}
+        />
+      </div>
+
       {/* ── Tabs ── */}
-      <div className="bg-white border-x border-[#E2E8F0] flex">
+      <div className="bg-black/60 border-x border-[#333] flex">
         {(["posts", "likes"] as const).map((tab) => (
           <button
             key={tab}

@@ -67,12 +67,12 @@ export default function Home() {
 
   if (!mounted) {
     return (
-      <div className="min-h-screen bg-[#FAFBFC] flex items-center justify-center">
+      <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2563EB] to-[#16A34A] flex items-center justify-center mx-auto mb-3 animate-pulse">
-            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#e11d48] via-[#c026d3] to-[#fbbf24] flex items-center justify-center mx-auto mb-3 animate-pulse shadow-lg shadow-purple-900/50">
+            <span className="text-white text-lg font-bold">S</span>
           </div>
-          <p className="text-sm text-[#64748B]">Loading SinSol...</p>
+          <p className="text-sm text-gray-400">Loading SinSol...</p>
         </div>
       </div>
     );
@@ -80,7 +80,7 @@ export default function Home() {
 
   if (!connected) {
     return (
-      <div className="h-screen flex flex-col overflow-hidden bg-[#FAFBFC]">
+      <div className="h-screen flex flex-col overflow-hidden bg-black">
         <ToastContainer />
         <div className="flex-1 overflow-y-auto overflow-x-hidden">
           <Landing />
@@ -102,7 +102,7 @@ export default function Home() {
         <ProfileSetup onComplete={() => setNeedsProfile(false)} />
       )}
       <Sidebar />
-      <div className="md:ml-64 h-screen flex flex-col bg-[#FAFBFC] overflow-hidden">
+      <div className="md:ml-20 h-screen flex flex-col bg-black overflow-hidden">
         <Header />
         <main className="flex-1 overflow-y-auto overflow-x-hidden px-3 py-3 sm:px-4 sm:py-4 md:p-6 pb-[80px] md:pb-6 pt-0">
           {activeTab === "feed" && (
