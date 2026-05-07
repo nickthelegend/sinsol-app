@@ -8,7 +8,7 @@ import { PinataSDK } from "pinata";
  */
 
 const pinata = new PinataSDK({
-  pinataJwt: process.env.PINATA_JWT!.trim(),
+  pinataJwt: (process.env.PINATA_JWT || "").trim(),
   pinataGateway: (process.env.PINATA_GATEWAY || "gateway.pinata.cloud").trim(),
 });
 
@@ -21,6 +21,10 @@ const ALLOWED_ORIGINS = new Set([
 
 export async function GET(request: NextRequest) {
   try {
+    if (!process.env.PINATA_JWT) {
+      return NextResponse.json({ error: "Pinata JWT not configured" }, { status: 500 });
+    }
+
     const origin = request.headers.get("origin") || "";
     const referer = request.headers.get("referer") || "";
     const allowed =

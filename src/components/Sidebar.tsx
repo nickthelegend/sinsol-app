@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Home, MessageCircle, Users, Coins, Globe, Wallet, BarChart3, User, Bell, Plus, TrendingUp } from "lucide-react";
+import { Home, MessageCircle, Users, Coins, Globe, Wallet, BarChart3, User, TrendingUp } from "lucide-react";
 import { useAppStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
@@ -26,14 +26,16 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="fixed left-0 top-0 hidden md:flex h-screen w-20 flex-col items-center border-r border-purple-900/30 bg-black py-6 z-40">
-      <nav className="flex flex-col items-center gap-1 w-full px-3">
-        {/* Logo */}
+    <aside className="fixed left-0 top-0 hidden md:flex h-screen w-24 flex-col items-center bg-black/50 backdrop-blur-xl border-r border-purple-900/20 py-6 z-40">
+      <nav className="flex flex-col items-center gap-3 w-full px-4">
+        {/* Logo - Clay Orb Style */}
         <button 
           onClick={() => handleNavClick("feed")}
-          className="mb-4"
+          className="mb-6 group"
         >
-          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-[#e11d48] via-[#c026d3] to-[#fbbf24] shadow-lg shadow-purple-900/50 hover:shadow-purple-900/70 transition-shadow" />
+          <div className="h-14 w-14 rounded-[28px] bg-gradient-to-br from-[#e11d48] via-[#c026d3] to-[#fbbf24] shadow-xl shadow-pink-500/30 group-hover:shadow-pink-500/50 transition-all duration-300 group-hover:scale-105 flex items-center justify-center">
+            <span className="text-white text-2xl font-bold">S</span>
+          </div>
         </button>
 
         {navItems.map((item) => {
@@ -44,17 +46,20 @@ export default function Sidebar() {
               key={item.id}
               onClick={() => handleNavClick(item.id)}
               className={cn(
-                "relative flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-200",
+                "relative flex h-14 w-14 items-center justify-center rounded-[24px] transition-all duration-300",
                 isActive
-                  ? "bg-purple-900/50 text-purple-400 shadow-lg shadow-purple-900/30"
-                  : "text-gray-500 hover:bg-purple-900/20 hover:text-purple-300"
+                  ? "bg-gradient-to-b from-pink-600 to-pink-700 shadow-lg shadow-pink-500/30 text-white"
+                  : "text-gray-400 hover:bg-purple-900/30 hover:text-white hover:scale-105"
               )}
             >
-              <Icon className="h-5 w-5" />
+              <Icon className="h-6 w-6" />
               {item.id === "chat" && totalUnread > 0 && (
-                <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#e11d48] text-[10px] font-bold text-white">
+                <span className="absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-b from-red-500 to-red-600 text-[11px] font-bold text-white shadow-lg shadow-red-500/40">
                   {totalUnread > 9 ? "9+" : totalUnread}
                 </span>
+              )}
+              {item.id === "notifications" && (
+                <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-gradient-to-b from-pink-500 to-pink-600 shadow-lg shadow-pink-500/50" />
               )}
               <span className="sr-only">{item.label}</span>
             </button>
@@ -62,12 +67,12 @@ export default function Sidebar() {
         })}
 
         {/* Trending at bottom */}
-        <div className="mt-auto pt-4">
+        <div className="mt-auto pt-8">
           <button
             onClick={() => handleNavClick("feed")}
-            className="flex h-12 w-12 items-center justify-center rounded-xl text-gray-500 hover:bg-purple-900/20 hover:text-purple-300"
+            className="flex h-14 w-14 items-center justify-center rounded-[24px] text-gray-400 hover:bg-purple-900/30 hover:text-white hover:scale-105 transition-all duration-300"
           >
-            <TrendingUp className="h-5 w-5" />
+            <TrendingUp className="h-6 w-6" />
           </button>
         </div>
       </nav>

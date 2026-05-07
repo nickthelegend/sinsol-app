@@ -12,7 +12,7 @@ export const maxDuration = 60;
  */
 
 const pinata = new PinataSDK({
-  pinataJwt: process.env.PINATA_JWT!.trim(),
+  pinataJwt: (process.env.PINATA_JWT || "").trim(),
   pinataGateway: (process.env.PINATA_GATEWAY || "gateway.pinata.cloud").trim(),
 });
 
@@ -50,6 +50,10 @@ function isUploadRateLimited(ip: string): boolean {
 
 export async function POST(request: NextRequest) {
   try {
+    if (!process.env.PINATA_JWT) {
+      return NextResponse.json({ error: "Pinata JWT not configured" }, { status: 500 });
+    }
+
     const origin = request.headers.get("origin") || "";
     const referer = request.headers.get("referer") || "";
     const allowed = (origin && ALLOWED_ORIGINS.has(origin))
