@@ -95,7 +95,7 @@ function StatCard({
   const c = colorMap[color] || colorMap.blue;
 
   return (
-    <div className={`bg-white rounded-2xl border ${c.border} p-4 sm:p-5 hover:shadow-md transition-shadow duration-300`}>
+    <div className={`bg-[#141414] rounded-2xl border border-white/10 p-4 sm:p-5 hover:shadow-md transition-shadow duration-300`}>
       <div className="flex items-start justify-between mb-3">
         <div className={`w-10 h-10 rounded-xl ${c.bg} flex items-center justify-center`}>
           <Icon className={`w-5 h-5 ${c.icon}`} />
@@ -397,14 +397,14 @@ export default function CreatorDashboard() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[...Array(4)].map((_, i) => (
-            <div key={i} className="bg-white rounded-2xl border border-white/10 p-5 animate-pulse">
+            <div key={i} className="bg-[#141414] rounded-2xl border border-white/10 p-5 animate-pulse">
               <div className="w-10 h-10 rounded-xl bg-[#F1F5F9] mb-3" />
               <div className="h-8 bg-[#F1F5F9] rounded-lg w-16 mb-2" />
               <div className="h-3 bg-[#F1F5F9] rounded w-24" />
             </div>
           ))}
         </div>
-        <div className="bg-white rounded-2xl border border-white/10 p-6 animate-pulse">
+        <div className="bg-[#141414] rounded-2xl border border-white/10 p-6 animate-pulse">
           <div className="h-48 bg-[#F1F5F9] rounded-xl" />
         </div>
       </div>
@@ -479,7 +479,7 @@ export default function CreatorDashboard() {
       {/* Charts Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
         {/* Engagement Over Time */}
-        <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
+        <div className="bg-[#141414] rounded-2xl border border-white/10 p-4 sm:p-5">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-[#2563EB]" />
@@ -527,7 +527,7 @@ export default function CreatorDashboard() {
         </div>
 
         {/* Earnings Chart */}
-        <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
+        <div className="bg-[#141414] rounded-2xl border border-white/10 p-4 sm:p-5">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <DollarSign className="w-4 h-4 text-[#16A34A]" />
@@ -563,7 +563,7 @@ export default function CreatorDashboard() {
       {/* Second Row: Post Types + Best Posting Times */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
         {/* Post Type Breakdown */}
-        <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
+        <div className="bg-[#141414] rounded-2xl border border-white/10 p-4 sm:p-5">
           <div className="flex items-center gap-2 mb-4">
             <Shield className="w-4 h-4 text-[#7C3AED]" />
             <h3 className="text-sm font-semibold text-white">Content Mix</h3>
@@ -614,7 +614,7 @@ export default function CreatorDashboard() {
         </div>
 
         {/* Best Posting Times */}
-        <div className="md:col-span-2 bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
+        <div className="md:col-span-2 bg-[#141414] rounded-2xl border border-white/10 p-4 sm:p-5">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-[#EA580C]" />
@@ -653,7 +653,7 @@ export default function CreatorDashboard() {
       </div>
 
       {/* Post Performance Table */}
-      <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
+      <div className="bg-[#141414] rounded-2xl border border-white/10 p-4 sm:p-5">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <Award className="w-4 h-4 text-[#2563EB]" />
@@ -739,7 +739,7 @@ export default function CreatorDashboard() {
       {/* Bottom Row: Top Engagers + Creator Score */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
         {/* Top Engagers */}
-        <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
+        <div className="bg-[#141414] rounded-2xl border border-white/10 p-4 sm:p-5">
           <div className="flex items-center gap-2 mb-4">
             <Users className="w-4 h-4 text-[#0D9488]" />
             <h3 className="text-sm font-semibold text-white">Top Engagers</h3>
@@ -786,7 +786,7 @@ export default function CreatorDashboard() {
         </div>
 
         {/* Creator Score + Quick Stats */}
-        <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
+        <div className="bg-[#141414] rounded-2xl border border-white/10 p-4 sm:p-5">
           <div className="flex items-center gap-2 mb-4">
             <Trophy className="w-4 h-4 text-[#D97706]" />
             <h3 className="text-sm font-semibold text-white">Creator Score</h3>
@@ -885,7 +885,7 @@ export default function CreatorDashboard() {
 
       {/* Recent Payments Received */}
       {analytics.receivedPayments.length > 0 && (
-        <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
+        <div className="bg-[#141414] rounded-2xl border border-white/10 p-4 sm:p-5">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <DollarSign className="w-4 h-4 text-[#16A34A]" />
@@ -911,7 +911,7 @@ export default function CreatorDashboard() {
                     </p>
                     <p className="text-[10px] text-[#94A3B8]">{timeAgo(payment.timestamp)}</p>
                   </div>
-                  <span className="text-[10px] font-medium text-[#16A34A] bg-white px-2 py-1 rounded-lg border border-[#BBF7D0]">
+                  <span className="text-[10px] font-medium text-[#16A34A] bg-zinc-800 px-2 py-1 rounded-lg border border-[#BBF7D0]">
                     Completed
                   </span>
                 </div>
@@ -922,7 +922,7 @@ export default function CreatorDashboard() {
       )}
 
       {/* Posting Heatmap (Hour of Day) */}
-      <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
+      <div className="bg-[#141414] rounded-2xl border border-white/10 p-4 sm:p-5">
         <div className="flex items-center gap-2 mb-4">
           <Flame className="w-4 h-4 text-[#EA580C]" />
           <h3 className="text-sm font-semibold text-white">Posting Heatmap (Hour of Day)</h3>

@@ -194,22 +194,22 @@ export default function FollowListModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/50 backdrop-blur-sm">
-      <div className="bg-white w-full max-w-lg mt-12 rounded-2xl shadow-2xl max-h-[80vh] flex flex-col animate-fade-in">
+      <div className="bg-[#141414] w-full max-w-lg mt-12 rounded-2xl shadow-2xl max-h-[80vh] flex flex-col animate-fade-in border border-white/10">
         {/* Header */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-[#E2E8F0]">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
           <div className="flex items-center gap-3">
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#F1F5F9] transition"
+              className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/10 transition"
             >
-              <X className="w-5 h-5 text-[#1A1A2E]" />
+              <X className="w-5 h-5 text-white" />
             </button>
-            <span className="font-bold text-[#1A1A2E] text-lg">{displayName}</span>
+            <span className="font-bold text-white text-lg">{displayName}</span>
           </div>
         </div>
 
         {/* Tabs — X-style */}
-        <div className="flex border-b border-[#E2E8F0]">
+        <div className="flex border-b border-white/10">
           {([
             { id: "verified_followers" as Tab, label: "Verified Followers" },
             { id: "followers" as Tab, label: "Followers" },
@@ -328,7 +328,7 @@ export default function FollowListModal({
                                   handleUnfollow(user.address);
                                 }}
                                 disabled={isLoading}
-                                className="group px-4 py-1.5 rounded-full text-sm font-bold border border-[#E2E8F0] text-[#1A1A2E] hover:border-red-300 hover:text-red-500 hover:bg-red-50 transition-all disabled:opacity-50"
+                                className="group px-4 py-1.5 rounded-full text-sm font-bold border border-white/10 text-white hover:border-red-500/50 hover:text-red-400 hover:bg-red-900/20 transition-all disabled:opacity-50"
                               >
                                 {isLoading ? (
                                   <Loader2 className="w-4 h-4 animate-spin" />

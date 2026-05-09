@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { TrendingUp, Heart, MessageCircle, Flame, Users } from "lucide-react";
+import { Heart, MessageCircle, Flame, Users } from "lucide-react";
 import { useProgram } from "@/hooks/useProgram";
 import { useWallet } from "@/hooks/usePrivyWallet";
 import ProfileHoverCard from "@/components/ProfileHoverCard";
@@ -115,21 +115,21 @@ export default function TrendingSidebar() {
     const el = document.getElementById(`post-${postKey}`);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "center" });
-      el.classList.add("ring-2", "ring-[#2563EB]", "ring-offset-2");
-      setTimeout(() => el.classList.remove("ring-2", "ring-[#2563EB]", "ring-offset-2"), 2500);
+      el.classList.add("ring-2", "ring-red-500/70", "ring-offset-2", "ring-offset-[#0A0A0A]");
+      setTimeout(() => el.classList.remove("ring-2", "ring-red-500/70", "ring-offset-2", "ring-offset-[#0A0A0A]"), 2500);
     }
   };
 
   if (loading) {
     return (
       <div className="w-72 flex-shrink-0 space-y-4">
-        <div className="bg-white rounded-2xl border border-[#E2E8F0] p-4 animate-pulse">
-          <div className="h-5 bg-[#F1F5F9] rounded w-32 mb-4" />
+        <div className="rounded-[var(--clay-radius-lg)] border border-white/[0.08] bg-[#0c0c0c] p-4 shadow-[0_0_0_1px_rgba(220,38,38,0.06)] animate-pulse">
+          <div className="h-5 bg-white/[0.06] rounded-lg w-28 mb-4" />
           <div className="space-y-3">
             {[1, 2, 3].map(i => (
               <div key={i} className="space-y-1.5">
-                <div className="h-3 bg-[#F1F5F9] rounded w-full" />
-                <div className="h-3 bg-[#F1F5F9] rounded w-2/3" />
+                <div className="h-3 bg-white/[0.06] rounded w-full" />
+                <div className="h-3 bg-white/[0.06] rounded w-2/3" />
               </div>
             ))}
           </div>
@@ -138,20 +138,25 @@ export default function TrendingSidebar() {
     );
   }
 
+  const sidebarCardClass =
+    "rounded-[var(--clay-radius-lg)] border border-white/[0.08] bg-[#0c0c0c] overflow-hidden shadow-[0_0_0_1px_rgba(220,38,38,0.05)]";
+  const sidebarHeaderClass =
+    "px-4 py-3 border-b border-white/[0.06] bg-gradient-to-r from-red-950/35 via-zinc-950/80 to-zinc-950/90";
+
   return (
     <div className="w-72 flex-shrink-0 space-y-4">
       {/* Trending Posts */}
-      <div className="bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden">
-        <div className="px-4 py-3 border-b border-[#F1F5F9] bg-gradient-to-r from-orange-50 to-amber-50">
+      <div className={sidebarCardClass}>
+        <div className={sidebarHeaderClass}>
           <div className="flex items-center gap-2">
-            <Flame className="w-4 h-4 text-orange-500" />
-            <span className="text-sm font-bold text-[#1A1A2E]">Trending</span>
+            <Flame className="w-4 h-4 text-red-400" />
+            <span className="text-xs font-semibold text-white tracking-[0.18em] uppercase">Trending</span>
           </div>
         </div>
-        <div className="divide-y divide-[#F1F5F9]">
+        <div className="divide-y divide-white/[0.06]">
           {trending.length === 0 ? (
             <div className="px-4 py-6 text-center">
-              <p className="text-xs text-[#94A3B8]">No trending posts yet</p>
+              <p className="text-xs text-zinc-500">No trending posts yet</p>
             </div>
           ) : (
             trending.map((post, idx) => {
@@ -161,23 +166,23 @@ export default function TrendingSidebar() {
                 <button
                   key={post.publicKey}
                   onClick={() => scrollToPost(post.publicKey)}
-                  className="w-full text-left px-4 py-3 hover:bg-[#F8FAFC] transition-colors group"
+                  className="w-full text-left px-4 py-3 hover:bg-white/[0.04] transition-colors group"
                 >
                   <div className="flex items-start gap-2.5">
-                    <span className="text-xs font-bold text-[#94A3B8] mt-0.5 w-4 flex-shrink-0">
+                    <span className="text-[11px] font-bold text-red-500/70 mt-0.5 w-4 flex-shrink-0 tabular-nums">
                       {idx + 1}
                     </span>
                     <div className="min-w-0 flex-1">
-                      <p className="text-[13px] text-[#1A1A2E] leading-snug line-clamp-2 group-hover:text-[#2563EB] transition-colors">
+                      <p className="text-[13px] text-zinc-200 leading-snug line-clamp-2 group-hover:text-red-300/95 transition-colors">
                         {preview}
                       </p>
                       <div className="flex items-center gap-3 mt-1.5">
-                        <span className="flex items-center gap-1 text-[11px] text-[#94A3B8]">
-                          <Heart className="w-3 h-3" />
+                        <span className="flex items-center gap-1 text-[11px] text-zinc-500">
+                          <Heart className="w-3 h-3 text-red-500/40" />
                           {post.likes}
                         </span>
-                        <span className="flex items-center gap-1 text-[11px] text-[#94A3B8]">
-                          <MessageCircle className="w-3 h-3" />
+                        <span className="flex items-center gap-1 text-[11px] text-zinc-500">
+                          <MessageCircle className="w-3 h-3 text-zinc-600" />
                           {post.commentCount}
                         </span>
                       </div>
@@ -192,38 +197,38 @@ export default function TrendingSidebar() {
 
       {/* Who to Follow */}
       {topCreators.length > 0 && (
-        <div className="bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden">
-          <div className="px-4 py-3 border-b border-[#F1F5F9] bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div className={sidebarCardClass}>
+          <div className={sidebarHeaderClass}>
             <div className="flex items-center gap-2">
-              <Users className="w-4 h-4 text-[#2563EB]" />
-              <span className="text-sm font-bold text-[#1A1A2E]">Who to Follow</span>
+              <Users className="w-4 h-4 text-red-400" />
+              <span className="text-xs font-semibold text-white tracking-[0.14em] uppercase">Who to Follow</span>
             </div>
           </div>
-          <div className="divide-y divide-[#F1F5F9]">
+          <div className="divide-y divide-white/[0.06]">
             {topCreators.slice(0, 4).map((creator: any) => (
               <ProfileHoverCard
                 key={creator.owner}
                 walletAddress={creator.owner}
                 profile={creator}
               >
-                <div className="px-4 py-2.5 hover:bg-[#F8FAFC] transition-colors cursor-pointer">
+                <div className="px-4 py-2.5 hover:bg-white/[0.04] transition-colors cursor-pointer">
                   <div className="flex items-center gap-2.5">
                     {creator.avatarUrl ? (
-                      <img src={creator.avatarUrl} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0" />
+                      <img src={creator.avatarUrl} alt="" className="w-8 h-8 rounded-full object-cover flex-shrink-0 ring-1 ring-white/10" />
                     ) : (
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#EBF4FF] to-[#DBEAFE] flex items-center justify-center text-xs font-bold text-[#2563EB] flex-shrink-0">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-950/90 to-zinc-900 flex items-center justify-center text-xs font-bold text-red-400/90 flex-shrink-0 ring-1 ring-red-500/20">
                         {(creator.displayName || creator.username || "?").charAt(0).toUpperCase()}
                       </div>
                     )}
                     <div className="min-w-0 flex-1">
-                      <p className="text-[13px] font-semibold text-[#1A1A2E] truncate">
+                      <p className="text-[13px] font-semibold text-zinc-100 truncate">
                         {creator.displayName || creator.username}
                       </p>
-                      <p className="text-[11px] text-[#94A3B8] truncate">
+                      <p className="text-[11px] text-zinc-500 truncate">
                         @{creator.username}
                       </p>
                     </div>
-                    <span className="text-[10px] text-[#94A3B8] flex-shrink-0">
+                    <span className="text-[10px] text-zinc-500 flex-shrink-0 tabular-nums">
                       {parseInt(creator.followerCount || "0") || 0} followers
                     </span>
                   </div>

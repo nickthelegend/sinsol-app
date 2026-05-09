@@ -82,7 +82,7 @@ export default function ProfileHoverCard({ walletAddress, profile, children }: P
       {/* Hover Card */}
       {show && (
         <div
-          className="absolute z-[100] left-0 top-full mt-2 w-72 bg-white rounded-2xl shadow-xl border border-[#E2E8F0] p-4 animate-fade-in"
+          className="absolute z-[100] left-0 top-full mt-2 w-72 bg-[#141414] rounded-2xl shadow-xl border border-white/10 p-4 animate-fade-in"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >

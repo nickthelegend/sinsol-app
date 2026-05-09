@@ -14,8 +14,7 @@ const slides = [
     subtitle: "On-Chain Social on Solana",
     description: "Your posts, chats, and identity — all living on the blockchain",
     icon: Shield,
-    gradient: "from-[#2563EB] to-[#1D4ED8]",
-    accentColor: "bg-blue-50",
+    gradient: "from-red-600 to-red-950",
     highlightText: "Zero gas fees · Powered by Solana",
   },
   {
@@ -24,8 +23,7 @@ const slides = [
     subtitle: "Share Your Thoughts",
     description: "Post on-chain for everyone to see. Build your social graph with followers and following.",
     icon: Lock,
-    gradient: "from-[#2563EB] to-[#16A34A]",
-    accentColor: "bg-blue-50",
+    gradient: "from-rose-500 to-red-950",
     features: ["On-Chain Posts", "Social Graph", "Session Keys"],
   },
   {
@@ -34,8 +32,7 @@ const slides = [
     subtitle: "Chat Securely",
     description: "End-to-end encrypted messages using NaCl Box. Only you and your recipient can read them.",
     icon: MessageCircle,
-    gradient: "from-[#16A34A] to-[#15803D]",
-    accentColor: "bg-green-50",
+    gradient: "from-red-500 via-rose-900 to-zinc-950",
     features: ["E2E Encrypted", "On-Chain Messages", "Key Exchange"],
   },
   {
@@ -44,8 +41,7 @@ const slides = [
     subtitle: "Send SOL to Friends",
     description: "Send SOL directly to anyone on Solana. Fast, cheap, and recorded on-chain.",
     icon: Zap,
-    gradient: "from-[#F59E0B] to-[#D97706]",
-    accentColor: "bg-amber-50",
+    gradient: "from-amber-500 to-red-900",
     features: ["Direct SOL Transfers", "On-Chain Records", "Instant Settlement"],
   },
   {
@@ -54,8 +50,7 @@ const slides = [
     subtitle: "Your Profile",
     description: "Build your reputation on-chain while maintaining privacy where it matters.",
     icon: User,
-    gradient: "from-[#EC4899] to-[#BE185D]",
-    accentColor: "bg-pink-50",
+    gradient: "from-rose-400 to-red-950",
     features: ["Verifiable Profile", "Follow Network", "On-Chain Identity"],
   },
   {
@@ -64,11 +59,13 @@ const slides = [
     subtitle: "Own Your Social",
     description: "Start sharing, chatting, and transacting — all fully on-chain with zero gas fees.",
     icon: Shield,
-    gradient: "from-[#2563EB] to-[#16A34A]",
-    accentColor: "bg-gradient-to-r from-blue-50 to-green-50",
+    gradient: "from-red-500 to-rose-950",
     cta: true,
   },
 ];
+
+const iconWrapClass =
+  "w-20 h-20 rounded-2xl bg-red-950/40 border border-red-500/20 shadow-[0_0_32px_rgba(220,38,38,0.12)] backdrop-blur-sm flex items-center justify-center mb-6 animate-fade-in";
 
 export default function OnboardingDemo({ onComplete }: OnboardingDemoProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -105,15 +102,15 @@ export default function OnboardingDemo({ onComplete }: OnboardingDemoProps) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden">
+    <div className="fixed inset-0 bg-black/55 backdrop-blur-md z-50 flex items-center justify-center p-4">
+      <div className="relative w-full max-w-2xl bg-[#0a0a0a] rounded-[28px] shadow-[0_24px_80px_rgba(0,0,0,0.65),0_0_60px_rgba(220,38,38,0.06)] overflow-hidden border border-red-500/10">
         {/* Close Button */}
         <button
           onClick={onComplete}
-          className="absolute top-4 right-4 z-10 p-2 hover:bg-gray-100 rounded-full transition-colors"
+          className="absolute top-4 right-4 z-10 p-2 hover:bg-white/10 rounded-full transition-colors"
           aria-label="Close onboarding"
         >
-          <X className="w-6 h-6 text-gray-600" />
+          <X className="w-6 h-6 text-zinc-400" />
         </button>
 
         {/* Content */}
@@ -124,12 +121,12 @@ export default function OnboardingDemo({ onComplete }: OnboardingDemoProps) {
           {/* Main Content */}
           <div className="relative flex-1 flex flex-col items-center justify-center px-8 py-12 text-center">
             {/* Icon */}
-            <div className={`w-20 h-20 rounded-2xl ${slide.accentColor} flex items-center justify-center mb-6 animate-fade-in`}>
-              <Icon className={`w-10 h-10 text-transparent bg-gradient-to-br ${slide.gradient} bg-clip-text`} />
+            <div className={iconWrapClass}>
+              <Icon className="w-10 h-10 text-red-400" strokeWidth={1.75} />
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-bold text-[#1A1A2E] mb-2 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl font-premium-headline tracking-[0.08em] text-white mb-2 animate-fade-in">
               {slide.title}
             </h1>
 
@@ -139,7 +136,7 @@ export default function OnboardingDemo({ onComplete }: OnboardingDemoProps) {
             </p>
 
             {/* Description */}
-            <p className="text-[#64748B] text-lg mb-8 max-w-md animate-fade-in">
+            <p className="text-zinc-400 text-lg mb-8 max-w-md animate-fade-in">
               {slide.description}
             </p>
 
@@ -149,7 +146,7 @@ export default function OnboardingDemo({ onComplete }: OnboardingDemoProps) {
                 {slide.features.map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-3 animate-fade-in" style={{ animationDelay: `${idx * 100}ms` }}>
                     <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${slide.gradient}`} />
-                    <span className="text-[#1A1A2E] font-medium">{feature}</span>
+                    <span className="text-zinc-300 font-medium">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -157,14 +154,14 @@ export default function OnboardingDemo({ onComplete }: OnboardingDemoProps) {
 
             {/* Highlight Text */}
             {slide.highlightText && (
-              <div className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-green-100 rounded-full mb-8">
-                <p className="text-sm font-semibold text-[#1A1A2E]">{slide.highlightText}</p>
+              <div className="inline-block px-4 py-2 bg-gradient-to-r from-red-950/50 to-zinc-900/60 rounded-full mb-8 border border-red-500/20">
+                <p className="text-sm font-medium text-zinc-200 tracking-wide">{slide.highlightText}</p>
               </div>
             )}
           </div>
 
           {/* Progress & Controls */}
-          <div className="relative border-t border-gray-200 px-8 py-6 bg-gray-50/50">
+          <div className="relative border-t border-white/[0.06] px-8 py-6 bg-zinc-950/80">
             {/* Progress Dots */}
             <div className="flex justify-center gap-2 mb-6">
               {slides.map((_, idx) => (
@@ -174,7 +171,7 @@ export default function OnboardingDemo({ onComplete }: OnboardingDemoProps) {
                   className={`transition-all duration-300 rounded-full ${
                     idx === currentSlide
                       ? `h-3 w-8 bg-gradient-to-r ${slide.gradient}`
-                      : "h-2.5 w-2.5 bg-gray-300 hover:bg-gray-400"
+                      : "h-2.5 w-2.5 bg-zinc-600 hover:bg-zinc-500"
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -182,7 +179,7 @@ export default function OnboardingDemo({ onComplete }: OnboardingDemoProps) {
             </div>
 
             {/* Slide Counter */}
-            <p className="text-center text-sm text-[#64748B] mb-6">
+            <p className="text-center text-sm text-zinc-400 mb-6">
               {currentSlide + 1} of {slides.length}
             </p>
 
@@ -190,7 +187,7 @@ export default function OnboardingDemo({ onComplete }: OnboardingDemoProps) {
             <div className="flex gap-3 justify-center">
               <button
                 onClick={onComplete}
-                className="px-6 py-2.5 rounded-lg text-[#64748B] font-semibold hover:bg-gray-200 transition-colors"
+                className="px-6 py-2.5 rounded-lg text-zinc-400 font-semibold hover:bg-white/10 transition-colors"
               >
                 Skip
               </button>
@@ -216,7 +213,7 @@ export default function OnboardingDemo({ onComplete }: OnboardingDemoProps) {
 
             {/* Auto-play Indicator */}
             {currentSlide < slides.length - 1 && (
-              <div className="mt-4 text-center text-xs text-[#94A3B8]">
+              <div className="mt-4 text-center text-xs text-zinc-500">
                 Slides advance automatically
               </div>
             )}

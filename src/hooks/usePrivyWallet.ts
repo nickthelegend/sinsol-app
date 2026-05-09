@@ -63,7 +63,7 @@ export function getSharedConnection(): Connection {
  * Returns { publicKey, connected, signTransaction, signAllTransactions, wallet }
  */
 export function useWallet() {
-  const { ready, authenticated, login, logout, user } = usePrivy();
+  const { ready, authenticated, login: privyLogin, logout, user, linkWallet } = usePrivy();
   const { wallets } = usePrivyWallets();
 
   // Pick the first Solana wallet (embedded or external)
@@ -134,7 +134,9 @@ export function useWallet() {
     signAllTransactions,
     wallet: solanaWallet,
     login: () => {
-      if (!authenticated) login();
+      if (!ready) return;
+      if (!authenticated) privyLogin();
+      else linkWallet({ walletChainType: "solana-only" });
     },
     logout,
     ready,

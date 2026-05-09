@@ -551,11 +551,11 @@ export default function Chat() {
     return (
       <div className="flex items-center justify-center h-[70vh]">
         <div className="text-center">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#EFF6FF] to-[#F0FDF4] flex items-center justify-center mx-auto mb-4">
-            <ShieldCheck className="w-8 h-8 text-[#7C3AED]" />
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500/20 to-red-950/40 border border-red-500/20 flex items-center justify-center mx-auto mb-4">
+            <ShieldCheck className="w-8 h-8 text-red-400" strokeWidth={1.5} />
           </div>
-          <h3 className="text-lg font-bold text-white mb-2">E2E Encrypted Chat</h3>
-          <p className="text-sm text-[#64748B]">Connect your wallet to access private, encrypted messaging on Solana</p>
+          <h3 className="text-lg font-semibold text-white mb-2">E2E Encrypted Chat</h3>
+          <p className="text-sm text-zinc-500">Connect your wallet to access private, encrypted messaging</p>
         </div>
       </div>
     );
@@ -565,9 +565,9 @@ export default function Chat() {
     return (
       <div className="flex items-center justify-center h-[70vh]">
         <div className="text-center">
-          <KeyRound className="w-10 h-10 text-[#7C3AED] animate-pulse mx-auto mb-3" />
-          <h3 className="text-lg font-bold text-white mb-2">Deriving Encryption Keys</h3>
-          <p className="text-sm text-[#64748B]">Sign the message in your wallet to generate your encryption keypair...</p>
+          <KeyRound className="w-10 h-10 text-red-400 animate-pulse mx-auto mb-3" strokeWidth={1.5} />
+          <h3 className="text-lg font-semibold text-white mb-2">Deriving Encryption Keys</h3>
+          <p className="text-sm text-zinc-500">Sign the message in your wallet to generate your encryption keypair...</p>
         </div>
       </div>
     );
@@ -577,12 +577,12 @@ export default function Chat() {
     return (
       <div className="flex items-center justify-center h-[70vh]">
         <div className="text-center">
-          <AlertCircle className="w-10 h-10 text-[#EF4444] mx-auto mb-3" />
-          <h3 className="text-lg font-bold text-white mb-2">Encryption Keys Required</h3>
-          <p className="text-sm text-[#64748B] mb-4">Could not derive encryption keys. Please reconnect your wallet.</p>
+          <AlertCircle className="w-10 h-10 text-red-500 mx-auto mb-3" strokeWidth={1.5} />
+          <h3 className="text-lg font-semibold text-white mb-2">Encryption Keys Required</h3>
+          <p className="text-sm text-zinc-500 mb-4">Could not derive encryption keys. Please reconnect your wallet.</p>
           <button
             onClick={() => { setEncryptionKeys(null); setKeysLoading(false); }}
-            className="px-4 py-2 bg-[#2563EB] text-white text-sm font-medium rounded-xl hover:bg-[#1D4ED8] transition-all"
+            className="px-5 py-2.5 premium-button text-white text-sm font-medium rounded-xl transition-all"
           >
             Retry
           </button>
@@ -592,36 +592,36 @@ export default function Chat() {
   }
 
   return (
-    <div className="chat-container flex h-[calc(100vh-120px)] sm:h-[calc(100vh-73px)] md:h-[calc(100vh-73px)] max-w-5xl mx-auto clay-card overflow-hidden">
+    <div className="chat-container flex h-[calc(100vh-120px)] sm:h-[calc(100vh-73px)] md:h-[calc(100vh-73px)] max-w-5xl mx-auto premium-card overflow-hidden border border-white/[0.06]">
       {/* Conversation List */}
       <div
-        className={`w-full md:w-80 border-r border-white/10 flex flex-col ${
+        className={`w-full md:w-80 border-r border-white/[0.06] bg-[#0A0A0A]/50 flex flex-col ${
           activeChat ? "hidden md:flex" : "flex"
         }`}
       >
-        <div className="p-3 sm:p-4 border-b border-white/10">
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center gap-1.5">
-              <h2 className="font-bold text-sm text-white">Messages</h2>
-              <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-red-600/10 text-[#7C3AED] font-medium">🔐 E2E</span>
+        <div className="p-3 sm:p-4 border-b border-white/[0.06] bg-[#0A0A0A]/80 backdrop-blur-sm">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <h2 className="font-semibold text-sm text-white">Whispers</h2>
+              <span className="text-[9px] px-2 py-0.5 rounded-full bg-red-500/15 text-red-400 font-medium border border-red-500/20">🔐 E2E</span>
             </div>
             <button
               onClick={loadFriendsAndChats}
               disabled={loading}
-              className="flex items-center gap-1 text-xs text-[#2563EB] hover:text-[#1D4ED8] disabled:opacity-50"
+              className="flex items-center gap-1.5 text-xs text-zinc-500 hover:text-red-400 disabled:opacity-50 transition-colors px-2 py-1 rounded-lg hover:bg-white/5"
             >
-              <RefreshCw className={`w-3 h-3 ${loading ? "animate-spin" : ""}`} />
+              <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin" : ""}`} strokeWidth={1.5} />
               {loading ? "Loading..." : "Refresh"}
             </button>
           </div>
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-600" strokeWidth={1.5} />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search contacts..."
-              className="w-full pl-10 pr-4 py-2.5 bg-[#F8FAFC] border border-white/10 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-[#2563EB]"
+              className="w-full pl-10 pr-4 py-2.5 bg-zinc-900/50 border border-white/[0.08] rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500/30 transition-all placeholder:text-zinc-600"
             />
           </div>
         </div>
@@ -629,15 +629,15 @@ export default function Chat() {
         <div className="flex-1 overflow-y-auto">
           {loading && chats.length === 0 && (
             <div className="flex items-center justify-center py-12">
-              <RefreshCw className="w-5 h-5 text-gray-500 animate-spin" />
+              <RefreshCw className="w-5 h-5 text-zinc-600 animate-spin" strokeWidth={1.5} />
             </div>
           )}
 
           {!loading && filteredChats.length === 0 && (
             <div className="p-6 text-center">
-              <MessageCircle className="w-10 h-10 text-gray-500 mx-auto mb-3" />
-              <p className="text-sm text-gray-500 mb-1">No conversations yet</p>
-              <p className="text-xs text-gray-500">Follow people to start encrypted chats</p>
+              <MessageCircle className="w-10 h-10 text-zinc-700 mx-auto mb-3" strokeWidth={1.5} />
+              <p className="text-sm text-zinc-500 mb-1">No conversations yet</p>
+              <p className="text-xs text-zinc-600">Follow people to start encrypted chats</p>
             </div>
           )}
 
@@ -645,40 +645,40 @@ export default function Chat() {
             <button
               key={chat.friendAddress}
               onClick={() => selectChat(chat)}
-              className={`touch-active w-full flex items-center gap-3 px-3 sm:px-4 py-3 sm:py-3.5 hover:bg-[#F8FAFC] active:bg-white/5 transition-colors border-b border-[#F1F5F9] ${
-                activeChat?.friendAddress === chat.friendAddress ? "bg-[#EFF6FF]" : ""
+              className={`touch-active w-full flex items-center gap-3 px-3 sm:px-4 py-3 sm:py-3.5 hover:bg-white/[0.03] active:bg-white/5 transition-all border-b border-white/[0.04] ${
+                activeChat?.friendAddress === chat.friendAddress ? "bg-red-500/5 border-l-2 border-l-red-500/40" : ""
               }`}
             >
               <div className="relative">
                 {chat.friend.avatar && chat.friend.avatar.startsWith("http") ? (
-                  <img src={chat.friend.avatar} alt={chat.friend.displayName} className="w-12 h-12 rounded-full object-cover" />
+                  <img src={chat.friend.avatar} alt={chat.friend.displayName} className="w-12 h-12 rounded-full object-cover border border-white/[0.08]" />
                 ) : (
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#EBF4FF] to-[#E0F2FE] flex items-center justify-center text-xl">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-900/30 to-red-950/20 border border-white/[0.08] flex items-center justify-center text-lg">
                     {chat.friend.avatar}
                   </div>
                 )}
                 {chat.exists ? (
-                  <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#16A34A] border-2 border-white flex items-center justify-center">
+                  <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-emerald-500 border-2 border-[#0A0A0A] flex items-center justify-center">
                     <Lock className="w-2 h-2 text-white" />
                   </div>
                 ) : (
-                  <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-[#94A3B8] border-2 border-white" />
+                  <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-zinc-700 border-2 border-[#0A0A0A]" />
                 )}
               </div>
               <div className="flex-1 text-left min-w-0">
                 <div className="flex items-center justify-between">
                   <span className="font-semibold text-sm text-white truncate">{chat.friend.displayName}</span>
-                  <span className="text-[10px] text-gray-500 flex-shrink-0">
+                  <span className="text-[10px] text-zinc-600 flex-shrink-0">
                     {chat.lastMessageTime > 0 ? timeAgo(chat.lastMessageTime) : ""}
                   </span>
                 </div>
-                <div className="flex items-center gap-1 mt-0.5">
+                <div className="flex items-center gap-1.5 mt-0.5">
                   {chat.exists ? (
-                    <Lock className="w-2.5 h-2.5 text-[#16A34A] flex-shrink-0" />
+                    <Lock className="w-2.5 h-2.5 text-emerald-500 flex-shrink-0" />
                   ) : (
-                    <Plus className="w-2.5 h-2.5 text-gray-500 flex-shrink-0" />
+                    <Plus className="w-2.5 h-2.5 text-zinc-600 flex-shrink-0" />
                   )}
-                  <p className="text-xs text-[#64748B] truncate">{chat.lastMessage}</p>
+                  <p className="text-xs text-zinc-500 truncate">{chat.lastMessage}</p>
                 </div>
               </div>
             </button>
@@ -687,21 +687,21 @@ export default function Chat() {
       </div>
 
       {/* Chat Area */}
-      <div className={`flex-1 flex flex-col ${activeChat ? "flex" : "hidden md:flex"}`}>
+      <div className={`flex-1 flex flex-col bg-[#080808] ${activeChat ? "flex" : "hidden md:flex"}`}>
         {activeChat ? (
           <>
             {/* Chat Header */}
-            <div className="flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-3 border-b border-purple-500/20 bg-black/40">
+            <div className="flex items-center gap-3 sm:gap-4 px-4 sm:px-5 py-3 border-b border-white/[0.06] bg-[#0A0A0A]/80 backdrop-blur-sm">
               <button
                 onClick={() => { setActiveChat(null); setMessages([]); setPeerPubKey(null); }}
-                className="md:hidden w-9 h-9 rounded-lg hover:bg-white/5 active:bg-[#E2E8F0] flex items-center justify-center flex-shrink-0"
+                className="md:hidden w-9 h-9 rounded-xl hover:bg-white/5 active:bg-white/10 flex items-center justify-center flex-shrink-0 transition-colors"
               >
-                <ArrowLeft className="w-5 h-5 text-[#64748B]" />
+                <ArrowLeft className="w-5 h-5 text-zinc-500" strokeWidth={1.5} />
               </button>
               {activeChat.friend.avatar && activeChat.friend.avatar.startsWith("http") ? (
-                <img src={activeChat.friend.avatar} alt={activeChat.friend.displayName} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover flex-shrink-0" />
+                <img src={activeChat.friend.avatar} alt={activeChat.friend.displayName} className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover border border-white/[0.08] flex-shrink-0" />
               ) : (
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-[#EBF4FF] to-[#E0F2FE] flex items-center justify-center text-base sm:text-lg flex-shrink-0">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-red-900/30 to-red-950/20 border border-white/[0.08] flex items-center justify-center text-lg flex-shrink-0">
                   {activeChat.friend.avatar}
                 </div>
               )}
@@ -709,21 +709,21 @@ export default function Chat() {
                 <span className="font-semibold text-sm text-white">
                   {activeChat.friend.displayName}
                 </span>
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-1.5 mt-0.5">
                   {activeChat.exists && peerPubKey ? (
                     <>
-                      <ShieldCheck className="w-2.5 h-2.5 text-[#16A34A]" />
-                      <span className="text-[10px] text-[#16A34A] font-medium">E2E Encrypted • On-Chain • NaCl Box</span>
+                      <ShieldCheck className="w-3 h-3 text-emerald-500" strokeWidth={2} />
+                      <span className="text-[10px] text-emerald-400 font-medium">E2E Encrypted • On-Chain</span>
                     </>
                   ) : activeChat.exists ? (
                     <>
-                      <KeyRound className="w-2.5 h-2.5 text-[#F59E0B]" />
-                      <span className="text-[10px] text-[#F59E0B] font-medium">Waiting for key exchange...</span>
+                      <KeyRound className="w-3 h-3 text-amber-400" strokeWidth={2} />
+                      <span className="text-[10px] text-amber-400 font-medium">Waiting for key exchange...</span>
                     </>
                   ) : (
                     <>
-                      <Plus className="w-2.5 h-2.5 text-gray-500" />
-                      <span className="text-[10px] text-gray-500 font-medium">Send a message to start encrypted chat</span>
+                      <Plus className="w-3 h-3 text-zinc-600" strokeWidth={2} />
+                      <span className="text-[10px] text-zinc-500 font-medium">Send a message to start encrypted chat</span>
                     </>
                   )}
                 </div>
@@ -732,29 +732,29 @@ export default function Chat() {
                 <button
                   onClick={() => loadMessages(activeChat)}
                   disabled={loadingMessages}
-                  className="w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center"
+                  className="w-9 h-9 rounded-xl hover:bg-white/5 flex items-center justify-center transition-colors"
                 >
-                  <RefreshCw className={`w-3.5 h-3.5 text-gray-500 ${loadingMessages ? "animate-spin" : ""}`} />
+                  <RefreshCw className={`w-4 h-4 text-zinc-500 ${loadingMessages ? "animate-spin" : ""}`} strokeWidth={1.5} />
                 </button>
               )}
 
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#F8FAFC]">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#080808]">
               <div className="flex justify-center mb-4">
-                <span className="text-[10px] text-gray-500 bg-white px-3 py-1 rounded-full border border-white/10 flex items-center gap-1">
+                <span className="text-[10px] text-zinc-600 bg-zinc-900/50 px-3 py-1.5 rounded-full border border-white/[0.06] flex items-center gap-1.5">
                   {activeChat.exists && peerPubKey ? (
                     <>
-                      <ShieldCheck className="w-2.5 h-2.5 text-[#16A34A]" /> End-to-end encrypted — NaCl Box on Solana
+                      <ShieldCheck className="w-3 h-3 text-emerald-500" strokeWidth={2} /> End-to-end encrypted
                     </>
                   ) : activeChat.exists ? (
                     <>
-                      <KeyRound className="w-2.5 h-2.5 text-[#F59E0B]" /> Key exchange in progress...
+                      <KeyRound className="w-3 h-3 text-amber-400" strokeWidth={2} /> Key exchange in progress...
                     </>
                   ) : (
                     <>
-                      <Shield className="w-2.5 h-2.5" /> First message creates an encrypted channel on-chain
+                      <Shield className="w-3 h-3 text-zinc-500" strokeWidth={2} /> First message creates an encrypted channel
                     </>
                   )}
                 </span>
@@ -763,31 +763,31 @@ export default function Chat() {
               {creatingChat && (
                 <div className="flex items-center justify-center py-8">
                   <div className="text-center">
-                    <RefreshCw className="w-6 h-6 text-[#7C3AED] animate-spin mx-auto mb-2" />
-                    <p className="text-sm text-[#7C3AED] font-medium">Creating encrypted channel...</p>
-                    <p className="text-xs text-gray-500 mt-1">Establishing keys on Solana</p>
+                    <RefreshCw className="w-6 h-6 text-red-400 animate-spin mx-auto mb-2" strokeWidth={1.5} />
+                    <p className="text-sm text-red-400 font-medium">Creating encrypted channel...</p>
+                    <p className="text-xs text-zinc-600 mt-1">Establishing keys on Solana</p>
                   </div>
                 </div>
               )}
 
               {loadingMessages && messages.length === 0 && !creatingChat && (
                 <div className="flex items-center justify-center py-8">
-                  <RefreshCw className="w-5 h-5 text-gray-500 animate-spin" />
+                  <RefreshCw className="w-5 h-5 text-zinc-600 animate-spin" strokeWidth={1.5} />
                 </div>
               )}
 
               {!loadingMessages && messages.length === 0 && activeChat.exists && !creatingChat && (
                 <div className="text-center py-8">
-                  <p className="text-sm text-gray-500">No messages yet. Say hello! 👋</p>
+                  <p className="text-sm text-zinc-500">No messages yet. Say hello! 👋</p>
                 </div>
               )}
 
               {!activeChat.exists && messages.length === 0 && !creatingChat && (
                 <div className="text-center py-8">
-                  <ShieldCheck className="w-10 h-10 text-[#7C3AED] mx-auto mb-3" />
-                  <p className="text-sm text-[#64748B] mb-1">End-to-end encrypted messaging</p>
-                  <p className="text-xs text-gray-500">Messages are encrypted with NaCl Box (X25519-XSalsa20-Poly1305)</p>
-                  <p className="text-xs text-gray-500 mt-1">Only you and the recipient can read them 🔐</p>
+                  <ShieldCheck className="w-10 h-10 text-red-400 mx-auto mb-3" strokeWidth={1.5} />
+                  <p className="text-sm text-zinc-500 mb-1">End-to-end encrypted messaging</p>
+                  <p className="text-xs text-zinc-600">Messages are encrypted with NaCl Box</p>
+                  <p className="text-xs text-zinc-600 mt-1">Only you and the recipient can read them 🔐</p>
                 </div>
               )}
 
@@ -818,23 +818,23 @@ export default function Chat() {
                   <div key={`${msg.timestamp}-${i}`} className={`flex ${msg.isMe ? "justify-end" : "justify-start"}`}>
                     {isPaymentMsg ? (
                       <div
-                        className={`max-w-[85%] sm:max-w-[320px] rounded-2xl text-sm overflow-hidden ${
+                        className={`max-w-[85%] sm:max-w-[320px] rounded-2xl text-sm overflow-hidden shadow-lg ${
                           msg.isMe
-                            ? "chat-bubble-me rounded-br-md"
-                            : "chat-bubble-them rounded-bl-md border border-white/10"
+                            ? "rounded-br-md"
+                            : "rounded-bl-md border border-white/[0.08]"
                         }`}
                       >
-                        <div className={`px-4 py-3 ${msg.isMe ? "bg-gradient-to-r from-[#7C3AED] to-[#6D28D9]" : "bg-gradient-to-r from-[#F5F3FF] to-[#EDE9FE]"}`}>
+                        <div className={`px-4 py-3 ${msg.isMe ? "bg-gradient-to-r from-red-600 to-red-700" : "bg-gradient-to-r from-zinc-800 to-zinc-900"}`}>
                           <div className="flex items-center gap-2 mb-1">
-                            <DollarSign className={`w-4 h-4 ${msg.isMe ? "text-purple-200" : "text-[#7C3AED]"}`} />
+                            <DollarSign className={`w-4 h-4 ${msg.isMe ? "text-red-200" : "text-red-400"}`} strokeWidth={2} />
                             <span className={`font-bold text-base ${msg.isMe ? "text-white" : "text-white"}`}>
                               {payAmount || msg.paymentAmount || ""} {payCurrency || "USDC"}
                             </span>
                           </div>
                           <div className="flex items-center gap-1.5">
-                            <EyeOff className={`w-3 h-3 ${msg.isMe ? "text-purple-300" : "text-[#7C3AED]/60"}`} />
-                            <span className={`text-[11px] ${msg.isMe ? "text-purple-200" : "text-[#7C3AED]/70"}`}>
-                              Private Payment via MagicBlock
+                            <EyeOff className={`w-3 h-3 ${msg.isMe ? "text-red-300" : "text-zinc-500"}`} strokeWidth={2} />
+                            <span className={`text-[11px] ${msg.isMe ? "text-red-200/80" : "text-zinc-500"}`}>
+                              Private Payment
                             </span>
                           </div>
                           {payTxSig && (
@@ -842,37 +842,37 @@ export default function Chat() {
                               href={`https://solscan.io/tx/${payTxSig}`}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className={`text-[10px] mt-1 block underline ${msg.isMe ? "text-purple-200/80" : "text-[#7C3AED]/50"}`}
+                              className={`text-[10px] mt-1 block underline ${msg.isMe ? "text-red-200/70" : "text-zinc-600"}`}
                             >
                               tx: {payTxSig.slice(0, 12)}...
                             </a>
                           )}
                         </div>
-                        <div className={`px-4 py-1.5 flex items-center gap-1 ${msg.isMe ? "bg-[#6D28D9]" : "bg-[#EDE9FE]"}`}>
-                          <span className={`text-[10px] ${msg.isMe ? "text-purple-200" : "text-gray-500"}`}>
+                        <div className={`px-4 py-1.5 flex items-center gap-1 ${msg.isMe ? "bg-red-800/50" : "bg-zinc-900"}`}>
+                          <span className={`text-[10px] ${msg.isMe ? "text-red-200/70" : "text-zinc-600"}`}>
                             {Number(msg.timestamp) > 0 ? timeAgo(Number(msg.timestamp) * 1000) : "now"}
                           </span>
-                          <Shield className={`w-2 h-2 ${msg.isMe ? "text-purple-300" : "text-[#7C3AED]"}`} />
+                          <Shield className={`w-2 h-2 ${msg.isMe ? "text-red-300" : "text-emerald-500"}`} />
                         </div>
                       </div>
                     ) : (
                     <div
-                      className={`max-w-[85%] sm:max-w-[320px] px-3.5 sm:px-4 py-2.5 rounded-2xl text-sm ${
+                      className={`max-w-[85%] sm:max-w-[320px] px-4 py-2.5 rounded-2xl text-sm shadow-lg ${
                         msg.isMe
-                          ? "chat-bubble-me bg-[#2563EB] text-white rounded-br-md"
-                          : "chat-bubble-them bg-white text-white border border-white/10 rounded-bl-md"
+                          ? "bg-gradient-to-br from-red-600 to-red-700 text-white rounded-br-md"
+                          : "bg-zinc-800 text-white border border-white/[0.08] rounded-bl-md"
                       }`}
                     >
                       <p className="break-words">{displayText}</p>
-                      <div className={`flex items-center gap-1 mt-1 ${msg.isMe ? "text-blue-200" : "text-gray-500"}`}>
+                      <div className={`flex items-center gap-1 mt-1 ${msg.isMe ? "text-red-200/70" : "text-zinc-600"}`}>
                         <span className="text-[10px]">
                           {Number(msg.timestamp) > 0 ? timeAgo(Number(msg.timestamp) * 1000) : "now"}
                         </span>
                         {msg.isEncrypted && msg.decrypted && (
-                          <Lock className="w-2 h-2 text-[#16A34A]" />
+                          <Lock className="w-2 h-2 text-emerald-500" />
                         )}
                         {msg.isEncrypted && !msg.decrypted && (
-                          <AlertCircle className="w-2 h-2 text-[#EF4444]" />
+                          <AlertCircle className="w-2 h-2 text-red-500" />
                         )}
                       </div>
                     </div>
@@ -887,53 +887,53 @@ export default function Chat() {
 
             {/* Private Payment Panel */}
             {showPayment && (
-              <div className="border-t border-white/10 bg-gradient-to-b from-[#F5F3FF] to-white px-3 py-3">
-                <div className="flex items-center justify-between mb-2.5">
-                  <div className="flex items-center gap-1.5">
-                    <EyeOff className="w-4 h-4 text-[#7C3AED]" />
-                    <span className="text-sm font-semibold text-white">Private USDC Payment</span>
+              <div className="border-t border-white/[0.06] bg-gradient-to-b from-zinc-900/80 to-[#0A0A0A] px-4 py-4">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2">
+                    <EyeOff className="w-4 h-4 text-red-400" strokeWidth={2} />
+                    <span className="text-sm font-semibold text-white">Private Payment</span>
                   </div>
-                  <button onClick={() => { setShowPayment(false); setPaymentAmount(""); resetMb(); }} className="p-1 rounded-lg hover:bg-[#E2E8F0] transition-colors">
-                    <X className="w-4 h-4 text-gray-500" />
+                  <button onClick={() => { setShowPayment(false); setPaymentAmount(""); resetMb(); }} className="p-1.5 rounded-lg hover:bg-white/5 transition-colors">
+                    <X className="w-4 h-4 text-zinc-500" strokeWidth={2} />
                   </button>
                 </div>
 
                 {/* Amount Input */}
-                <div className="flex items-center gap-2 mb-2.5">
+                <div className="flex items-center gap-3 mb-3">
                   <div className="flex-1 relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-500 font-medium">$</span>
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-zinc-500 font-medium">$</span>
                     <input
                       type="number"
                       value={paymentAmount}
                       onChange={(e) => setPaymentAmount(e.target.value)}
-                      placeholder="0.00 USDC"
+                      placeholder="0.00"
                       step="0.01"
                       min="0"
-                      className="w-full bg-white border border-white/10 rounded-xl pl-7 pr-3 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/20 focus:border-red-500"
+                      className="w-full bg-zinc-900/50 border border-white/[0.08] rounded-xl pl-7 pr-3 py-2.5 text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500/30 transition-all placeholder:text-zinc-600"
                       disabled={paymentSending}
                     />
                   </div>
                   <button
                     onClick={handleSendPayment}
                     disabled={!paymentAmount || parseFloat(paymentAmount) <= 0 || paymentSending}
-                    className="h-10 px-4 rounded-xl text-white text-sm font-medium flex items-center gap-1.5 transition-all disabled:opacity-40 bg-red-600 hover:bg-[#6D28D9]"
+                    className="h-10 px-4 rounded-xl text-white text-sm font-medium flex items-center gap-1.5 transition-all disabled:opacity-40 premium-button"
                   >
                     {paymentSending ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
                     ) : (
-                      <Send className="w-3.5 h-3.5" />
+                      <Send className="w-3.5 h-3.5" strokeWidth={2} />
                     )}
                     Send
                   </button>
                 </div>
 
                 {/* Quick Amounts */}
-                <div className="flex gap-1.5 mb-2">
+                <div className="flex gap-2 mb-3">
                   {[1, 5, 10, 25].map((amt) => (
                     <button
                       key={amt}
                       onClick={() => setPaymentAmount(amt.toString())}
-                      className="flex-1 py-1.5 rounded-lg text-xs font-medium bg-white border border-white/10 text-[#64748B] hover:bg-white/5 hover:border-red-500/30 transition-all"
+                      className="flex-1 py-2 rounded-xl text-xs font-medium bg-zinc-900/50 border border-white/[0.08] text-zinc-500 hover:text-white hover:bg-red-500/10 hover:border-red-500/30 transition-all"
                     >
                       ${amt}
                     </button>
@@ -942,9 +942,9 @@ export default function Chat() {
 
                 {/* Step Indicator */}
                 {paymentSending && (
-                  <div className="flex items-center gap-2 py-1.5 px-2 rounded-lg bg-red-600/5">
-                    <Loader2 className="w-3 h-3 text-[#7C3AED] animate-spin flex-shrink-0" />
-                    <span className="text-[11px] text-[#7C3AED] font-medium">
+                  <div className="flex items-center gap-2 py-2 px-3 rounded-lg bg-red-500/10 border border-red-500/20">
+                    <Loader2 className="w-3 h-3 text-red-400 animate-spin flex-shrink-0" />
+                    <span className="text-[11px] text-red-400 font-medium">
                       {mbStep === "building" ? "Building private transaction..."
                         : mbStep === "signing" ? "Sign in your wallet..."
                         : mbStep === "sending" ? "Sending via MagicBlock..."
@@ -956,26 +956,26 @@ export default function Chat() {
                 )}
 
                 {/* Privacy Info */}
-                <div className="flex items-center gap-1.5 mt-1">
-                  <Shield className="w-3 h-3 text-gray-500" />
-                  <span className="text-[10px] text-gray-500">Private via MagicBlock TEE — amount hidden on-chain</span>
+                <div className="flex items-center gap-1.5 mt-2">
+                  <Shield className="w-3 h-3 text-zinc-600" strokeWidth={1.5} />
+                  <span className="text-[10px] text-zinc-600">Private via MagicBlock — amount hidden on-chain</span>
                 </div>
               </div>
             )}
 
             {/* Message Input */}
-            <div className="p-2.5 sm:p-3 border-t border-white/10 bg-white">
+            <div className="p-3 sm:p-4 border-t border-white/[0.06] bg-[#0A0A0A]/90 backdrop-blur-sm">
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => { setShowPayment(!showPayment); resetMb(); }}
                   className={`touch-active w-10 h-10 rounded-xl flex items-center justify-center transition-all flex-shrink-0 ${
                     showPayment
-                      ? "bg-red-600 text-white"
-                      : "bg-white/5 text-[#64748B] hover:bg-[#E2E8F0]"
+                      ? "bg-red-500 text-white shadow-lg shadow-red-500/20"
+                      : "bg-zinc-900/50 text-zinc-500 hover:bg-red-500/10 hover:text-red-400 border border-white/[0.08]"
                   }`}
                   title="Send payment"
                 >
-                  <DollarSign className="w-4 h-4" />
+                  <DollarSign className="w-4 h-4" strokeWidth={2} />
                 </button>
                 <input
                   type="text"
@@ -990,17 +990,17 @@ export default function Chat() {
                       : "Type a message — E2E encrypted 🔐"
                   }
                   disabled={sending || creatingChat}
-                  className="flex-1 bg-[#F8FAFC] border border-white/10 rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-[#2563EB] disabled:opacity-50"
+                  className="flex-1 bg-zinc-900/50 border border-white/[0.08] rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500/30 disabled:opacity-50 placeholder:text-zinc-600 transition-all"
                 />
                 <button
                   onClick={handleSend}
                   disabled={!messageText.trim() || sending || creatingChat}
-                  className="touch-active w-10 h-10 rounded-xl bg-[#2563EB] text-white flex items-center justify-center hover:bg-[#1D4ED8] disabled:opacity-40 transition-all flex-shrink-0"
+                  className="touch-active w-10 h-10 rounded-xl premium-button text-white flex items-center justify-center disabled:opacity-40 transition-all flex-shrink-0 shadow-lg shadow-red-900/20"
                 >
                   {sending ? (
-                    <RefreshCw className="w-4 h-4 animate-spin" />
+                    <RefreshCw className="w-4 h-4 animate-spin" strokeWidth={2} />
                   ) : (
-                    <Send className="w-4 h-4" />
+                    <Send className="w-4 h-4" strokeWidth={2} />
                   )}
                 </button>
               </div>
@@ -1008,21 +1008,21 @@ export default function Chat() {
             </div>
           </>
         ) : (
-          <div className="flex-1 flex items-center justify-center">
+          <div className="flex-1 flex items-center justify-center bg-[#080808]">
             <div className="text-center">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#7C3AED]/10 to-[#16A34A]/10 flex items-center justify-center mx-auto mb-4">
-                <ShieldCheck className="w-8 h-8 text-[#7C3AED]" />
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500/20 to-red-950/30 border border-red-500/20 flex items-center justify-center mx-auto mb-4">
+                <ShieldCheck className="w-8 h-8 text-red-400" strokeWidth={1.5} />
               </div>
-              <h3 className="font-bold text-white mb-1">
+              <h3 className="font-semibold text-white mb-1">
                 {chats.length > 0 ? "Select a conversation" : "No contacts yet"}
               </h3>
-              <p className="text-sm text-[#64748B]">
+              <p className="text-sm text-zinc-500">
                 {chats.length > 0
-                  ? "End-to-end encrypted messaging on Solana 🔐"
+                  ? "End-to-end encrypted messaging 🔐"
                   : "Follow people to start encrypted chats"}
               </p>
-              <p className="text-[10px] text-gray-500 mt-2">
-                NaCl Box (X25519-XSalsa20-Poly1305) • Same crypto as Signal
+              <p className="text-[10px] text-zinc-600 mt-2">
+                NaCl Box (X25519-XSalsa20-Poly1305)
               </p>
             </div>
           </div>

@@ -83,7 +83,7 @@ export function RichContent({ content, className = "" }: RichContentProps) {
               // The mention click triggers a profile search by username
               (window as any).__sinsolMentionClick?.(username);
             }}
-            className="text-[#2563EB] font-semibold hover:underline cursor-pointer"
+            className="text-red-400 font-semibold hover:text-red-300 hover:underline cursor-pointer"
           >
             @{username}
           </button>
@@ -108,7 +108,7 @@ export function RichContent({ content, className = "" }: RichContentProps) {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#2563EB] hover:underline break-all"
+          className="text-red-400 hover:text-red-300 hover:underline break-all"
           onClick={(e) => e.stopPropagation()}
         >
           {formatUrlDisplay(url)}
@@ -128,13 +128,13 @@ export function RichContent({ content, className = "" }: RichContentProps) {
   return (
     <div className={className}>
       {/* Text content with inline links */}
-      <p className="text-[15px] text-[#1A1A2E] leading-relaxed whitespace-pre-wrap break-words">
+      <p className="text-[15px] text-zinc-100 leading-relaxed whitespace-pre-wrap break-words">
         {renderText()}
       </p>
 
       {/* Image previews */}
       {imageUrls.length > 0 && (
-        <div className={`mt-3 rounded-2xl overflow-hidden border border-[#E2E8F0] ${
+        <div className={`mt-3 rounded-2xl overflow-hidden border border-white/10 ${
           imageUrls.length === 1 ? "" : "grid grid-cols-2 gap-0.5"
         }`}>
           {imageUrls.map((url, i) => (
@@ -150,7 +150,7 @@ export function RichContent({ content, className = "" }: RichContentProps) {
 
       {/* Video previews */}
       {videoUrls.map((url, i) => (
-        <div key={i} className="mt-3 rounded-2xl overflow-hidden border border-[#E2E8F0]">
+        <div key={i} className="mt-3 rounded-2xl overflow-hidden border border-white/10">
           <video
             src={url}
             controls
@@ -180,11 +180,11 @@ function ImagePreview({ url, single }: { url: string; single: boolean }) {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="block relative bg-[#F1F5F9] cursor-pointer hover:opacity-95 transition-opacity"
+      className="block relative bg-black/40 cursor-pointer hover:opacity-95 transition-opacity"
       onClick={(e) => e.stopPropagation()}
     >
       {!loaded && (
-        <div className={`${single ? "h-[300px]" : "h-[200px]"} animate-pulse bg-[#E2E8F0]`} />
+        <div className={`${single ? "h-[300px]" : "h-[200px]"} animate-pulse bg-white/5`} />
       )}
       <img
         src={url}
@@ -205,7 +205,7 @@ function YouTubeEmbed({ videoId }: { videoId: string }) {
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
   return (
-    <div className="mt-3 rounded-2xl overflow-hidden border border-[#E2E8F0] relative">
+    <div className="mt-3 rounded-2xl overflow-hidden border border-white/10 relative">
       {showEmbed ? (
         <iframe
           src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
@@ -263,7 +263,7 @@ function LinkPreview({ url }: { url: string }) {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="mt-3 flex items-center gap-3 px-4 py-3 rounded-2xl border border-[#E2E8F0] hover:bg-[#F8FAFC] transition-colors group"
+      className="mt-3 flex items-center gap-3 px-4 py-3 rounded-2xl border border-white/10 hover:bg-white/5 transition-colors group"
       onClick={(e) => e.stopPropagation()}
     >
       {favicon && (
@@ -275,12 +275,12 @@ function LinkPreview({ url }: { url: string }) {
         />
       )}
       <div className="flex-1 min-w-0">
-        <p className="text-sm text-[#1A1A2E] truncate group-hover:text-[#2563EB] transition-colors">
+        <p className="text-sm text-zinc-100 truncate group-hover:text-red-400 transition-colors">
           {domain}
         </p>
-        <p className="text-xs text-[#94A3B8] truncate">{url}</p>
+        <p className="text-xs text-zinc-500 truncate">{url}</p>
       </div>
-      <ExternalLink className="w-4 h-4 text-[#94A3B8] flex-shrink-0" />
+      <ExternalLink className="w-4 h-4 text-zinc-500 flex-shrink-0" />
     </a>
   );
 }
@@ -438,7 +438,7 @@ export function MediaBar({
       <button
         onClick={handleImageSelect}
         disabled={disabled}
-        className="p-2 rounded-full hover:bg-[#EBF4FF] text-[#2563EB] transition-colors disabled:opacity-40"
+        className="p-2 rounded-xl hover:bg-red-500/15 text-red-400/90 transition-colors disabled:opacity-40"
         title="Add photo"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -448,7 +448,7 @@ export function MediaBar({
       <button
         onClick={handleVideoSelect}
         disabled={disabled}
-        className="p-2 rounded-full hover:bg-[#EBF4FF] text-[#2563EB] transition-colors disabled:opacity-40"
+        className="p-2 rounded-xl hover:bg-red-500/15 text-red-400/90 transition-colors disabled:opacity-40"
         title="Add video"
       >
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -457,7 +457,7 @@ export function MediaBar({
       </button>
       <button
         disabled={disabled}
-        className="p-2 rounded-full hover:bg-[#EBF4FF] text-[#2563EB] transition-colors disabled:opacity-40"
+        className="p-2 rounded-xl hover:bg-red-500/15 text-red-400/90 transition-colors disabled:opacity-40"
         title="Add GIF"
         onClick={handleImageSelect}
       >

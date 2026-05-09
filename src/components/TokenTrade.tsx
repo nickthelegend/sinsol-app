@@ -169,8 +169,8 @@ export default function TokenTrade({
   };
 
   const containerClass = compact
-    ? "bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-4"
-    : "bg-white rounded-2xl shadow-lg border border-[#E2E8F0] p-5";
+    ? "bg-[#141414] border border-white/10 rounded-xl p-4"
+    : "bg-[#141414] rounded-2xl shadow-lg border border-white/10 p-5";
 
   return (
     <div className={containerClass}>
@@ -180,7 +180,7 @@ export default function TokenTrade({
           {tokenImage && (
             <img src={tokenImage} alt={tokenSymbol} className="w-6 h-6 rounded-full" />
           )}
-          <span className="font-bold text-sm text-[#1A1A2E]">
+          <span className="font-bold text-sm text-white">
             {mode === "buy" ? "Buy" : "Sell"} ${tokenSymbol}
           </span>
         </div>
@@ -199,7 +199,7 @@ export default function TokenTrade({
         <button
           onClick={() => { setMode("buy"); setAmount(""); setQuote(null); }}
           className={`flex-1 py-1.5 text-xs font-medium rounded-md transition ${
-            mode === "buy" ? "bg-[#16A34A] text-white shadow-sm" : "text-[#64748B] hover:text-[#475569]"
+            mode === "buy" ? "bg-[#16A34A] text-white shadow-sm" : "text-zinc-400 hover:text-[#475569]"
           }`}
         >
           Buy
@@ -207,7 +207,7 @@ export default function TokenTrade({
         <button
           onClick={() => { setMode("sell"); setAmount(""); setQuote(null); }}
           className={`flex-1 py-1.5 text-xs font-medium rounded-md transition ${
-            mode === "sell" ? "bg-[#DC2626] text-white shadow-sm" : "text-[#64748B] hover:text-[#475569]"
+            mode === "sell" ? "bg-[#DC2626] text-white shadow-sm" : "text-zinc-400 hover:text-[#475569]"
           }`}
         >
           Sell
@@ -216,10 +216,10 @@ export default function TokenTrade({
 
       {/* Amount Input */}
       <div className="mb-3">
-        <label className="block text-xs text-[#64748B] mb-1">
+        <label className="block text-xs text-zinc-400 mb-1">
           {mode === "buy" ? "Amount (SOL)" : `Amount (${tokenSymbol})`}
         </label>
-        <div className="flex items-center gap-2 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2.5">
+        <div className="flex items-center gap-2 bg-zinc-900 border border-white/10 rounded-xl px-3 py-2.5">
           <DollarSign className="w-4 h-4 text-[#94A3B8]" />
           <input
             type="number"
@@ -230,7 +230,7 @@ export default function TokenTrade({
             step={mode === "buy" ? "0.01" : "1"}
             className="flex-1 bg-transparent text-sm text-[#1A1A2E] focus:outline-none"
           />
-          <span className="text-xs font-medium text-[#64748B]">
+          <span className="text-xs font-medium text-zinc-400">
             {mode === "buy" ? "SOL" : tokenSymbol}
           </span>
         </div>
@@ -240,7 +240,7 @@ export default function TokenTrade({
               <button
                 key={val}
                 onClick={() => setAmount(val)}
-                className="flex-1 py-1 text-[10px] font-medium bg-[#F1F5F9] rounded-lg text-[#64748B] hover:bg-[#EFF6FF] hover:text-[#2563EB] transition"
+                className="flex-1 py-1 text-[10px] font-medium bg-[#F1F5F9] rounded-lg text-zinc-400 hover:bg-[#EFF6FF] hover:text-[#2563EB] transition"
               >
                 {val} SOL
               </button>
@@ -250,7 +250,7 @@ export default function TokenTrade({
         {mode === "sell" && (
           <div className="mt-1.5 space-y-1.5">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] text-[#64748B]">Balance:</span>
+              <span className="text-[10px] text-zinc-400">Balance:</span>
               <span className="text-[10px] font-semibold text-[#1A1A2E]">
                 {loadingBalance ? "Loading..." : tokenBalance !== null ? `${tokenBalance.toLocaleString(undefined, { maximumFractionDigits: 2 })} ${tokenSymbol}` : "--"}
               </span>
@@ -266,7 +266,7 @@ export default function TokenTrade({
                     }
                   }}
                   disabled={!tokenBalance || tokenBalance <= 0}
-                  className="flex-1 py-1 text-[10px] font-medium bg-[#F1F5F9] rounded-lg text-[#64748B] hover:bg-[#FEF2F2] hover:text-[#DC2626] transition disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="flex-1 py-1 text-[10px] font-medium bg-[#F1F5F9] rounded-lg text-zinc-400 hover:bg-[#FEF2F2] hover:text-[#DC2626] transition disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   {pct}%
                 </button>
@@ -285,9 +285,9 @@ export default function TokenTrade({
       )}
 
       {quote && !quoting && (
-        <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-3 mb-3 space-y-1.5">
+        <div className="bg-zinc-900 border border-white/10 rounded-xl p-3 mb-3 space-y-1.5">
           <div className="flex justify-between text-xs">
-            <span className="text-[#64748B]">You {mode === "buy" ? "receive" : "get back"}</span>
+            <span className="text-zinc-400">You {mode === "buy" ? "receive" : "get back"}</span>
             <span className="font-medium text-[#1A1A2E]">
               {mode === "buy"
                 ? `${(Number(quote.outAmount) / 1e9).toLocaleString(undefined, { maximumFractionDigits: 2 })} ${tokenSymbol}`
@@ -295,13 +295,13 @@ export default function TokenTrade({
             </span>
           </div>
           <div className="flex justify-between text-xs">
-            <span className="text-[#64748B]">Price Impact</span>
+            <span className="text-zinc-400">Price Impact</span>
             <span className={`font-medium ${Number(quote.priceImpactPct) > 3 ? "text-[#DC2626]" : "text-[#16A34A]"}`}>
               {Number(quote.priceImpactPct).toFixed(2)}%
             </span>
           </div>
           <div className="flex justify-between text-xs">
-            <span className="text-[#64748B]">Min. received</span>
+            <span className="text-zinc-400">Min. received</span>
             <span className="text-[#475569]">
               {mode === "buy"
                 ? `${(Number(quote.minOutAmount) / 1e9).toLocaleString(undefined, { maximumFractionDigits: 2 })} ${tokenSymbol}`
@@ -310,7 +310,7 @@ export default function TokenTrade({
           </div>
           {quote.routePlan?.length > 0 && (
             <div className="flex justify-between text-xs">
-              <span className="text-[#64748B]">Route</span>
+              <span className="text-zinc-400">Route</span>
               <span className="text-[#475569]">
                 {quote.routePlan.map((leg: any) => leg.venue).join(" → ")}
               </span>
