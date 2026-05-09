@@ -554,7 +554,7 @@ export default function Chat() {
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#EFF6FF] to-[#F0FDF4] flex items-center justify-center mx-auto mb-4">
             <ShieldCheck className="w-8 h-8 text-[#7C3AED]" />
           </div>
-          <h3 className="text-lg font-bold text-[#1A1A2E] mb-2">E2E Encrypted Chat</h3>
+          <h3 className="text-lg font-bold text-white mb-2">E2E Encrypted Chat</h3>
           <p className="text-sm text-[#64748B]">Connect your wallet to access private, encrypted messaging on Solana</p>
         </div>
       </div>
@@ -566,7 +566,7 @@ export default function Chat() {
       <div className="flex items-center justify-center h-[70vh]">
         <div className="text-center">
           <KeyRound className="w-10 h-10 text-[#7C3AED] animate-pulse mx-auto mb-3" />
-          <h3 className="text-lg font-bold text-[#1A1A2E] mb-2">Deriving Encryption Keys</h3>
+          <h3 className="text-lg font-bold text-white mb-2">Deriving Encryption Keys</h3>
           <p className="text-sm text-[#64748B]">Sign the message in your wallet to generate your encryption keypair...</p>
         </div>
       </div>
@@ -578,7 +578,7 @@ export default function Chat() {
       <div className="flex items-center justify-center h-[70vh]">
         <div className="text-center">
           <AlertCircle className="w-10 h-10 text-[#EF4444] mx-auto mb-3" />
-          <h3 className="text-lg font-bold text-[#1A1A2E] mb-2">Encryption Keys Required</h3>
+          <h3 className="text-lg font-bold text-white mb-2">Encryption Keys Required</h3>
           <p className="text-sm text-[#64748B] mb-4">Could not derive encryption keys. Please reconnect your wallet.</p>
           <button
             onClick={() => { setEncryptionKeys(null); setKeysLoading(false); }}
@@ -595,15 +595,15 @@ export default function Chat() {
     <div className="chat-container flex h-[calc(100vh-120px)] sm:h-[calc(100vh-73px)] md:h-[calc(100vh-73px)] max-w-5xl mx-auto clay-card overflow-hidden">
       {/* Conversation List */}
       <div
-        className={`w-full md:w-80 border-r border-[#E2E8F0] flex flex-col ${
+        className={`w-full md:w-80 border-r border-white/10 flex flex-col ${
           activeChat ? "hidden md:flex" : "flex"
         }`}
       >
-        <div className="p-3 sm:p-4 border-b border-[#E2E8F0]">
+        <div className="p-3 sm:p-4 border-b border-white/10">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-1.5">
-              <h2 className="font-bold text-sm text-[#1A1A2E]">Messages</h2>
-              <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-[#7C3AED]/10 text-[#7C3AED] font-medium">🔐 E2E</span>
+              <h2 className="font-bold text-sm text-white">Messages</h2>
+              <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-red-600/10 text-[#7C3AED] font-medium">🔐 E2E</span>
             </div>
             <button
               onClick={loadFriendsAndChats}
@@ -615,13 +615,13 @@ export default function Chat() {
             </button>
           </div>
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94A3B8]" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search contacts..."
-              className="w-full pl-10 pr-4 py-2.5 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB]"
+              className="w-full pl-10 pr-4 py-2.5 bg-[#F8FAFC] border border-white/10 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-[#2563EB]"
             />
           </div>
         </div>
@@ -629,15 +629,15 @@ export default function Chat() {
         <div className="flex-1 overflow-y-auto">
           {loading && chats.length === 0 && (
             <div className="flex items-center justify-center py-12">
-              <RefreshCw className="w-5 h-5 text-[#94A3B8] animate-spin" />
+              <RefreshCw className="w-5 h-5 text-gray-500 animate-spin" />
             </div>
           )}
 
           {!loading && filteredChats.length === 0 && (
             <div className="p-6 text-center">
-              <MessageCircle className="w-10 h-10 text-[#94A3B8] mx-auto mb-3" />
-              <p className="text-sm text-[#94A3B8] mb-1">No conversations yet</p>
-              <p className="text-xs text-[#94A3B8]">Follow people to start encrypted chats</p>
+              <MessageCircle className="w-10 h-10 text-gray-500 mx-auto mb-3" />
+              <p className="text-sm text-gray-500 mb-1">No conversations yet</p>
+              <p className="text-xs text-gray-500">Follow people to start encrypted chats</p>
             </div>
           )}
 
@@ -645,7 +645,7 @@ export default function Chat() {
             <button
               key={chat.friendAddress}
               onClick={() => selectChat(chat)}
-              className={`touch-active w-full flex items-center gap-3 px-3 sm:px-4 py-3 sm:py-3.5 hover:bg-[#F8FAFC] active:bg-[#F1F5F9] transition-colors border-b border-[#F1F5F9] ${
+              className={`touch-active w-full flex items-center gap-3 px-3 sm:px-4 py-3 sm:py-3.5 hover:bg-[#F8FAFC] active:bg-white/5 transition-colors border-b border-[#F1F5F9] ${
                 activeChat?.friendAddress === chat.friendAddress ? "bg-[#EFF6FF]" : ""
               }`}
             >
@@ -667,8 +667,8 @@ export default function Chat() {
               </div>
               <div className="flex-1 text-left min-w-0">
                 <div className="flex items-center justify-between">
-                  <span className="font-semibold text-sm text-[#1A1A2E] truncate">{chat.friend.displayName}</span>
-                  <span className="text-[10px] text-[#94A3B8] flex-shrink-0">
+                  <span className="font-semibold text-sm text-white truncate">{chat.friend.displayName}</span>
+                  <span className="text-[10px] text-gray-500 flex-shrink-0">
                     {chat.lastMessageTime > 0 ? timeAgo(chat.lastMessageTime) : ""}
                   </span>
                 </div>
@@ -676,7 +676,7 @@ export default function Chat() {
                   {chat.exists ? (
                     <Lock className="w-2.5 h-2.5 text-[#16A34A] flex-shrink-0" />
                   ) : (
-                    <Plus className="w-2.5 h-2.5 text-[#94A3B8] flex-shrink-0" />
+                    <Plus className="w-2.5 h-2.5 text-gray-500 flex-shrink-0" />
                   )}
                   <p className="text-xs text-[#64748B] truncate">{chat.lastMessage}</p>
                 </div>
@@ -694,7 +694,7 @@ export default function Chat() {
             <div className="flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-3 border-b border-purple-500/20 bg-black/40">
               <button
                 onClick={() => { setActiveChat(null); setMessages([]); setPeerPubKey(null); }}
-                className="md:hidden w-9 h-9 rounded-lg hover:bg-[#F1F5F9] active:bg-[#E2E8F0] flex items-center justify-center flex-shrink-0"
+                className="md:hidden w-9 h-9 rounded-lg hover:bg-white/5 active:bg-[#E2E8F0] flex items-center justify-center flex-shrink-0"
               >
                 <ArrowLeft className="w-5 h-5 text-[#64748B]" />
               </button>
@@ -706,7 +706,7 @@ export default function Chat() {
                 </div>
               )}
               <div className="flex-1 min-w-0">
-                <span className="font-semibold text-sm text-[#1A1A2E]">
+                <span className="font-semibold text-sm text-white">
                   {activeChat.friend.displayName}
                 </span>
                 <div className="flex items-center gap-1">
@@ -722,8 +722,8 @@ export default function Chat() {
                     </>
                   ) : (
                     <>
-                      <Plus className="w-2.5 h-2.5 text-[#94A3B8]" />
-                      <span className="text-[10px] text-[#94A3B8] font-medium">Send a message to start encrypted chat</span>
+                      <Plus className="w-2.5 h-2.5 text-gray-500" />
+                      <span className="text-[10px] text-gray-500 font-medium">Send a message to start encrypted chat</span>
                     </>
                   )}
                 </div>
@@ -732,18 +732,18 @@ export default function Chat() {
                 <button
                   onClick={() => loadMessages(activeChat)}
                   disabled={loadingMessages}
-                  className="w-8 h-8 rounded-lg hover:bg-[#F1F5F9] flex items-center justify-center"
+                  className="w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center"
                 >
-                  <RefreshCw className={`w-3.5 h-3.5 text-[#94A3B8] ${loadingMessages ? "animate-spin" : ""}`} />
+                  <RefreshCw className={`w-3.5 h-3.5 text-gray-500 ${loadingMessages ? "animate-spin" : ""}`} />
                 </button>
               )}
 
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#FAFBFC]">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-[#F8FAFC]">
               <div className="flex justify-center mb-4">
-                <span className="text-[10px] text-[#94A3B8] bg-white px-3 py-1 rounded-full border border-[#E2E8F0] flex items-center gap-1">
+                <span className="text-[10px] text-gray-500 bg-white px-3 py-1 rounded-full border border-white/10 flex items-center gap-1">
                   {activeChat.exists && peerPubKey ? (
                     <>
                       <ShieldCheck className="w-2.5 h-2.5 text-[#16A34A]" /> End-to-end encrypted — NaCl Box on Solana
@@ -765,20 +765,20 @@ export default function Chat() {
                   <div className="text-center">
                     <RefreshCw className="w-6 h-6 text-[#7C3AED] animate-spin mx-auto mb-2" />
                     <p className="text-sm text-[#7C3AED] font-medium">Creating encrypted channel...</p>
-                    <p className="text-xs text-[#94A3B8] mt-1">Establishing keys on Solana</p>
+                    <p className="text-xs text-gray-500 mt-1">Establishing keys on Solana</p>
                   </div>
                 </div>
               )}
 
               {loadingMessages && messages.length === 0 && !creatingChat && (
                 <div className="flex items-center justify-center py-8">
-                  <RefreshCw className="w-5 h-5 text-[#94A3B8] animate-spin" />
+                  <RefreshCw className="w-5 h-5 text-gray-500 animate-spin" />
                 </div>
               )}
 
               {!loadingMessages && messages.length === 0 && activeChat.exists && !creatingChat && (
                 <div className="text-center py-8">
-                  <p className="text-sm text-[#94A3B8]">No messages yet. Say hello! 👋</p>
+                  <p className="text-sm text-gray-500">No messages yet. Say hello! 👋</p>
                 </div>
               )}
 
@@ -786,8 +786,8 @@ export default function Chat() {
                 <div className="text-center py-8">
                   <ShieldCheck className="w-10 h-10 text-[#7C3AED] mx-auto mb-3" />
                   <p className="text-sm text-[#64748B] mb-1">End-to-end encrypted messaging</p>
-                  <p className="text-xs text-[#94A3B8]">Messages are encrypted with NaCl Box (X25519-XSalsa20-Poly1305)</p>
-                  <p className="text-xs text-[#94A3B8] mt-1">Only you and the recipient can read them 🔐</p>
+                  <p className="text-xs text-gray-500">Messages are encrypted with NaCl Box (X25519-XSalsa20-Poly1305)</p>
+                  <p className="text-xs text-gray-500 mt-1">Only you and the recipient can read them 🔐</p>
                 </div>
               )}
 
@@ -821,13 +821,13 @@ export default function Chat() {
                         className={`max-w-[85%] sm:max-w-[320px] rounded-2xl text-sm overflow-hidden ${
                           msg.isMe
                             ? "chat-bubble-me rounded-br-md"
-                            : "chat-bubble-them rounded-bl-md border border-[#E2E8F0]"
+                            : "chat-bubble-them rounded-bl-md border border-white/10"
                         }`}
                       >
                         <div className={`px-4 py-3 ${msg.isMe ? "bg-gradient-to-r from-[#7C3AED] to-[#6D28D9]" : "bg-gradient-to-r from-[#F5F3FF] to-[#EDE9FE]"}`}>
                           <div className="flex items-center gap-2 mb-1">
                             <DollarSign className={`w-4 h-4 ${msg.isMe ? "text-purple-200" : "text-[#7C3AED]"}`} />
-                            <span className={`font-bold text-base ${msg.isMe ? "text-white" : "text-[#1A1A2E]"}`}>
+                            <span className={`font-bold text-base ${msg.isMe ? "text-white" : "text-white"}`}>
                               {payAmount || msg.paymentAmount || ""} {payCurrency || "USDC"}
                             </span>
                           </div>
@@ -849,7 +849,7 @@ export default function Chat() {
                           )}
                         </div>
                         <div className={`px-4 py-1.5 flex items-center gap-1 ${msg.isMe ? "bg-[#6D28D9]" : "bg-[#EDE9FE]"}`}>
-                          <span className={`text-[10px] ${msg.isMe ? "text-purple-200" : "text-[#94A3B8]"}`}>
+                          <span className={`text-[10px] ${msg.isMe ? "text-purple-200" : "text-gray-500"}`}>
                             {Number(msg.timestamp) > 0 ? timeAgo(Number(msg.timestamp) * 1000) : "now"}
                           </span>
                           <Shield className={`w-2 h-2 ${msg.isMe ? "text-purple-300" : "text-[#7C3AED]"}`} />
@@ -860,11 +860,11 @@ export default function Chat() {
                       className={`max-w-[85%] sm:max-w-[320px] px-3.5 sm:px-4 py-2.5 rounded-2xl text-sm ${
                         msg.isMe
                           ? "chat-bubble-me bg-[#2563EB] text-white rounded-br-md"
-                          : "chat-bubble-them bg-white text-[#1A1A2E] border border-[#E2E8F0] rounded-bl-md"
+                          : "chat-bubble-them bg-white text-white border border-white/10 rounded-bl-md"
                       }`}
                     >
                       <p className="break-words">{displayText}</p>
-                      <div className={`flex items-center gap-1 mt-1 ${msg.isMe ? "text-blue-200" : "text-[#94A3B8]"}`}>
+                      <div className={`flex items-center gap-1 mt-1 ${msg.isMe ? "text-blue-200" : "text-gray-500"}`}>
                         <span className="text-[10px]">
                           {Number(msg.timestamp) > 0 ? timeAgo(Number(msg.timestamp) * 1000) : "now"}
                         </span>
@@ -887,21 +887,21 @@ export default function Chat() {
 
             {/* Private Payment Panel */}
             {showPayment && (
-              <div className="border-t border-[#E2E8F0] bg-gradient-to-b from-[#F5F3FF] to-white px-3 py-3">
+              <div className="border-t border-white/10 bg-gradient-to-b from-[#F5F3FF] to-white px-3 py-3">
                 <div className="flex items-center justify-between mb-2.5">
                   <div className="flex items-center gap-1.5">
                     <EyeOff className="w-4 h-4 text-[#7C3AED]" />
-                    <span className="text-sm font-semibold text-[#1A1A2E]">Private USDC Payment</span>
+                    <span className="text-sm font-semibold text-white">Private USDC Payment</span>
                   </div>
                   <button onClick={() => { setShowPayment(false); setPaymentAmount(""); resetMb(); }} className="p-1 rounded-lg hover:bg-[#E2E8F0] transition-colors">
-                    <X className="w-4 h-4 text-[#94A3B8]" />
+                    <X className="w-4 h-4 text-gray-500" />
                   </button>
                 </div>
 
                 {/* Amount Input */}
                 <div className="flex items-center gap-2 mb-2.5">
                   <div className="flex-1 relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-[#94A3B8] font-medium">$</span>
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-gray-500 font-medium">$</span>
                     <input
                       type="number"
                       value={paymentAmount}
@@ -909,14 +909,14 @@ export default function Chat() {
                       placeholder="0.00 USDC"
                       step="0.01"
                       min="0"
-                      className="w-full bg-white border border-[#E2E8F0] rounded-xl pl-7 pr-3 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/20 focus:border-[#7C3AED]"
+                      className="w-full bg-white border border-white/10 rounded-xl pl-7 pr-3 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/20 focus:border-red-500"
                       disabled={paymentSending}
                     />
                   </div>
                   <button
                     onClick={handleSendPayment}
                     disabled={!paymentAmount || parseFloat(paymentAmount) <= 0 || paymentSending}
-                    className="h-10 px-4 rounded-xl text-white text-sm font-medium flex items-center gap-1.5 transition-all disabled:opacity-40 bg-[#7C3AED] hover:bg-[#6D28D9]"
+                    className="h-10 px-4 rounded-xl text-white text-sm font-medium flex items-center gap-1.5 transition-all disabled:opacity-40 bg-red-600 hover:bg-[#6D28D9]"
                   >
                     {paymentSending ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
@@ -933,7 +933,7 @@ export default function Chat() {
                     <button
                       key={amt}
                       onClick={() => setPaymentAmount(amt.toString())}
-                      className="flex-1 py-1.5 rounded-lg text-xs font-medium bg-white border border-[#E2E8F0] text-[#64748B] hover:bg-[#F1F5F9] hover:border-[#7C3AED]/30 transition-all"
+                      className="flex-1 py-1.5 rounded-lg text-xs font-medium bg-white border border-white/10 text-[#64748B] hover:bg-white/5 hover:border-red-500/30 transition-all"
                     >
                       ${amt}
                     </button>
@@ -942,7 +942,7 @@ export default function Chat() {
 
                 {/* Step Indicator */}
                 {paymentSending && (
-                  <div className="flex items-center gap-2 py-1.5 px-2 rounded-lg bg-[#7C3AED]/5">
+                  <div className="flex items-center gap-2 py-1.5 px-2 rounded-lg bg-red-600/5">
                     <Loader2 className="w-3 h-3 text-[#7C3AED] animate-spin flex-shrink-0" />
                     <span className="text-[11px] text-[#7C3AED] font-medium">
                       {mbStep === "building" ? "Building private transaction..."
@@ -957,21 +957,21 @@ export default function Chat() {
 
                 {/* Privacy Info */}
                 <div className="flex items-center gap-1.5 mt-1">
-                  <Shield className="w-3 h-3 text-[#94A3B8]" />
-                  <span className="text-[10px] text-[#94A3B8]">Private via MagicBlock TEE — amount hidden on-chain</span>
+                  <Shield className="w-3 h-3 text-gray-500" />
+                  <span className="text-[10px] text-gray-500">Private via MagicBlock TEE — amount hidden on-chain</span>
                 </div>
               </div>
             )}
 
             {/* Message Input */}
-            <div className="p-2.5 sm:p-3 border-t border-[#E2E8F0] bg-white">
+            <div className="p-2.5 sm:p-3 border-t border-white/10 bg-white">
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => { setShowPayment(!showPayment); resetMb(); }}
                   className={`touch-active w-10 h-10 rounded-xl flex items-center justify-center transition-all flex-shrink-0 ${
                     showPayment
-                      ? "bg-[#7C3AED] text-white"
-                      : "bg-[#F1F5F9] text-[#64748B] hover:bg-[#E2E8F0]"
+                      ? "bg-red-600 text-white"
+                      : "bg-white/5 text-[#64748B] hover:bg-[#E2E8F0]"
                   }`}
                   title="Send payment"
                 >
@@ -990,7 +990,7 @@ export default function Chat() {
                       : "Type a message — E2E encrypted 🔐"
                   }
                   disabled={sending || creatingChat}
-                  className="flex-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] disabled:opacity-50"
+                  className="flex-1 bg-[#F8FAFC] border border-white/10 rounded-xl px-3.5 sm:px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-[#2563EB] disabled:opacity-50"
                 />
                 <button
                   onClick={handleSend}
@@ -1013,7 +1013,7 @@ export default function Chat() {
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#7C3AED]/10 to-[#16A34A]/10 flex items-center justify-center mx-auto mb-4">
                 <ShieldCheck className="w-8 h-8 text-[#7C3AED]" />
               </div>
-              <h3 className="font-bold text-[#1A1A2E] mb-1">
+              <h3 className="font-bold text-white mb-1">
                 {chats.length > 0 ? "Select a conversation" : "No contacts yet"}
               </h3>
               <p className="text-sm text-[#64748B]">
@@ -1021,7 +1021,7 @@ export default function Chat() {
                   ? "End-to-end encrypted messaging on Solana 🔐"
                   : "Follow people to start encrypted chats"}
               </p>
-              <p className="text-[10px] text-[#94A3B8] mt-2">
+              <p className="text-[10px] text-gray-500 mt-2">
                 NaCl Box (X25519-XSalsa20-Poly1305) • Same crypto as Signal
               </p>
             </div>

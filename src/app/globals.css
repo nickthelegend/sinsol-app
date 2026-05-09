@@ -492,3 +492,75 @@ body {
   outline: none;
   box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.25);
 }
+
+/* ===== COMPATIBILITY CLASSES - Quick Overrides ===== */
+/* Old color codes mapped to new dark theme */
+.bg-surface { background: #141414; }
+.bg-surface-elevated { background: #1A1A1A; }
+.bg-card { background: rgba(20, 20, 20, 0.8); }
+.bg-card-hover:hover { background: rgba(30, 30, 30, 0.8); }
+
+.text-primary { color: #FAFAFA; }
+.text-secondary { color: #A1A1AA; }
+.text-muted { color: #71717A; }
+
+.border-default { border-color: rgba(255, 255, 255, 0.1); }
+.border-light { border-color: rgba(255, 255, 255, 0.05); }
+
+/* Hover states */
+.hover-lift:hover { transform: translateY(-2px); }
+.hover-glow:hover { box-shadow: 0 0 20px rgba(220, 38, 38, 0.2); }
+
+/* Card variants */
+.card-premium {
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(220, 38, 38, 0.1);
+  border-radius: 20px;
+}
+
+.card-premium-hover:hover {
+  background: rgba(25, 25, 25, 0.9);
+  border-color: rgba(220, 38, 38, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Input overrides */
+.input-dark {
+  background: #0F0F0F;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #FAFAFA;
+}
+.input-dark:focus {
+  border-color: rgba(220, 38, 38, 0.5);
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.15);
+}
+
+/* Button color overrides */
+.btn-primary-red {
+  background: linear-gradient(145deg, #DC2626, #B91C1C);
+  color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.4);
+}
+.btn-primary-red:hover {
+  background: linear-gradient(145deg, #EF4444, #DC2626);
+  transform: translateY(-1px);
+}
+.btn-primary-red:active {
+  transform: scale(0.96);
+}
+
+/* Badge color overrides */
+.badge-red {
+  background: linear-gradient(145deg, #DC2626, #991B1B);
+  color: white;
+}
+.badge-amber {
+  background: linear-gradient(145deg, #F59E0B, #D97706);
+  color: white;
+}
+.badge-green {
+  background: linear-gradient(145deg, #10B981, #059669);
+  color: white;
+}

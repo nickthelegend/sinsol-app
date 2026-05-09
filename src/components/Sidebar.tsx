@@ -34,8 +34,8 @@ export default function Sidebar() {
           onClick={() => handleNavClick("feed")}
           className="mb-4 group"
         >
-          <div className="h-12 w-12 lg:h-13 lg:w-13 rounded-[24px] premium-orb group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
-            <span className="text-2xl lg:text-3xl">🔥</span>
+          <div className="h-12 w-12 lg:h-13 lg:w-13 rounded-[24px] bg-white/5 border border-white/10 group-hover:scale-105 transition-all duration-300 flex items-center justify-center overflow-hidden">
+            <img src="/logo.png" alt="SinSol" className="w-full h-full object-contain p-2" />
           </div>
         </button>
 

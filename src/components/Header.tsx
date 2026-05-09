@@ -151,8 +151,8 @@ export default function Header() {
       <header className="relative z-10 bg-[#0A0A0A]/90 backdrop-blur-xl border-b border-white/5">
         <div className="flex items-center justify-between px-3 sm:px-4 md:px-6 py-2.5 sm:py-3">
           <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-            <div className="md:hidden w-11 h-11 sm:w-12 sm:h-12 rounded-[20px] premium-orb flex items-center justify-center flex-shrink-0">
-              <span className="text-xl sm:text-2xl">🔥</span>
+            <div className="md:hidden w-11 h-11 sm:w-12 sm:h-12 rounded-[20px] flex items-center justify-center flex-shrink-0 overflow-hidden">
+              <img src="/logo.png" alt="SinSol" className="w-full h-full object-contain" />
             </div>
             <div className="min-w-0">
               <h2 className="text-base sm:text-lg font-premium-headline text-white tracking-wider">{titles[activeTab] || "TIMELINE"}</h2>

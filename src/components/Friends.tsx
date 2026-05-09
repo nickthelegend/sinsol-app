@@ -139,12 +139,12 @@ export default function Friends() {
   if (!isConnected) {
     return (
       <div className="max-w-2xl mx-auto">
-        <div className="bg-gradient-to-br from-[#EFF6FF] to-[#F0FDF4] rounded-2xl p-8 text-center border border-[#E2E8F0]">
+        <div className="bg-gradient-to-br from-[#EFF6FF] to-[#F0FDF4] rounded-2xl p-8 text-center border border-white/10">
           <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center mx-auto mb-4">
             <Users className="w-8 h-8 text-[#2563EB]" />
           </div>
-          <h3 className="text-lg font-bold text-[#1A1A2E] mb-2">Find People</h3>
-          <p className="text-sm text-[#64748B] max-w-sm mx-auto">Connect your wallet to discover people and follow them on-chain.</p>
+          <h3 className="text-lg font-bold text-white mb-2">Find People</h3>
+          <p className="text-sm text-gray-500 max-w-sm mx-auto">Connect your wallet to discover people and follow them on-chain.</p>
         </div>
       </div>
     );
@@ -165,14 +165,14 @@ export default function Friends() {
             className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg text-xs font-medium transition-all ${
               activeSection === tab.id
                 ? "bg-white text-[#2563EB] shadow-sm"
-                : "text-[#64748B] hover:text-[#1A1A2E]"
+                : "text-gray-500 hover:text-white"
             }`}
           >
             <tab.icon className="w-3.5 h-3.5" />
             {tab.label}
             {tab.count > 0 && (
               <span className={`ml-1 text-[10px] px-1.5 py-0.5 rounded-full ${
-                activeSection === tab.id ? "bg-[#2563EB] text-white" : "bg-[#E2E8F0] text-[#64748B]"
+                activeSection === tab.id ? "bg-[#2563EB] text-white" : "bg-[#E2E8F0] text-gray-500"
               }`}>
                 {tab.count}
               </span>
@@ -184,7 +184,7 @@ export default function Friends() {
       {/* Search / Discover Section */}
       {activeSection === "search" && (
         <div className="space-y-3">
-          <div className="bg-white rounded-2xl border border-[#E2E8F0] p-4">
+          <div className="bg-white rounded-2xl border border-white/10 p-4">
             <div className="flex gap-2 items-center">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94A3B8]" />
@@ -193,7 +193,7 @@ export default function Friends() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search by username or display name..."
-                  className="w-full pl-10 pr-4 py-3 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB]"
+                  className="w-full pl-10 pr-4 py-3 bg-[#F8FAFC] border border-white/10 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB]"
                 />
               </div>
             </div>
@@ -201,7 +201,7 @@ export default function Friends() {
             {searching && (
               <div className="flex items-center justify-center py-6">
                 <RefreshCw className="w-4 h-4 animate-spin text-[#2563EB] mr-2" />
-                <span className="text-sm text-[#64748B]">Searching on-chain profiles...</span>
+                <span className="text-sm text-gray-500">Searching on-chain profiles...</span>
               </div>
             )}
 
@@ -228,7 +228,7 @@ export default function Friends() {
                       </button>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-1.5">
-                          <button type="button" onClick={() => navigateToProfile(result.owner)} className="font-semibold text-[#1A1A2E] text-sm truncate hover:text-[#2563EB] transition-colors cursor-pointer">{result.displayName || result.username}</button>
+                          <button type="button" onClick={() => navigateToProfile(result.owner)} className="font-semibold text-white text-sm truncate hover:text-[#2563EB] transition-colors cursor-pointer">{result.displayName || result.username}</button>
                           {status === "mutual" && (
                             <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-[#F0FDF4] text-[#16A34A] font-medium">Mutual</span>
                           )}
@@ -240,7 +240,7 @@ export default function Friends() {
                           <button
                             onClick={() => handleUnfollow(result.owner)}
                             disabled={unfollowingUser === result.owner}
-                            className="inline-flex items-center gap-1 text-xs font-medium text-[#64748B] bg-[#F1F5F9] hover:text-[#DC2626] hover:bg-[#FEF2F2] px-3 py-1.5 rounded-lg transition-colors disabled:opacity-50"
+                            className="inline-flex items-center gap-1 text-xs font-medium text-gray-500 bg-[#F1F5F9] hover:text-[#DC2626] hover:bg-[#FEF2F2] px-3 py-1.5 rounded-lg transition-colors disabled:opacity-50"
                           >
                             {unfollowingUser === result.owner ? (
                               <><RefreshCw className="w-3.5 h-3.5 animate-spin" /> Unfollowing...</>
@@ -282,7 +282,7 @@ export default function Friends() {
           </div>
 
           {searchQuery.length < 2 && !searching && (
-            <div className="bg-[#F8FAFC] rounded-xl p-6 text-center border border-[#E2E8F0]">
+            <div className="bg-[#F8FAFC] rounded-xl p-6 text-center border border-white/10">
               <Search className="w-8 h-8 text-[#94A3B8] mx-auto mb-2" />
               <p className="text-sm text-[#94A3B8]">Discover people by their username or display name</p>
               <p className="text-xs text-[#CBD5E1] mt-1">Type at least 2 characters to start searching</p>
@@ -295,7 +295,7 @@ export default function Friends() {
       {activeSection === "following" && (
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-semibold text-[#1A1A2E]">Following</h3>
+            <h3 className="text-sm font-semibold text-white">Following</h3>
             <button
               onClick={fetchFollowData}
               disabled={loading}
@@ -307,7 +307,7 @@ export default function Friends() {
           </div>
 
           {following.length === 0 ? (
-            <div className="bg-[#F8FAFC] rounded-xl p-6 text-center border border-[#E2E8F0]">
+            <div className="bg-[#F8FAFC] rounded-xl p-6 text-center border border-white/10">
               <UserPlus className="w-8 h-8 text-[#94A3B8] mx-auto mb-2" />
               <p className="text-sm text-[#94A3B8]">Not following anyone yet</p>
               <p className="text-xs text-[#CBD5E1] mt-1">Search for people to follow!</p>
@@ -319,7 +319,7 @@ export default function Friends() {
               const username = profile?.username || addr.slice(0, 8);
               const theyFollowBack = followers.includes(addr);
               return (
-                <div key={addr} className="bg-white rounded-2xl border border-[#E2E8F0] p-4 animate-fade-in">
+                <div key={addr} className="bg-white rounded-2xl border border-white/10 p-4 animate-fade-in">
                   <div className="flex items-center gap-3">
                     <button type="button" onClick={() => navigateToProfile(addr)} className="flex-shrink-0 cursor-pointer">
                     {profile?.avatarUrl ? (
@@ -332,7 +332,7 @@ export default function Friends() {
                     </button>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5">
-                        <button type="button" onClick={() => navigateToProfile(addr)} className="font-semibold text-[#1A1A2E] text-sm truncate hover:text-[#2563EB] transition-colors cursor-pointer">{name}</button>
+                        <button type="button" onClick={() => navigateToProfile(addr)} className="font-semibold text-white text-sm truncate hover:text-[#2563EB] transition-colors cursor-pointer">{name}</button>
                         <span className="text-xs text-[#94A3B8]">@{username}</span>
                         {theyFollowBack && (
                           <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-[#F0FDF4] text-[#16A34A] font-medium">Mutual</span>
@@ -347,7 +347,7 @@ export default function Friends() {
                     <button
                       onClick={() => handleUnfollow(addr)}
                       disabled={unfollowingUser === addr}
-                      className="inline-flex items-center gap-1 text-xs font-medium text-[#64748B] bg-[#F1F5F9] hover:text-[#DC2626] hover:bg-[#FEF2F2] px-3 py-2 rounded-lg transition-colors disabled:opacity-50 flex-shrink-0"
+                      className="inline-flex items-center gap-1 text-xs font-medium text-gray-500 bg-[#F1F5F9] hover:text-[#DC2626] hover:bg-[#FEF2F2] px-3 py-2 rounded-lg transition-colors disabled:opacity-50 flex-shrink-0"
                     >
                       {unfollowingUser === addr ? (
                         <RefreshCw className="w-3.5 h-3.5 animate-spin" />
@@ -368,7 +368,7 @@ export default function Friends() {
       {activeSection === "followers" && (
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-semibold text-[#1A1A2E]">Followers</h3>
+            <h3 className="text-sm font-semibold text-white">Followers</h3>
             <button
               onClick={fetchFollowData}
               disabled={loading}
@@ -380,7 +380,7 @@ export default function Friends() {
           </div>
 
           {followers.length === 0 ? (
-            <div className="bg-[#F8FAFC] rounded-xl p-6 text-center border border-[#E2E8F0]">
+            <div className="bg-[#F8FAFC] rounded-xl p-6 text-center border border-white/10">
               <Users className="w-8 h-8 text-[#94A3B8] mx-auto mb-2" />
               <p className="text-sm text-[#94A3B8]">No followers yet</p>
               <p className="text-xs text-[#CBD5E1] mt-1">When someone follows you, they&apos;ll appear here</p>
@@ -392,7 +392,7 @@ export default function Friends() {
               const username = profile?.username || addr.slice(0, 8);
               const iFollowThem = following.includes(addr);
               return (
-                <div key={addr} className="bg-white rounded-2xl border border-[#E2E8F0] p-4 animate-fade-in">
+                <div key={addr} className="bg-white rounded-2xl border border-white/10 p-4 animate-fade-in">
                   <div className="flex items-center gap-3">
                     <button type="button" onClick={() => navigateToProfile(addr)} className="flex-shrink-0 cursor-pointer">
                     {profile?.avatarUrl ? (
@@ -405,7 +405,7 @@ export default function Friends() {
                     </button>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5">
-                        <button type="button" onClick={() => navigateToProfile(addr)} className="font-semibold text-[#1A1A2E] text-sm truncate hover:text-[#2563EB] transition-colors cursor-pointer">{name}</button>
+                        <button type="button" onClick={() => navigateToProfile(addr)} className="font-semibold text-white text-sm truncate hover:text-[#2563EB] transition-colors cursor-pointer">{name}</button>
                         <span className="text-xs text-[#94A3B8]">@{username}</span>
                         {iFollowThem && (
                           <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-[#F0FDF4] text-[#16A34A] font-medium">Mutual</span>
@@ -419,7 +419,7 @@ export default function Friends() {
                       <button
                         onClick={() => handleUnfollow(addr)}
                         disabled={unfollowingUser === addr}
-                        className="inline-flex items-center gap-1 text-xs font-medium text-[#64748B] bg-[#F1F5F9] hover:text-[#DC2626] hover:bg-[#FEF2F2] px-3 py-2 rounded-lg transition-colors disabled:opacity-50 flex-shrink-0"
+                        className="inline-flex items-center gap-1 text-xs font-medium text-gray-500 bg-[#F1F5F9] hover:text-[#DC2626] hover:bg-[#FEF2F2] px-3 py-2 rounded-lg transition-colors disabled:opacity-50 flex-shrink-0"
                       >
                         {unfollowingUser === addr ? (
                           <RefreshCw className="w-3.5 h-3.5 animate-spin" />

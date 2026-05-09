@@ -107,7 +107,7 @@ function StatCard({
                 ? "bg-[#F0FDF4] text-[#16A34A]"
                 : trend === "down"
                 ? "bg-[#FEF2F2] text-[#DC2626]"
-                : "bg-[#F1F5F9] text-[#64748B]"
+                : "bg-[#F1F5F9] text-gray-500"
             }`}
           >
             {trend === "up" ? (
@@ -119,8 +119,8 @@ function StatCard({
           </div>
         )}
       </div>
-      <p className="text-2xl sm:text-3xl font-bold text-[#1A1A2E] mb-0.5">{value}</p>
-      <p className="text-xs text-[#64748B]">{title}</p>
+      <p className="text-2xl sm:text-3xl font-bold text-white mb-0.5">{value}</p>
+      <p className="text-xs text-gray-500">{title}</p>
       {subtitle && <p className="text-[10px] text-[#94A3B8] mt-0.5">{subtitle}</p>}
     </div>
   );
@@ -375,8 +375,8 @@ export default function CreatorDashboard() {
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#EFF6FF] to-[#F5F3FF] flex items-center justify-center mx-auto mb-4">
             <BarChart3 className="w-8 h-8 text-[#2563EB]" />
           </div>
-          <h3 className="text-lg font-bold text-[#1A1A2E] mb-2">Creator Dashboard</h3>
-          <p className="text-sm text-[#64748B]">Connect your wallet to view your content analytics</p>
+          <h3 className="text-lg font-bold text-white mb-2">Creator Dashboard</h3>
+          <p className="text-sm text-gray-500">Connect your wallet to view your content analytics</p>
         </div>
       </div>
     );
@@ -391,20 +391,20 @@ export default function CreatorDashboard() {
             <BarChart3 className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h2 className="text-lg font-bold text-[#1A1A2E]">Creator Dashboard</h2>
-            <p className="text-xs text-[#64748B]">Loading your analytics...</p>
+            <h2 className="text-lg font-bold text-white">Creator Dashboard</h2>
+            <p className="text-xs text-gray-500">Loading your analytics...</p>
           </div>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[...Array(4)].map((_, i) => (
-            <div key={i} className="bg-white rounded-2xl border border-[#E2E8F0] p-5 animate-pulse">
+            <div key={i} className="bg-white rounded-2xl border border-white/10 p-5 animate-pulse">
               <div className="w-10 h-10 rounded-xl bg-[#F1F5F9] mb-3" />
               <div className="h-8 bg-[#F1F5F9] rounded-lg w-16 mb-2" />
               <div className="h-3 bg-[#F1F5F9] rounded w-24" />
             </div>
           ))}
         </div>
-        <div className="bg-white rounded-2xl border border-[#E2E8F0] p-6 animate-pulse">
+        <div className="bg-white rounded-2xl border border-white/10 p-6 animate-pulse">
           <div className="h-48 bg-[#F1F5F9] rounded-xl" />
         </div>
       </div>
@@ -420,8 +420,8 @@ export default function CreatorDashboard() {
             <BarChart3 className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h2 className="text-lg font-bold text-[#1A1A2E]">Creator Dashboard</h2>
-            <p className="text-xs text-[#64748B]">
+            <h2 className="text-lg font-bold text-white">Creator Dashboard</h2>
+            <p className="text-xs text-gray-500">
               Last updated {timeAgo(lastRefreshed)}
             </p>
           </div>
@@ -479,11 +479,11 @@ export default function CreatorDashboard() {
       {/* Charts Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
         {/* Engagement Over Time */}
-        <div className="bg-white rounded-2xl border border-[#E2E8F0] p-4 sm:p-5">
+        <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-[#2563EB]" />
-              <h3 className="text-sm font-semibold text-[#1A1A2E]">Engagement (7 days)</h3>
+              <h3 className="text-sm font-semibold text-white">Engagement (7 days)</h3>
             </div>
             <div className="flex items-center gap-3 text-[10px]">
               <span className="flex items-center gap-1">
@@ -527,11 +527,11 @@ export default function CreatorDashboard() {
         </div>
 
         {/* Earnings Chart */}
-        <div className="bg-white rounded-2xl border border-[#E2E8F0] p-4 sm:p-5">
+        <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <DollarSign className="w-4 h-4 text-[#16A34A]" />
-              <h3 className="text-sm font-semibold text-[#1A1A2E]">Earnings (7 days)</h3>
+              <h3 className="text-sm font-semibold text-white">Earnings (7 days)</h3>
             </div>
             <span className="text-xs font-medium text-[#16A34A] bg-[#F0FDF4] px-2 py-1 rounded-lg">
               ◎{formatSOL(analytics.totalEarned)} total
@@ -563,10 +563,10 @@ export default function CreatorDashboard() {
       {/* Second Row: Post Types + Best Posting Times */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
         {/* Post Type Breakdown */}
-        <div className="bg-white rounded-2xl border border-[#E2E8F0] p-4 sm:p-5">
+        <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
           <div className="flex items-center gap-2 mb-4">
             <Shield className="w-4 h-4 text-[#7C3AED]" />
-            <h3 className="text-sm font-semibold text-[#1A1A2E]">Content Mix</h3>
+            <h3 className="text-sm font-semibold text-white">Content Mix</h3>
           </div>
           {analytics.typeBreakdown.length > 0 ? (
             <>
@@ -599,7 +599,7 @@ export default function CreatorDashboard() {
               </div>
               <div className="flex flex-wrap gap-3 justify-center mt-2">
                 {analytics.typeBreakdown.map((t) => (
-                  <div key={t.name} className="flex items-center gap-1.5 text-xs text-[#64748B]">
+                  <div key={t.name} className="flex items-center gap-1.5 text-xs text-gray-500">
                     <span className="w-2.5 h-2.5 rounded-full" style={{ background: t.color }} />
                     {t.name} ({t.value})
                   </div>
@@ -614,11 +614,11 @@ export default function CreatorDashboard() {
         </div>
 
         {/* Best Posting Times */}
-        <div className="md:col-span-2 bg-white rounded-2xl border border-[#E2E8F0] p-4 sm:p-5">
+        <div className="md:col-span-2 bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-[#EA580C]" />
-              <h3 className="text-sm font-semibold text-[#1A1A2E]">Activity by Day</h3>
+              <h3 className="text-sm font-semibold text-white">Activity by Day</h3>
             </div>
             <div className="flex items-center gap-3 text-[10px]">
               <span className="flex items-center gap-1">
@@ -653,11 +653,11 @@ export default function CreatorDashboard() {
       </div>
 
       {/* Post Performance Table */}
-      <div className="bg-white rounded-2xl border border-[#E2E8F0] p-4 sm:p-5">
+      <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <Award className="w-4 h-4 text-[#2563EB]" />
-            <h3 className="text-sm font-semibold text-[#1A1A2E]">Post Performance</h3>
+            <h3 className="text-sm font-semibold text-white">Post Performance</h3>
           </div>
           <span className="text-xs text-[#94A3B8]">{analytics.postPerformance.length} posts</span>
         </div>
@@ -684,7 +684,7 @@ export default function CreatorDashboard() {
                           idx === 0
                             ? "bg-[#FEF3C7] text-[#D97706]"
                             : idx === 1
-                            ? "bg-[#F1F5F9] text-[#64748B]"
+                            ? "bg-[#F1F5F9] text-gray-500"
                             : idx === 2
                             ? "bg-[#FFF7ED] text-[#EA580C]"
                             : "bg-[#F8FAFC] text-[#94A3B8]"
@@ -694,7 +694,7 @@ export default function CreatorDashboard() {
                       </span>
                     </td>
                     <td className="py-3 pr-4">
-                      <p className="text-sm text-[#1A1A2E] truncate max-w-[200px] sm:max-w-[300px]">
+                      <p className="text-sm text-white truncate max-w-[200px] sm:max-w-[300px]">
                         {post.content}
                       </p>
                     </td>
@@ -711,10 +711,10 @@ export default function CreatorDashboard() {
 
                     </td>
                     <td className="py-3 pr-4 text-center">
-                      <span className="text-sm font-medium text-[#1A1A2E]">{post.totalLikes}</span>
+                      <span className="text-sm font-medium text-white">{post.totalLikes}</span>
                     </td>
                     <td className="py-3 pr-4 text-center">
-                      <span className="text-sm font-medium text-[#1A1A2E]">{post.totalComments}</span>
+                      <span className="text-sm font-medium text-white">{post.totalComments}</span>
                     </td>
                     <td className="py-3 text-right">
                       <span className="text-xs text-[#94A3B8]">
@@ -739,10 +739,10 @@ export default function CreatorDashboard() {
       {/* Bottom Row: Top Engagers + Creator Score */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
         {/* Top Engagers */}
-        <div className="bg-white rounded-2xl border border-[#E2E8F0] p-4 sm:p-5">
+        <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
           <div className="flex items-center gap-2 mb-4">
             <Users className="w-4 h-4 text-[#0D9488]" />
-            <h3 className="text-sm font-semibold text-[#1A1A2E]">Top Engagers</h3>
+            <h3 className="text-sm font-semibold text-white">Top Engagers</h3>
           </div>
           {analytics.topEngagers.length > 0 ? (
             <div className="space-y-3">
@@ -762,7 +762,7 @@ export default function CreatorDashboard() {
                       {profile?.displayName?.charAt(0) || "👤"}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-[#1A1A2E] truncate">{displayName}</p>
+                      <p className="text-sm font-medium text-white truncate">{displayName}</p>
                       <p className="text-[10px] text-[#94A3B8]">
                         {engager.interactions} interaction{engager.interactions !== 1 ? "s" : ""}
                       </p>
@@ -786,10 +786,10 @@ export default function CreatorDashboard() {
         </div>
 
         {/* Creator Score + Quick Stats */}
-        <div className="bg-white rounded-2xl border border-[#E2E8F0] p-4 sm:p-5">
+        <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
           <div className="flex items-center gap-2 mb-4">
             <Trophy className="w-4 h-4 text-[#D97706]" />
-            <h3 className="text-sm font-semibold text-[#1A1A2E]">Creator Score</h3>
+            <h3 className="text-sm font-semibold text-white">Creator Score</h3>
           </div>
 
           {(() => {
@@ -847,7 +847,7 @@ export default function CreatorDashboard() {
                   >
                     {grade}
                   </span>
-                  <span className="text-sm font-semibold text-[#1A1A2E]">{label}</span>
+                  <span className="text-sm font-semibold text-white">{label}</span>
                 </div>
 
                 {/* Score Breakdown */}
@@ -861,7 +861,7 @@ export default function CreatorDashboard() {
                   ].map((item) => (
                     <div key={item.label} className="flex items-center gap-2">
                       <span className="text-xs w-5 text-center">{item.icon}</span>
-                      <span className="text-[10px] font-medium text-[#64748B] w-16">{item.label}</span>
+                      <span className="text-[10px] font-medium text-gray-500 w-16">{item.label}</span>
                       <div className="flex-1 h-2 bg-[#F1F5F9] rounded-full overflow-hidden">
                         <div
                           className="h-full rounded-full transition-all duration-700 ease-out"
@@ -885,11 +885,11 @@ export default function CreatorDashboard() {
 
       {/* Recent Payments Received */}
       {analytics.receivedPayments.length > 0 && (
-        <div className="bg-white rounded-2xl border border-[#E2E8F0] p-4 sm:p-5">
+        <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <DollarSign className="w-4 h-4 text-[#16A34A]" />
-              <h3 className="text-sm font-semibold text-[#1A1A2E]">Recent Tips Received</h3>
+              <h3 className="text-sm font-semibold text-white">Recent Tips Received</h3>
             </div>
             <span className="text-xs text-[#94A3B8]">{analytics.receivedPayments.length} total</span>
           </div>
@@ -906,7 +906,7 @@ export default function CreatorDashboard() {
                     💸
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-[#1A1A2E]">
+                    <p className="text-sm font-medium text-white">
                       <span className="text-[#16A34A]">+◎{formatSOL(payment.amount)}</span> from {senderName}
                     </p>
                     <p className="text-[10px] text-[#94A3B8]">{timeAgo(payment.timestamp)}</p>
@@ -922,10 +922,10 @@ export default function CreatorDashboard() {
       )}
 
       {/* Posting Heatmap (Hour of Day) */}
-      <div className="bg-white rounded-2xl border border-[#E2E8F0] p-4 sm:p-5">
+      <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5">
         <div className="flex items-center gap-2 mb-4">
           <Flame className="w-4 h-4 text-[#EA580C]" />
-          <h3 className="text-sm font-semibold text-[#1A1A2E]">Posting Heatmap (Hour of Day)</h3>
+          <h3 className="text-sm font-semibold text-white">Posting Heatmap (Hour of Day)</h3>
         </div>
         <div className="grid grid-cols-12 gap-1 sm:gap-1.5">
           {analytics.hourActivity.map((h) => {
@@ -972,8 +972,8 @@ export default function CreatorDashboard() {
             <Star className="w-5 h-5 text-[#2563EB]" />
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-[#1A1A2E] mb-1">Creator Insight</h3>
-            <p className="text-xs text-[#64748B] leading-relaxed">
+            <h3 className="text-sm font-semibold text-white mb-1">Creator Insight</h3>
+            <p className="text-xs text-gray-500 leading-relaxed">
               {analytics.totalPosts === 0
                 ? "Start posting to build your creator analytics! Your engagement, earnings, and creator score will appear here."
                 : analytics.totalLikes > analytics.totalPosts * 2

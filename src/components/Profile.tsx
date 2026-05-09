@@ -474,7 +474,7 @@ export default function Profile() {
   // Gold badge for OG / founder accounts
   const isGoldBadge = GOLD_BADGE_USERNAMES.includes(profileUsername.toLowerCase());
   const badgeBg = isGoldBadge ? "bg-gradient-to-br from-[#F59E0B] to-[#D97706]" : "bg-[#2563EB]";
-  const badgeTextColor = isGoldBadge ? "text-[#F59E0B]" : "text-[#2563EB]";
+  const badgeTextColor = isGoldBadge ? "text-[#F59E0B]" : "text-red-500";
 
   /* ════════════ NOT CONNECTED ════════════ */
   if (!isConnected || !publicKey) {
@@ -484,8 +484,8 @@ export default function Profile() {
           <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-[#F1F5F9] flex items-center justify-center">
             <Shield className="w-10 h-10 text-[#94A3B8]" />
           </div>
-          <h2 className="text-xl font-bold text-[#1A1A2E] mb-2">Connect your wallet</h2>
-          <p className="text-[#64748B] text-sm">Connect to view your on-chain profile</p>
+          <h2 className="text-xl font-bold text-white mb-2">Connect your wallet</h2>
+          <p className="text-gray-500 text-sm">Connect to view your on-chain profile</p>
         </div>
       </div>
     );
@@ -516,7 +516,7 @@ export default function Profile() {
       <div className="max-w-[600px] mx-auto">
         {/* Banner */}
         <div className="h-[200px] bg-gradient-to-r from-[#2563EB] via-[#3B82F6] to-[#60A5FA]" />
-        <div className="bg-white border-x border-b border-[#E2E8F0] px-4 pb-6">
+        <div className="bg-white border-x border-b border-white/10 px-4 pb-6">
           <div className="relative -mt-[42px] mb-4">
             <div className="w-[84px] h-[84px] rounded-full bg-[#F1F5F9] border-4 border-white flex items-center justify-center text-3xl shadow-sm">
               👤
@@ -525,11 +525,11 @@ export default function Profile() {
 
           {!showSetup ? (
             <div>
-              <h2 className="text-xl font-extrabold text-[#1A1A2E] mb-1">Set up your profile</h2>
-              <p className="text-[#64748B] text-[15px] mb-1">
+              <h2 className="text-xl font-extrabold text-white mb-1">Set up your profile</h2>
+              <p className="text-gray-500 text-[15px] mb-1">
                 {shortKey(publicKey.toBase58())}
               </p>
-              <p className="text-[#64748B] text-sm mt-3 mb-4">
+              <p className="text-gray-500 text-sm mt-3 mb-4">
                 Create your on-chain profile to start posting and connecting with others.
               </p>
               <button
@@ -541,11 +541,11 @@ export default function Profile() {
             </div>
           ) : (
             <div className="space-y-4">
-              <h2 className="text-xl font-extrabold text-[#1A1A2E]">Create your profile</h2>
+              <h2 className="text-xl font-extrabold text-white">Create your profile</h2>
 
               {/* Username */}
               <div>
-                <label className="block text-[13px] font-medium text-[#64748B] mb-1.5">Username</label>
+                <label className="block text-[13px] font-medium text-gray-500 mb-1.5">Username</label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8] text-sm">@</span>
                   <input
@@ -553,12 +553,12 @@ export default function Profile() {
                     onChange={(e) => setUsername(e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, ""))}
                     placeholder="username"
                     maxLength={16}
-                    className={`w-full pl-8 pr-3 py-2.5 bg-[#F8FAFC] border rounded-xl text-sm text-[#1A1A2E] placeholder:text-[#94A3B8] focus:outline-none focus:ring-2 transition-all ${
+                    className={`w-full pl-8 pr-3 py-2.5 bg-white/5 border rounded-xl text-sm text-white placeholder:text-[#94A3B8] focus:outline-none focus:ring-2 transition-all ${
                       usernameChecked && !checkingUsername
                         ? usernameTaken
                           ? "border-red-400 focus:ring-red-200 focus:border-red-400"
                           : "border-green-400 focus:ring-green-200 focus:border-green-400"
-                        : "border-[#E2E8F0] focus:border-[#2563EB] focus:ring-[#2563EB]/10"
+                        : "border-white/10 focus:border-[#2563EB] focus:ring-[#2563EB]/10"
                     }`}
                   />
                 </div>
@@ -583,26 +583,26 @@ export default function Profile() {
 
               {/* Display Name */}
               <div>
-                <label className="block text-[13px] font-medium text-[#64748B] mb-1.5">Display Name</label>
+                <label className="block text-[13px] font-medium text-gray-500 mb-1.5">Display Name</label>
                 <input
                   value={displayName}
                   onChange={(e) => setDisplayName(e.target.value)}
                   placeholder="Your name"
                   maxLength={24}
-                  className="w-full px-3 py-2.5 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl text-sm text-[#1A1A2E] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10 transition-all"
+                  className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder:text-[#94A3B8] focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10 transition-all"
                 />
               </div>
 
               {/* Bio */}
               <div>
-                <label className="block text-[13px] font-medium text-[#64748B] mb-1.5">Bio</label>
+                <label className="block text-[13px] font-medium text-gray-500 mb-1.5">Bio</label>
                 <textarea
                   value={bio}
                   onChange={(e) => setBio(e.target.value)}
                   placeholder="Tell the world about yourself"
                   maxLength={64}
                   rows={2}
-                  className="w-full px-3 py-2.5 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl text-sm text-[#1A1A2E] placeholder:text-[#94A3B8] focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10 transition-all resize-none"
+                  className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder:text-[#94A3B8] focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10 transition-all resize-none"
                 />
                 <p className="text-[11px] text-[#94A3B8] mt-1 text-right">{bio.length}/64</p>
               </div>
@@ -610,7 +610,7 @@ export default function Profile() {
               <div className="flex gap-2 pt-1">
                 <button
                   onClick={() => setShowSetup(false)}
-                  className="px-5 py-2.5 text-[#1A1A2E] font-bold text-sm rounded-full border border-[#E2E8F0] hover:bg-[#F1F5F9] transition-colors"
+                  className="px-5 py-2.5 text-white font-bold text-sm rounded-full border border-white/10 hover:bg-[#F1F5F9] transition-colors"
                 >
                   Cancel
                 </button>
@@ -641,14 +641,14 @@ export default function Profile() {
             onClick={handleBackToFeed}
             className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-[#F1F5F9] transition-colors flex-shrink-0"
           >
-            <ArrowLeft className="w-5 h-5 text-[#1A1A2E]" />
+            <ArrowLeft className="w-5 h-5 text-white" />
           </button>
         )}
         <div className="flex-1 min-w-0">
-          <h1 className="text-lg font-extrabold text-[#1A1A2E] truncate leading-tight">
+          <h1 className="text-lg font-extrabold text-white truncate leading-tight">
             {profileName}
           </h1>
-          <p className="text-[13px] text-[#64748B] leading-tight">
+          <p className="text-[13px] text-gray-500 leading-tight">
             {postCount} post{postCount !== 1 ? "s" : ""}
           </p>
         </div>
@@ -679,7 +679,7 @@ export default function Profile() {
                 className="w-[84px] h-[84px] rounded-full border-4 border-white object-cover shadow-lg"
               />
             ) : (
-              <div className="w-[84px] h-[84px] rounded-full bg-gradient-to-br from-[#EBF4FF] to-[#DBEAFE] border-4 border-white flex items-center justify-center text-4xl shadow-lg font-bold text-[#2563EB]">
+              <div className="w-[84px] h-[84px] rounded-full bg-gradient-to-br from-[#EBF4FF] to-[#DBEAFE] border-4 border-white flex items-center justify-center text-4xl shadow-lg font-bold text-red-500">
                 {profileName.charAt(0).toUpperCase()}
               </div>
             )}
@@ -696,7 +696,7 @@ export default function Profile() {
                   disabled={followLoading}
                   className={`px-5 py-1.5 rounded-full text-sm font-bold transition-colors disabled:opacity-50 ${
                     isFollowingUser
-                      ? "border border-[#E2E8F0] text-[#1A1A2E] hover:border-red-300 hover:text-red-500 hover:bg-red-50"
+                      ? "border border-white/10 text-white hover:border-red-300 hover:text-red-500 hover:bg-red-50"
                       : "bg-[#1A1A2E] text-white hover:bg-[#2A2A3E]"
                   }`}
                 >
@@ -706,39 +706,39 @@ export default function Profile() {
                   href={`https://explorer.solana.com/address/${targetAddress}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full border border-[#E2E8F0] flex items-center justify-center hover:bg-[#F1F5F9] transition-colors"
+                  className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#F1F5F9] transition-colors"
                   title="View on Solana Explorer"
                 >
-                  <ExternalLink className="w-4 h-4 text-[#64748B]" />
+                  <ExternalLink className="w-4 h-4 text-gray-500" />
                 </a>
               </>
             ) : (
               <>
                 <button
                   onClick={openEditModal}
-                  className="px-4 py-1.5 rounded-full border border-[#E2E8F0] text-sm font-bold text-[#1A1A2E] hover:bg-[#F1F5F9] transition-colors"
+                  className="px-4 py-1.5 rounded-full border border-white/10 text-sm font-bold text-white hover:bg-[#F1F5F9] transition-colors"
                 >
                   Edit profile
                 </button>
                 <button
                   onClick={copyWallet}
-                  className="w-9 h-9 rounded-full border border-[#E2E8F0] flex items-center justify-center hover:bg-[#F1F5F9] transition-colors"
+                  className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#F1F5F9] transition-colors"
                   title="Copy wallet address"
                 >
                   {copied ? (
                     <Check className="w-4 h-4 text-[#16A34A]" />
                   ) : (
-                    <Copy className="w-4 h-4 text-[#64748B]" />
+                    <Copy className="w-4 h-4 text-gray-500" />
                   )}
                 </button>
                 <a
                   href={`https://explorer.solana.com/address/${publicKey?.toBase58()}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full border border-[#E2E8F0] flex items-center justify-center hover:bg-[#F1F5F9] transition-colors"
+                  className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:bg-[#F1F5F9] transition-colors"
                   title="View on Solana Explorer"
                 >
-                  <ExternalLink className="w-4 h-4 text-[#64748B]" />
+                  <ExternalLink className="w-4 h-4 text-gray-500" />
                 </a>
               </>
             )}
@@ -748,32 +748,32 @@ export default function Profile() {
         {/* Name & handle */}
         <div className="mt-2">
           <div className="flex items-center gap-1.5">
-            <h2 className="text-xl font-extrabold text-[#1A1A2E]">{profileName}</h2>
+            <h2 className="text-xl font-extrabold text-white">{profileName}</h2>
           </div>
           <div className="flex items-center gap-1.5">
-            <p className="text-[15px] text-[#64748B]">@{profileUsername}</p>
+            <p className="text-[15px] text-gray-500">@{profileUsername}</p>
             {isGoldBadge && <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-gradient-to-r from-[#F59E0B] to-[#D97706] text-white">OG</span>}
           </div>
         </div>
 
         {/* Bio */}
         {profileBio && (
-          <p className="mt-3 text-[15px] text-[#1A1A2E] leading-relaxed whitespace-pre-wrap">
+          <p className="mt-3 text-[15px] text-white leading-relaxed whitespace-pre-wrap">
             {profileBio}
           </p>
         )}
 
         {/* Meta row */}
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-3">
-          <span className="flex items-center gap-1 text-[13px] text-[#64748B]">
+          <span className="flex items-center gap-1 text-[13px] text-gray-500">
             <Globe className="w-3.5 h-3.5" />
             Solana Mainnet
           </span>
-          <span className="flex items-center gap-1 text-[13px] text-[#64748B]">
+          <span className="flex items-center gap-1 text-[13px] text-gray-500">
             <Calendar className="w-3.5 h-3.5" />
             Joined {joinDate}
           </span>
-          <span className="flex items-center gap-1 text-[13px] text-[#64748B]">
+          <span className="flex items-center gap-1 text-[13px] text-gray-500">
             <Shield className="w-3.5 h-3.5" />
             {shortKey(targetAddress)}
           </span>
@@ -785,15 +785,15 @@ export default function Profile() {
             onClick={() => { setFollowListTab("following"); setShowFollowList(true); }}
             className="group flex items-center gap-1 hover:underline decoration-[#1A1A2E]"
           >
-            <span className="text-sm font-bold text-[#1A1A2E]">{followingCount}</span>
-            <span className="text-sm text-[#64748B] group-hover:text-[#1A1A2E] transition-colors">Following</span>
+            <span className="text-sm font-bold text-white">{followingCount}</span>
+            <span className="text-sm text-gray-500 group-hover:text-white transition-colors">Following</span>
           </button>
           <button
             onClick={() => { setFollowListTab("followers"); setShowFollowList(true); }}
             className="group flex items-center gap-1 hover:underline decoration-[#1A1A2E]"
           >
-            <span className="text-sm font-bold text-[#1A1A2E]">{followerCount}</span>
-            <span className="text-sm text-[#64748B] group-hover:text-[#1A1A2E] transition-colors">
+            <span className="text-sm font-bold text-white">{followerCount}</span>
+            <span className="text-sm text-gray-500 group-hover:text-white transition-colors">
               Follower{followerCount !== 1 ? "s" : ""}
             </span>
           </button>
@@ -813,15 +813,15 @@ export default function Profile() {
       {/* ── Wallet Management (own profile only) ── */}
       {!isViewingOther && (
       <div className="bg-black/60 border-x border-purple-500/20 px-5 py-4 border-b">
-        <div className="bg-gradient-to-br from-[#F8FAFC] to-[#EFF6FF] rounded-2xl border border-[#E2E8F0] p-4">
+        <div className="bg-gradient-to-br from-[#F8FAFC] to-[#EFF6FF] rounded-2xl border border-white/10 p-4">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-[#2563EB]/10 flex items-center justify-center">
-                <Wallet className="w-4 h-4 text-[#2563EB]" />
+                <Wallet className="w-4 h-4 text-red-500" />
               </div>
               <div>
-                <h3 className="text-sm font-bold text-[#1A1A2E]">Wallet</h3>
-                <p className="text-[11px] text-[#64748B]">Solana Mainnet · {isEmbeddedWallet ? 'Embedded' : walletClientName}</p>
+                <h3 className="text-sm font-bold text-white">Wallet</h3>
+                <p className="text-[11px] text-gray-500">Solana Mainnet · {isEmbeddedWallet ? 'Embedded' : walletClientName}</p>
               </div>
             </div>
             <button
@@ -830,18 +830,18 @@ export default function Profile() {
               className="w-7 h-7 rounded-full flex items-center justify-center hover:bg-white/80 transition-colors"
               title="Refresh balance"
             >
-              <RefreshCw className={`w-3.5 h-3.5 text-[#64748B] ${loadingBalance ? "animate-spin" : ""}`} />
+              <RefreshCw className={`w-3.5 h-3.5 text-gray-500 ${loadingBalance ? "animate-spin" : ""}`} />
             </button>
           </div>
 
           {/* Balance */}
           <div className="mb-4">
-            <p className="text-[11px] text-[#64748B] mb-0.5">Balance</p>
+            <p className="text-[11px] text-gray-500 mb-0.5">Balance</p>
             <div className="flex items-baseline gap-1.5">
-              <span className="text-2xl font-extrabold text-[#1A1A2E]">
+              <span className="text-2xl font-extrabold text-white">
                 {walletBalance !== null ? walletBalance.toFixed(4) : "..."}
               </span>
-              <span className="text-sm font-medium text-[#64748B]">SOL</span>
+              <span className="text-sm font-medium text-gray-500">SOL</span>
             </div>
             {walletBalance !== null && walletBalance < 0.01 && (
               <p className="text-[11px] text-amber-600 mt-1">⚠️ Low balance — SOL needed for token trading & payments</p>
@@ -849,29 +849,29 @@ export default function Profile() {
           </div>
 
           {/* Wallet address with copy */}
-          <div className="mb-4 bg-white rounded-xl border border-[#E2E8F0] px-3 py-2.5 flex items-center justify-between gap-2">
+          <div className="mb-4 bg-white rounded-xl border border-white/10 px-3 py-2.5 flex items-center justify-between gap-2">
             <div className="min-w-0">
               <p className="text-[10px] text-[#94A3B8] mb-0.5">Wallet Address</p>
-              <p className="text-xs font-mono text-[#1A1A2E] truncate">{publicKey?.toBase58()}</p>
+              <p className="text-xs font-mono text-white truncate">{publicKey?.toBase58()}</p>
             </div>
             <button
               onClick={copyWallet}
               className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center hover:bg-[#F1F5F9] transition-colors"
               title="Copy address"
             >
-              {copied ? <Check className="w-3.5 h-3.5 text-[#16A34A]" /> : <Copy className="w-3.5 h-3.5 text-[#64748B]" />}
+              {copied ? <Check className="w-3.5 h-3.5 text-[#16A34A]" /> : <Copy className="w-3.5 h-3.5 text-gray-500" />}
             </button>
           </div>
 
           {/* QR Code (togglable) */}
           {showQR && publicKey && (
-            <div className="mb-4 flex flex-col items-center bg-white rounded-xl border border-[#E2E8F0] p-4">
+            <div className="mb-4 flex flex-col items-center bg-white rounded-xl border border-white/10 p-4">
               <img
                 src={`https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${publicKey.toBase58()}`}
                 alt="Wallet QR Code"
                 className="w-[180px] h-[180px] rounded-lg"
               />
-              <p className="text-[11px] text-[#64748B] mt-2">Scan to send SOL to this wallet</p>
+              <p className="text-[11px] text-gray-500 mt-2">Scan to send SOL to this wallet</p>
             </div>
           )}
 
@@ -880,14 +880,14 @@ export default function Profile() {
             {isEmbeddedWallet ? (
               <button
                 onClick={handleExportWallet}
-                className="flex flex-col items-center gap-1.5 py-3 px-2 bg-white rounded-xl border border-[#E2E8F0] hover:bg-[#F8FAFC] hover:border-[#2563EB]/30 transition-all group"
+                className="flex flex-col items-center gap-1.5 py-3 px-2 bg-white rounded-xl border border-white/10 hover:bg-white/5 hover:border-[#2563EB]/30 transition-all group"
               >
-                <Key className="w-4 h-4 text-[#64748B] group-hover:text-[#2563EB] transition-colors" />
-                <span className="text-[11px] font-medium text-[#64748B] group-hover:text-[#1A1A2E] transition-colors">Export Key</span>
+                <Key className="w-4 h-4 text-gray-500 group-hover:text-red-500 transition-colors" />
+                <span className="text-[11px] font-medium text-gray-500 group-hover:text-white transition-colors">Export Key</span>
               </button>
             ) : (
               <div
-                className="flex flex-col items-center gap-1.5 py-3 px-2 bg-white rounded-xl border border-[#E2E8F0] opacity-60"
+                className="flex flex-col items-center gap-1.5 py-3 px-2 bg-white rounded-xl border border-white/10 opacity-60"
                 title={`Managed by ${walletClientName}`}
               >
                 <Key className="w-4 h-4 text-[#94A3B8]" />
@@ -898,12 +898,12 @@ export default function Profile() {
               onClick={() => setShowQR(!showQR)}
               className={`flex flex-col items-center gap-1.5 py-3 px-2 rounded-xl border transition-all group ${
                 showQR
-                  ? "bg-[#EFF6FF] border-[#2563EB]/30 text-[#2563EB]"
-                  : "bg-white border-[#E2E8F0] hover:bg-[#F8FAFC] hover:border-[#2563EB]/30"
+                  ? "bg-[#EFF6FF] border-[#2563EB]/30 text-red-500"
+                  : "bg-white border-white/10 hover:bg-white/5 hover:border-[#2563EB]/30"
               }`}
             >
-              <QrCode className={`w-4 h-4 ${showQR ? "text-[#2563EB]" : "text-[#64748B] group-hover:text-[#2563EB]"} transition-colors`} />
-              <span className={`text-[11px] font-medium ${showQR ? "text-[#2563EB]" : "text-[#64748B] group-hover:text-[#1A1A2E]"} transition-colors`}>
+              <QrCode className={`w-4 h-4 ${showQR ? "text-red-500" : "text-gray-500 group-hover:text-red-500"} transition-colors`} />
+              <span className={`text-[11px] font-medium ${showQR ? "text-red-500" : "text-gray-500 group-hover:text-white"} transition-colors`}>
                 {showQR ? "Hide QR" : "Receive"}
               </span>
             </button>
@@ -911,10 +911,10 @@ export default function Profile() {
               href={`https://explorer.solana.com/address/${publicKey?.toBase58()}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center gap-1.5 py-3 px-2 bg-white rounded-xl border border-[#E2E8F0] hover:bg-[#F8FAFC] hover:border-[#2563EB]/30 transition-all group"
+              className="flex flex-col items-center gap-1.5 py-3 px-2 bg-white rounded-xl border border-white/10 hover:bg-white/5 hover:border-[#2563EB]/30 transition-all group"
             >
-              <ExternalLink className="w-4 h-4 text-[#64748B] group-hover:text-[#2563EB] transition-colors" />
-              <span className="text-[11px] font-medium text-[#64748B] group-hover:text-[#1A1A2E] transition-colors">Explorer</span>
+              <ExternalLink className="w-4 h-4 text-gray-500 group-hover:text-red-500 transition-colors" />
+              <span className="text-[11px] font-medium text-gray-500 group-hover:text-white transition-colors">Explorer</span>
             </a>
           </div>
         </div>
@@ -942,8 +942,8 @@ export default function Profile() {
             onClick={() => setActiveTab(tab)}
             className={`flex-1 py-3.5 text-sm font-semibold text-center relative transition-colors ${
               activeTab === tab
-                ? "text-[#1A1A2E]"
-                : "text-[#64748B] hover:text-[#1A1A2E] hover:bg-[#F8FAFC]"
+                ? "text-white"
+                : "text-gray-500 hover:text-white hover:bg-white/5"
             }`}
           >
             {tab === "posts" ? "Posts" : "Likes"}
@@ -955,17 +955,17 @@ export default function Profile() {
       </div>
 
       {/* ── Divider ── */}
-      <div className="border-b border-[#E2E8F0]" />
+      <div className="border-b border-white/10" />
 
       {/* ── Posts Feed ── */}
-      <div className="bg-white border-x border-[#E2E8F0]">
+      <div className="bg-white border-x border-white/10">
         {activeTab === "posts" && (
           <>
             {myPosts.length === 0 ? (
               <div className="py-12 text-center">
                 <div className="text-4xl mb-3">✍️</div>
-                <h3 className="text-[15px] font-bold text-[#1A1A2E] mb-1">No posts yet</h3>
-                <p className="text-sm text-[#64748B]">
+                <h3 className="text-[15px] font-bold text-white mb-1">No posts yet</h3>
+                <p className="text-sm text-gray-500">
                   When you post, they&apos;ll show up here.
                 </p>
               </div>
@@ -991,8 +991,8 @@ export default function Profile() {
         {activeTab === "likes" && (
           <div className="py-12 text-center">
             <div className="text-4xl mb-3">❤️</div>
-            <h3 className="text-[15px] font-bold text-[#1A1A2E] mb-1">Coming soon</h3>
-            <p className="text-sm text-[#64748B]">
+            <h3 className="text-[15px] font-bold text-white mb-1">Coming soon</h3>
+            <p className="text-sm text-gray-500">
               Your liked posts will appear here.
             </p>
           </div>
@@ -1000,7 +1000,7 @@ export default function Profile() {
       </div>
 
       {/* ── Bottom border ── */}
-      <div className="bg-white border-x border-b border-[#E2E8F0] rounded-b-xl h-4" />
+      <div className="bg-white border-x border-b border-white/10 rounded-b-xl h-4" />
 
       {/* ═══ Edit Profile Modal ═══ */}
       {editing && (
@@ -1008,15 +1008,15 @@ export default function Profile() {
           <div className="absolute inset-0 bg-black/50" onClick={() => !saving && setEditing(false)} />
           <div className="relative bg-white rounded-2xl w-full max-w-[600px] mx-4 max-h-[90vh] overflow-y-auto shadow-2xl animate-fade-in">
             {/* Modal header */}
-            <div className="sticky top-0 z-10 bg-white/90 backdrop-blur-sm flex items-center justify-between px-4 py-3 border-b border-[#E2E8F0]">
+            <div className="sticky top-0 z-10 bg-white/90 backdrop-blur-sm flex items-center justify-between px-4 py-3 border-b border-white/10">
               <div className="flex items-center gap-4">
                 <button
                   onClick={() => !saving && setEditing(false)}
                   className="w-9 h-9 rounded-full flex items-center justify-center hover:bg-[#F1F5F9] transition-colors"
                 >
-                  <X className="w-5 h-5 text-[#1A1A2E]" />
+                  <X className="w-5 h-5 text-white" />
                 </button>
-                <h2 className="text-lg font-bold text-[#1A1A2E]">Edit profile</h2>
+                <h2 className="text-lg font-bold text-white">Edit profile</h2>
               </div>
               <button
                 onClick={handleSaveProfile}
@@ -1066,7 +1066,7 @@ export default function Profile() {
                     className="w-[84px] h-[84px] rounded-full border-4 border-white object-cover"
                   />
                 ) : (
-                  <div className="w-[84px] h-[84px] rounded-full bg-gradient-to-br from-[#EBF4FF] to-[#DBEAFE] border-4 border-white flex items-center justify-center text-4xl font-bold text-[#2563EB]">
+                  <div className="w-[84px] h-[84px] rounded-full bg-gradient-to-br from-[#EBF4FF] to-[#DBEAFE] border-4 border-white flex items-center justify-center text-4xl font-bold text-red-500">
                     {editDisplayName.charAt(0)?.toUpperCase() || "?"}
                   </div>
                 )}
@@ -1083,25 +1083,25 @@ export default function Profile() {
             <div className="px-4 pb-6 space-y-5">
               {/* Display Name */}
               <div className="relative">
-                <label className="absolute left-3 top-2 text-[11px] text-[#64748B]">Name</label>
+                <label className="absolute left-3 top-2 text-[11px] text-gray-500">Name</label>
                 <input
                   value={editDisplayName}
                   onChange={(e) => setEditDisplayName(e.target.value)}
                   maxLength={24}
-                  className="w-full px-3 pt-6 pb-2 bg-transparent border border-[#E2E8F0] rounded-lg text-[15px] text-[#1A1A2E] focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10 transition-all"
+                  className="w-full px-3 pt-6 pb-2 bg-transparent border border-white/10 rounded-lg text-[15px] text-white focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10 transition-all"
                 />
                 <span className="absolute right-3 top-2 text-[11px] text-[#94A3B8]">{editDisplayName.length}/24</span>
               </div>
 
               {/* Bio */}
               <div className="relative">
-                <label className="absolute left-3 top-2 text-[11px] text-[#64748B]">Bio</label>
+                <label className="absolute left-3 top-2 text-[11px] text-gray-500">Bio</label>
                 <textarea
                   value={editBio}
                   onChange={(e) => setEditBio(e.target.value)}
                   maxLength={64}
                   rows={2}
-                  className="w-full px-3 pt-6 pb-2 bg-transparent border border-[#E2E8F0] rounded-lg text-[15px] text-[#1A1A2E] focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10 transition-all resize-none"
+                  className="w-full px-3 pt-6 pb-2 bg-transparent border border-white/10 rounded-lg text-[15px] text-white focus:outline-none focus:border-[#2563EB] focus:ring-2 focus:ring-[#2563EB]/10 transition-all resize-none"
                 />
                 <span className="absolute right-3 top-2 text-[11px] text-[#94A3B8]">{editBio.length}/64</span>
               </div>
@@ -1234,13 +1234,13 @@ function ProfilePostCard({
   };
 
   return (
-    <div className="border-b border-[#E2E8F0] px-4 py-3 hover:bg-[#F8FAFC]/50 transition-colors">
+    <div className="border-b border-white/10 px-4 py-3 hover:bg-white/5/50 transition-colors">
       <div className="flex gap-3">
         {/* Avatar */}
         {avatarUrl ? (
           <img src={avatarUrl} alt={profileName} className="w-10 h-10 rounded-full object-cover flex-shrink-0" />
         ) : (
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#EBF4FF] to-[#DBEAFE] flex items-center justify-center text-lg font-bold text-[#2563EB] flex-shrink-0">
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#EBF4FF] to-[#DBEAFE] flex items-center justify-center text-lg font-bold text-red-500 flex-shrink-0">
             {profileName.charAt(0).toUpperCase()}
           </div>
         )}
@@ -1248,11 +1248,11 @@ function ProfilePostCard({
         <div className="flex-1 min-w-0">
           {/* Author line */}
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="font-bold text-[15px] text-[#1A1A2E] truncate">{profileName}</span>
-            <BadgeCheck className={`w-4 h-4 flex-shrink-0 ${GOLD_BADGE_USERNAMES.includes(profileUsername.toLowerCase()) ? "text-[#F59E0B]" : "text-[#2563EB]"}`} />
-            <span className="text-[15px] text-[#64748B] truncate">@{profileUsername}</span>
-            <span className="text-[#64748B]">·</span>
-            <span className="text-[13px] text-[#64748B] flex-shrink-0">{timeAgo(ts)}</span>
+            <span className="font-bold text-[15px] text-white truncate">{profileName}</span>
+            <BadgeCheck className={`w-4 h-4 flex-shrink-0 ${GOLD_BADGE_USERNAMES.includes(profileUsername.toLowerCase()) ? "text-[#F59E0B]" : "text-red-500"}`} />
+            <span className="text-[15px] text-gray-500 truncate">@{profileUsername}</span>
+            <span className="text-gray-500">·</span>
+            <span className="text-[13px] text-gray-500 flex-shrink-0">{timeAgo(ts)}</span>
           </div>
 
           {/* Content */}
@@ -1264,11 +1264,11 @@ function ProfilePostCard({
                 const rtContent = parts.slice(2).join("|");
                 return (
                   <div>
-                    <div className="flex items-center gap-1.5 text-[13px] text-[#64748B] mb-2">
+                    <div className="flex items-center gap-1.5 text-[13px] text-gray-500 mb-2">
                       <Repeat2 className="w-3.5 h-3.5" />
-                      <span>Reposted from <span className="font-semibold text-[#1A1A2E]">{rtAuthor}</span></span>
+                      <span>Reposted from <span className="font-semibold text-white">{rtAuthor}</span></span>
                     </div>
-                    <div className="border border-[#E2E8F0] rounded-xl px-4 py-3 bg-[#F8FAFC]">
+                    <div className="border border-white/10 rounded-xl px-4 py-3 bg-white/5">
                       <RichContent content={rtContent} />
                     </div>
                   </div>
@@ -1280,11 +1280,11 @@ function ProfilePostCard({
                 const rtContent = legacyMatch[2].replace(/\\n/g, '').replace(/^"|"$/g, '').trim();
                 return (
                   <div>
-                    <div className="flex items-center gap-1.5 text-[13px] text-[#64748B] mb-2">
+                    <div className="flex items-center gap-1.5 text-[13px] text-gray-500 mb-2">
                       <Repeat2 className="w-3.5 h-3.5" />
-                      <span>Reposted from <span className="font-semibold text-[#1A1A2E]">{rtAuthor}</span></span>
+                      <span>Reposted from <span className="font-semibold text-white">{rtAuthor}</span></span>
                     </div>
-                    <div className="border border-[#E2E8F0] rounded-xl px-4 py-3 bg-[#F8FAFC]">
+                    <div className="border border-white/10 rounded-xl px-4 py-3 bg-white/5">
                       <RichContent content={rtContent} />
                     </div>
                   </div>
@@ -1315,8 +1315,8 @@ function ProfilePostCard({
               onClick={() => setShowComments(!showComments)}
               className="group flex items-center gap-1.5 px-2 py-1.5 rounded-full hover:bg-[#EBF4FF] transition-colors"
             >
-              <MessageCircle className="w-4 h-4 text-[#64748B] group-hover:text-[#2563EB] transition-colors" />
-              <span className="text-[13px] text-[#64748B] group-hover:text-[#2563EB] transition-colors">
+              <MessageCircle className="w-4 h-4 text-gray-500 group-hover:text-red-500 transition-colors" />
+              <span className="text-[13px] text-gray-500 group-hover:text-red-500 transition-colors">
                 {commentCount || ""}
               </span>
             </button>
@@ -1327,7 +1327,7 @@ function ProfilePostCard({
               disabled={reposting || !isConnected}
               className="group flex items-center gap-1.5 px-2 py-1.5 rounded-full hover:bg-[#F0FDF4] transition-colors disabled:opacity-40"
             >
-              <Repeat2 className={`w-4 h-4 transition-colors ${reposting ? "text-[#16A34A] animate-spin" : "text-[#64748B] group-hover:text-[#16A34A]"}`} />
+              <Repeat2 className={`w-4 h-4 transition-colors ${reposting ? "text-[#16A34A] animate-spin" : "text-gray-500 group-hover:text-[#16A34A]"}`} />
             </button>
 
             {/* Likes */}
@@ -1336,8 +1336,8 @@ function ProfilePostCard({
               disabled={hasLiked || liking}
               className="group flex items-center gap-1.5 px-2 py-1.5 rounded-full hover:bg-[#FEF2F2] transition-colors disabled:opacity-50"
             >
-              <Heart className={`w-4 h-4 transition-colors ${hasLiked ? "text-[#EF4444] fill-[#EF4444]" : "text-[#64748B] group-hover:text-[#EF4444]"}`} />
-              <span className={`text-[13px] transition-colors ${hasLiked ? "text-[#EF4444]" : "text-[#64748B] group-hover:text-[#EF4444]"}`}>
+              <Heart className={`w-4 h-4 transition-colors ${hasLiked ? "text-[#EF4444] fill-[#EF4444]" : "text-gray-500 group-hover:text-[#EF4444]"}`} />
+              <span className={`text-[13px] transition-colors ${hasLiked ? "text-[#EF4444]" : "text-gray-500 group-hover:text-[#EF4444]"}`}>
                 {likeCount || ""}
               </span>
             </button>
@@ -1347,23 +1347,23 @@ function ProfilePostCard({
               onClick={handleShare}
               className="group flex items-center px-2 py-1.5 rounded-full hover:bg-[#EBF4FF] transition-colors"
             >
-              <Share className="w-4 h-4 text-[#64748B] group-hover:text-[#2563EB] transition-colors" />
+              <Share className="w-4 h-4 text-gray-500 group-hover:text-red-500 transition-colors" />
             </button>
           </div>
 
           {/* Comments section */}
           {showComments && (
-            <div className="mt-2 border-l-2 border-[#E2E8F0] pl-3 ml-1">
+            <div className="mt-2 border-l-2 border-white/10 pl-3 ml-1">
               {comments.length > 0 && (
                 <div className="space-y-2 mb-2">
                   {comments
                     .sort((a: any, b: any) => Number(a.createdAt) - Number(b.createdAt))
                     .map((c: any, i: number) => (
                       <div key={i} className="text-[13px]">
-                        <span className="font-semibold text-[#1A1A2E]">
+                        <span className="font-semibold text-white">
                           {resolveAuthor(c.author)}
                         </span>
-                        <span className="text-[#64748B] ml-1.5">
+                        <span className="text-gray-500 ml-1.5">
                           {c.content}
                         </span>
                         <span className="text-[#94A3B8] ml-1.5">
@@ -1387,7 +1387,7 @@ function ProfilePostCard({
                     maxLength={100}
                     placeholder={commenting ? "Posting..." : "Write a comment..."}
                     disabled={commenting}
-                    className="flex-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-2.5 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-[#2563EB]/30 disabled:opacity-50"
+                    className="flex-1 bg-white/5 border border-white/10 rounded-lg px-2.5 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-[#2563EB]/30 disabled:opacity-50"
                   />
                   <button
                     onClick={handleComment}

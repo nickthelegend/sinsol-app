@@ -247,13 +247,13 @@ export default function Communities() {
         {/* Back button */}
         <button
           onClick={() => setSelectedCommunity(null)}
-          className="text-sm text-[#64748B] hover:text-[#1A1A2E] flex items-center gap-1 transition-colors"
+          className="text-sm text-gray-500 hover:text-white flex items-center gap-1 transition-colors"
         >
           ← Back to Communities
         </button>
 
         {/* Community Header */}
-        <div className="bg-white rounded-2xl border border-[#E2E8F0] p-6">
+        <div className="bg-white rounded-2xl border border-white/10 p-6">
           <div className="flex items-start gap-4">
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#2563EB] to-[#7C3AED] flex items-center justify-center text-white text-2xl font-bold overflow-hidden shrink-0">
               {selectedCommunity.avatarUrl ? (
@@ -264,14 +264,14 @@ export default function Communities() {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2">
-                <h2 className="text-xl font-bold text-[#1A1A2E] truncate">{selectedCommunity.name}</h2>
+                <h2 className="text-xl font-bold text-white truncate">{selectedCommunity.name}</h2>
                 {isCreator && (
                   <span className="inline-flex items-center gap-1 text-[10px] font-semibold bg-[#FEF3C7] text-[#B45309] px-2 py-0.5 rounded-full">
                     <Crown className="w-3 h-3" /> Creator
                   </span>
                 )}
               </div>
-              <p className="text-sm text-[#64748B] mt-1">{selectedCommunity.description || "No description"}</p>
+              <p className="text-sm text-gray-500 mt-1">{selectedCommunity.description || "No description"}</p>
               <div className="flex items-center gap-4 mt-3 text-xs text-[#94A3B8]">
                 <span className="flex items-center gap-1"><Users className="w-3.5 h-3.5" /> {selectedCommunity.memberCount} member{selectedCommunity.memberCount !== 1 ? "s" : ""}</span>
                 <span>Created {timeAgo(selectedCommunity.createdAt)}</span>
@@ -281,7 +281,7 @@ export default function Communities() {
               {isCreator && (
                 <button
                   onClick={() => openEdit(selectedCommunity)}
-                  className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold bg-[#F1F5F9] text-[#64748B] rounded-xl hover:bg-[#E2E8F0] transition-colors"
+                  className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold bg-[#F1F5F9] text-gray-500 rounded-xl hover:bg-[#E2E8F0] transition-colors"
                 >
                   <Edit3 className="w-3.5 h-3.5" /> Edit
                 </button>
@@ -319,16 +319,16 @@ export default function Communities() {
             walletAddr={walletAddr}
           />
         ) : (
-          <div className="text-center py-12 bg-white rounded-2xl border border-[#E2E8F0]">
+          <div className="text-center py-12 bg-white rounded-2xl border border-white/10">
             <Users className="w-10 h-10 text-[#94A3B8] mx-auto mb-3" />
-            <p className="text-sm font-semibold text-[#1A1A2E]">Members Only</p>
+            <p className="text-sm font-semibold text-white">Members Only</p>
             <p className="text-xs text-[#94A3B8] mt-1">Join this community to see posts and start posting</p>
           </div>
         )}
 
         {/* Members List */}
-        <div className="bg-white rounded-2xl border border-[#E2E8F0] p-4">
-          <h3 className="text-sm font-semibold text-[#1A1A2E] mb-3">Members ({members.length})</h3>
+        <div className="bg-white rounded-2xl border border-white/10 p-4">
+          <h3 className="text-sm font-semibold text-white mb-3">Members ({members.length})</h3>
           {members.length === 0 ? (
             <p className="text-sm text-[#94A3B8] text-center py-4">No members yet</p>
           ) : (
@@ -347,7 +347,7 @@ export default function Communities() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-1.5">
-                        <span className="text-sm font-semibold text-[#1A1A2E] truncate">
+                        <span className="text-sm font-semibold text-white truncate">
                           {profile?.displayName || profile?.username || m.member.slice(0, 8) + "..."}
                         </span>
                         {isOwner && <Crown className="w-3.5 h-3.5 text-[#F59E0B]" />}
@@ -369,9 +369,9 @@ export default function Communities() {
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4" onClick={() => { setShowEdit(false); setConfirmDelete(false); }}>
             <div className="bg-white rounded-2xl p-6 w-full max-w-md space-y-4 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
               <div className="flex items-center justify-between">
-                <h3 className="text-lg font-bold text-[#1A1A2E]">Edit Community</h3>
+                <h3 className="text-lg font-bold text-white">Edit Community</h3>
                 <button onClick={() => { setShowEdit(false); setConfirmDelete(false); }} className="p-1 rounded-lg hover:bg-[#F1F5F9]">
-                  <X className="w-5 h-5 text-[#64748B]" />
+                  <X className="w-5 h-5 text-gray-500" />
                 </button>
               </div>
 
@@ -380,28 +380,28 @@ export default function Communities() {
                   {editAvatarUrl ? <img src={editAvatarUrl} alt="" className="w-full h-full object-cover" /> : editingCommunity.name.charAt(0).toUpperCase()}
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-[#1A1A2E]">{editingCommunity.name}</p>
+                  <p className="text-sm font-bold text-white">{editingCommunity.name}</p>
                   <p className="text-[10px] text-[#94A3B8]">ID: {editingCommunity.communityId}</p>
                 </div>
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-[#64748B] mb-1 block">Description</label>
+                <label className="text-xs font-semibold text-gray-500 mb-1 block">Description</label>
                 <textarea
                   placeholder="What's this community about?"
                   value={editDescription}
                   onChange={(e) => setEditDescription(e.target.value.slice(0, 128))}
                   rows={3}
-                  className="w-full px-4 py-2.5 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] text-[#1A1A2E] placeholder-[#94A3B8] resize-none"
+                  className="w-full px-4 py-2.5 text-sm bg-[#F8FAFC] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] text-white placeholder-[#94A3B8] resize-none"
                 />
                 <p className="text-[10px] text-[#94A3B8] mt-1">{editDescription.length}/128</p>
               </div>
 
               <div>
-                <label className="text-xs font-semibold text-[#64748B] mb-1 block">Community Avatar</label>
+                <label className="text-xs font-semibold text-gray-500 mb-1 block">Community Avatar</label>
                 <div className="flex items-center gap-3">
                   {editAvatarUrl ? (
-                    <div className="w-14 h-14 rounded-xl overflow-hidden border border-[#E2E8F0] shrink-0">
+                    <div className="w-14 h-14 rounded-xl overflow-hidden border border-white/10 shrink-0">
                       <img src={editAvatarUrl} alt="" className="w-full h-full object-cover" />
                     </div>
                   ) : (
@@ -410,11 +410,11 @@ export default function Communities() {
                     </div>
                   )}
                   <div className="flex-1 space-y-1.5">
-                    <label className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl hover:bg-[#F1F5F9] transition-colors cursor-pointer">
+                    <label className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-[#F8FAFC] border border-white/10 rounded-xl hover:bg-[#F1F5F9] transition-colors cursor-pointer">
                       {uploadingEditAvatar ? (
                         <><Loader2 className="w-4 h-4 text-[#2563EB] animate-spin" /> Uploading...</>
                       ) : (
-                        <><Upload className="w-4 h-4 text-[#64748B]" /> {editAvatarUrl ? "Change image" : "Upload image"}</>
+                        <><Upload className="w-4 h-4 text-gray-500" /> {editAvatarUrl ? "Change image" : "Upload image"}</>
                       )}
                       <input
                         type="file"
@@ -444,7 +444,7 @@ export default function Communities() {
               </button>
 
               {/* Delete Section */}
-              <div className="border-t border-[#E2E8F0] pt-4">
+              <div className="border-t border-white/10 pt-4">
                 {confirmDelete ? (
                   <div className="space-y-2">
                     <p className="text-xs text-[#DC2626] font-semibold">Are you sure? This will permanently delete the community and return rent to treasury.</p>
@@ -458,7 +458,7 @@ export default function Communities() {
                       </button>
                       <button
                         onClick={() => setConfirmDelete(false)}
-                        className="flex-1 py-2.5 text-sm font-semibold bg-[#F1F5F9] text-[#64748B] rounded-xl hover:bg-[#E2E8F0] transition-colors"
+                        className="flex-1 py-2.5 text-sm font-semibold bg-[#F1F5F9] text-gray-500 rounded-xl hover:bg-[#E2E8F0] transition-colors"
                       >
                         Cancel
                       </button>
@@ -486,14 +486,14 @@ export default function Communities() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-bold text-[#1A1A2E]">Communities</h2>
+          <h2 className="text-lg font-bold text-white">Communities</h2>
           <p className="text-xs text-[#94A3B8]">On-chain communities — max 100 members each</p>
         </div>
         <div className="flex items-center gap-2">
           <button
             onClick={fetchData}
             disabled={loading}
-            className="p-2 rounded-xl text-[#64748B] hover:bg-[#F1F5F9] transition-colors disabled:opacity-50"
+            className="p-2 rounded-xl text-gray-500 hover:bg-[#F1F5F9] transition-colors disabled:opacity-50"
           >
             <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
           </button>
@@ -514,7 +514,7 @@ export default function Communities() {
           placeholder="Search communities..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full pl-10 pr-4 py-2.5 text-sm bg-white border border-[#E2E8F0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] text-[#1A1A2E] placeholder-[#94A3B8]"
+          className="w-full pl-10 pr-4 py-2.5 text-sm bg-white border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] text-white placeholder-[#94A3B8]"
         />
       </div>
 
@@ -554,9 +554,9 @@ export default function Communities() {
             <p className="text-sm text-[#94A3B8]">Loading communities...</p>
           </div>
         ) : filteredCommunities.filter((c) => !isMemberOf(c.pubkey)).length === 0 ? (
-          <div className="text-center py-12 bg-white rounded-2xl border border-[#E2E8F0]">
+          <div className="text-center py-12 bg-white rounded-2xl border border-white/10">
             <Users className="w-10 h-10 text-[#94A3B8] mx-auto mb-3" />
-            <p className="text-sm font-semibold text-[#1A1A2E]">
+            <p className="text-sm font-semibold text-white">
               {searchQuery ? "No communities found" : communities.length === 0 ? "No communities yet" : "You've joined them all!"}
             </p>
             <p className="text-xs text-[#94A3B8] mt-1">
@@ -590,9 +590,9 @@ export default function Communities() {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4" onClick={() => { setShowEdit(false); setConfirmDelete(false); }}>
           <div className="bg-white rounded-2xl p-6 w-full max-w-md space-y-4" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-bold text-[#1A1A2E]">Edit Community</h3>
+              <h3 className="text-lg font-bold text-white">Edit Community</h3>
               <button onClick={() => { setShowEdit(false); setConfirmDelete(false); }} className="p-1 rounded-lg hover:bg-[#F1F5F9]">
-                <X className="w-5 h-5 text-[#64748B]" />
+                <X className="w-5 h-5 text-gray-500" />
               </button>
             </div>
 
@@ -601,28 +601,28 @@ export default function Communities() {
                 {editAvatarUrl ? <img src={editAvatarUrl} alt="" className="w-full h-full object-cover" /> : editingCommunity.name.charAt(0).toUpperCase()}
               </div>
               <div>
-                <p className="text-sm font-bold text-[#1A1A2E]">{editingCommunity.name}</p>
+                <p className="text-sm font-bold text-white">{editingCommunity.name}</p>
                 <p className="text-[10px] text-[#94A3B8]">ID: {editingCommunity.communityId}</p>
               </div>
             </div>
 
             <div>
-              <label className="text-xs font-semibold text-[#64748B] mb-1 block">Description</label>
+              <label className="text-xs font-semibold text-gray-500 mb-1 block">Description</label>
               <textarea
                 placeholder="What's this community about?"
                 value={editDescription}
                 onChange={(e) => setEditDescription(e.target.value.slice(0, 128))}
                 rows={3}
-                className="w-full px-4 py-2.5 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] text-[#1A1A2E] placeholder-[#94A3B8] resize-none"
+                className="w-full px-4 py-2.5 text-sm bg-[#F8FAFC] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] text-white placeholder-[#94A3B8] resize-none"
               />
               <p className="text-[10px] text-[#94A3B8] mt-1">{editDescription.length}/128</p>
             </div>
 
             <div>
-              <label className="text-xs font-semibold text-[#64748B] mb-1 block">Community Avatar</label>
+              <label className="text-xs font-semibold text-gray-500 mb-1 block">Community Avatar</label>
               <div className="flex items-center gap-3">
                 {editAvatarUrl ? (
-                  <div className="w-14 h-14 rounded-xl overflow-hidden border border-[#E2E8F0] shrink-0">
+                  <div className="w-14 h-14 rounded-xl overflow-hidden border border-white/10 shrink-0">
                     <img src={editAvatarUrl} alt="" className="w-full h-full object-cover" />
                   </div>
                 ) : (
@@ -631,11 +631,11 @@ export default function Communities() {
                   </div>
                 )}
                 <div className="flex-1 space-y-1.5">
-                  <label className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl hover:bg-[#F1F5F9] transition-colors cursor-pointer">
+                  <label className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-[#F8FAFC] border border-white/10 rounded-xl hover:bg-[#F1F5F9] transition-colors cursor-pointer">
                     {uploadingEditAvatar ? (
                       <><Loader2 className="w-4 h-4 text-[#2563EB] animate-spin" /> Uploading...</>
                     ) : (
-                      <><Upload className="w-4 h-4 text-[#64748B]" /> {editAvatarUrl ? "Change image" : "Upload image"}</>
+                      <><Upload className="w-4 h-4 text-gray-500" /> {editAvatarUrl ? "Change image" : "Upload image"}</>
                     )}
                     <input
                       type="file"
@@ -665,7 +665,7 @@ export default function Communities() {
             </button>
 
             {/* Delete Section */}
-            <div className="border-t border-[#E2E8F0] pt-4">
+            <div className="border-t border-white/10 pt-4">
               {confirmDelete ? (
                 <div className="space-y-2">
                   <p className="text-xs text-[#DC2626] font-semibold">Are you sure? This will permanently delete the community and return rent to treasury.</p>
@@ -679,7 +679,7 @@ export default function Communities() {
                     </button>
                     <button
                       onClick={() => setConfirmDelete(false)}
-                      className="flex-1 py-2.5 text-sm font-semibold bg-[#F1F5F9] text-[#64748B] rounded-xl hover:bg-[#E2E8F0] transition-colors"
+                      className="flex-1 py-2.5 text-sm font-semibold bg-[#F1F5F9] text-gray-500 rounded-xl hover:bg-[#E2E8F0] transition-colors"
                     >
                       Cancel
                     </button>
@@ -703,41 +703,41 @@ export default function Communities() {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4" onClick={() => setShowCreate(false)}>
           <div className="bg-white rounded-2xl p-6 w-full max-w-md space-y-4" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-bold text-[#1A1A2E]">Create Community</h3>
+              <h3 className="text-lg font-bold text-white">Create Community</h3>
               <button onClick={() => setShowCreate(false)} className="p-1 rounded-lg hover:bg-[#F1F5F9]">
-                <X className="w-5 h-5 text-[#64748B]" />
+                <X className="w-5 h-5 text-gray-500" />
               </button>
             </div>
 
             <div>
-              <label className="text-xs font-semibold text-[#64748B] mb-1 block">Name *</label>
+              <label className="text-xs font-semibold text-gray-500 mb-1 block">Name *</label>
               <input
                 type="text"
                 placeholder="e.g. Solana Builders"
                 value={newName}
                 onChange={(e) => setNewName(e.target.value.slice(0, 32))}
-                className="w-full px-4 py-2.5 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] text-[#1A1A2E] placeholder-[#94A3B8]"
+                className="w-full px-4 py-2.5 text-sm bg-[#F8FAFC] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] text-white placeholder-[#94A3B8]"
               />
               <p className="text-[10px] text-[#94A3B8] mt-1">{newName.length}/32</p>
             </div>
 
             <div>
-              <label className="text-xs font-semibold text-[#64748B] mb-1 block">Description</label>
+              <label className="text-xs font-semibold text-gray-500 mb-1 block">Description</label>
               <textarea
                 placeholder="What's this community about?"
                 value={newDescription}
                 onChange={(e) => setNewDescription(e.target.value.slice(0, 128))}
                 rows={3}
-                className="w-full px-4 py-2.5 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] text-[#1A1A2E] placeholder-[#94A3B8] resize-none"
+                className="w-full px-4 py-2.5 text-sm bg-[#F8FAFC] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] text-white placeholder-[#94A3B8] resize-none"
               />
               <p className="text-[10px] text-[#94A3B8] mt-1">{newDescription.length}/128</p>
             </div>
 
             <div>
-              <label className="text-xs font-semibold text-[#64748B] mb-1 block">Community Avatar (optional)</label>
+              <label className="text-xs font-semibold text-gray-500 mb-1 block">Community Avatar (optional)</label>
               <div className="flex items-center gap-3">
                 {newAvatarUrl ? (
-                  <div className="w-14 h-14 rounded-xl overflow-hidden border border-[#E2E8F0] shrink-0">
+                  <div className="w-14 h-14 rounded-xl overflow-hidden border border-white/10 shrink-0">
                     <img src={newAvatarUrl} alt="" className="w-full h-full object-cover" />
                   </div>
                 ) : (
@@ -746,11 +746,11 @@ export default function Communities() {
                   </div>
                 )}
                 <div className="flex-1 space-y-1.5">
-                  <label className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl hover:bg-[#F1F5F9] transition-colors cursor-pointer">
+                  <label className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-[#F8FAFC] border border-white/10 rounded-xl hover:bg-[#F1F5F9] transition-colors cursor-pointer">
                     {uploadingAvatar ? (
                       <><Loader2 className="w-4 h-4 text-[#2563EB] animate-spin" /> Uploading...</>
                     ) : (
-                      <><Upload className="w-4 h-4 text-[#64748B]" /> {newAvatarUrl ? "Change image" : "Upload image"}</>
+                      <><Upload className="w-4 h-4 text-gray-500" /> {newAvatarUrl ? "Change image" : "Upload image"}</>
                     )}
                     <input
                       type="file"
@@ -773,7 +773,7 @@ export default function Communities() {
 
             <div className="bg-[#F0FDF4] border border-[#BBF7D0] rounded-xl p-3">
               <p className="text-xs text-[#16A34A] font-medium">✨ Free to create — sponsored by SinSol</p>
-              <p className="text-[10px] text-[#64748B] mt-0.5">Max 100 members per community. You&apos;ll auto-join as the first member.</p>
+              <p className="text-[10px] text-gray-500 mt-0.5">Max 100 members per community. You&apos;ll auto-join as the first member.</p>
             </div>
 
             <button
@@ -868,7 +868,7 @@ function CommunityFeed({
   return (
     <div className="space-y-3">
       {/* Composer */}
-      <div className="bg-white rounded-2xl border border-[#E2E8F0] p-4">
+      <div className="bg-white rounded-2xl border border-white/10 p-4">
         <div className="flex items-center gap-2 mb-2">
           <Globe className="w-4 h-4 text-[#7C3AED]" />
           <span className="text-xs font-semibold text-[#7C3AED]">Post to {community.name}</span>
@@ -879,7 +879,7 @@ function CommunityFeed({
             value={newPost}
             onChange={(e) => setNewPost(e.target.value.slice(0, 480))}
             rows={2}
-            className="flex-1 px-3 py-2 text-sm bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/20 focus:border-[#7C3AED] text-[#1A1A2E] placeholder-[#94A3B8] resize-none"
+            className="flex-1 px-3 py-2 text-sm bg-[#F8FAFC] border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#7C3AED]/20 focus:border-[#7C3AED] text-white placeholder-[#94A3B8] resize-none"
             onKeyDown={(e) => {
               if (e.key === "Enter" && !e.shiftKey) {
                 e.preventDefault();
@@ -905,8 +905,8 @@ function CommunityFeed({
           <p className="text-xs text-[#94A3B8]">Loading posts...</p>
         </div>
       ) : posts.length === 0 ? (
-        <div className="text-center py-8 bg-white rounded-2xl border border-[#E2E8F0]">
-          <p className="text-sm font-semibold text-[#1A1A2E]">No posts yet</p>
+        <div className="text-center py-8 bg-white rounded-2xl border border-white/10">
+          <p className="text-sm font-semibold text-white">No posts yet</p>
           <p className="text-xs text-[#94A3B8] mt-1">Be the first to post in {community.name}!</p>
         </div>
       ) : (
@@ -970,7 +970,7 @@ function CommunityCard({
 }) {
   return (
     <div
-      className="bg-white rounded-2xl border border-[#E2E8F0] p-4 hover:border-[#2563EB]/30 hover:shadow-sm transition-all cursor-pointer"
+      className="bg-white rounded-2xl border border-white/10 p-4 hover:border-[#2563EB]/30 hover:shadow-sm transition-all cursor-pointer"
       onClick={onClick}
     >
       <div className="flex items-center gap-3">
@@ -983,10 +983,10 @@ function CommunityCard({
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-1.5">
-            <h3 className="text-sm font-bold text-[#1A1A2E] truncate">{community.name}</h3>
+            <h3 className="text-sm font-bold text-white truncate">{community.name}</h3>
             {isCreator && <Crown className="w-3.5 h-3.5 text-[#F59E0B]" />}
           </div>
-          <p className="text-xs text-[#64748B] truncate">{community.description || "No description"}</p>
+          <p className="text-xs text-gray-500 truncate">{community.description || "No description"}</p>
           <div className="flex items-center gap-3 mt-1 text-[10px] text-[#94A3B8]">
             <span className="flex items-center gap-0.5"><Users className="w-3 h-3" /> {community.memberCount}/100</span>
             <span>by @{creatorProfile?.username || community.creator.slice(0, 8)}</span>
@@ -997,7 +997,7 @@ function CommunityCard({
             <button
               onClick={onLeave}
               disabled={leaving || isCreator}
-              className="flex items-center gap-1 px-3 py-1.5 text-[10px] font-semibold bg-[#F1F5F9] text-[#64748B] rounded-lg hover:bg-[#FEE2E2] hover:text-[#DC2626] transition-colors disabled:opacity-50"
+              className="flex items-center gap-1 px-3 py-1.5 text-[10px] font-semibold bg-[#F1F5F9] text-gray-500 rounded-lg hover:bg-[#FEE2E2] hover:text-[#DC2626] transition-colors disabled:opacity-50"
               title={isCreator ? "Creator cannot leave" : "Leave"}
             >
               {leaving ? "..." : "Joined ✓"}

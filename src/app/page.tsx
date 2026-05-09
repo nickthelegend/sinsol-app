@@ -67,8 +67,8 @@ export default function Home() {
     return (
       <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">
         <div className="text-center">
-          <div className="w-14 h-14 rounded-[28px] premium-orb flex items-center justify-center mx-auto mb-3 animate-breathe">
-            <span className="text-3xl">🔥</span>
+          <div className="w-14 h-14 rounded-[28px] flex items-center justify-center mx-auto mb-3 bg-white/5 border border-white/10 overflow-hidden">
+            <img src="/logo.png" alt="SinSol" className="w-full h-full object-contain p-2" />
           </div>
           <p className="text-sm text-gray-500 font-medium tracking-wide">Loading SinSol...</p>
         </div>

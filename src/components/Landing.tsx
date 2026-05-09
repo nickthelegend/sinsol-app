@@ -95,8 +95,8 @@ export default function Landing() {
       {/* Nav */}
       <nav className="relative z-10 flex items-center justify-between px-4 sm:px-6 md:px-12 py-3 sm:py-4">
         <div className="flex items-center gap-2 sm:gap-3">
-          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-[24px] premium-orb flex items-center justify-center">
-            <span className="text-2xl sm:text-3xl">🔥</span>
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-[24px] flex items-center justify-center overflow-hidden bg-white/5 border border-white/10">
+            <img src="/logo.png" alt="SinSol" className="w-full h-full object-contain p-2" />
           </div>
           <div>
             <h1 className="text-xl sm:text-2xl font-premium-headline text-white tracking-wider">SINSOL</h1>
@@ -431,8 +431,8 @@ export default function Landing() {
       {/* Final CTA */}
       <div className="relative z-10 px-4 sm:px-6 md:px-12 py-12 sm:py-16 text-center">
         <div className="premium-card max-w-lg mx-auto rounded-[32px] p-8 sm:p-10">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-[32px] premium-orb flex items-center justify-center mx-auto mb-5 animate-breathe">
-            <span className="text-4xl sm:text-5xl">🔥</span>
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-[32px] flex items-center justify-center mx-auto mb-5 animate-breathe overflow-hidden bg-white/5 border border-white/10">
+            <img src="/logo.png" alt="SinSol" className="w-full h-full object-contain p-3" />
           </div>
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-premium-headline text-white mb-3 tracking-wider">
             READY TO START?
@@ -458,7 +458,7 @@ export default function Landing() {
         <div className="premium-card rounded-[24px] px-6 py-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 max-w-5xl mx-auto">
             <div className="flex items-center gap-2">
-              <span className="text-xl">🔥</span>
+              <img src="/logo.png" alt="SinSol" className="w-6 h-6 object-contain" />
               <span className="text-sm font-bold text-white font-premium-headline tracking-wider">SINSOL</span>
             </div>
             <div className="flex items-center gap-5">

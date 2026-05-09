@@ -167,8 +167,8 @@ export default function Tokens() {
             <Coins className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h1 className="text-lg font-bold text-[#1A1A2E]">Creator Tokens</h1>
-            <p className="text-xs text-[#64748B]">Launch, trade & earn — powered by Bags.fm</p>
+            <h1 className="text-lg font-bold text-white">Creator Tokens</h1>
+            <p className="text-xs text-gray-500">Launch, trade & earn — powered by Bags.fm</p>
           </div>
         </div>
         <button
@@ -191,7 +191,7 @@ export default function Tokens() {
             key={id}
             onClick={() => setTab(id)}
             className={`flex-1 flex items-center justify-center gap-1.5 py-2 text-xs font-medium rounded-lg transition ${
-              tab === id ? "bg-white text-[#1A1A2E] shadow-sm" : "text-[#64748B] hover:text-[#475569]"
+              tab === id ? "bg-white text-white shadow-sm" : "text-gray-500 hover:text-[#475569]"
             }`}
           >
             <Icon className="w-3.5 h-3.5" />
@@ -228,7 +228,7 @@ export default function Tokens() {
                 <button
                   key={token.tokenMint}
                   onClick={() => setSelectedToken(token)}
-                  className="w-full flex items-center gap-3 p-3 bg-white rounded-2xl border border-[#E2E8F0] hover:border-[#2563EB]/30 hover:shadow-sm transition text-left"
+                  className="w-full flex items-center gap-3 p-3 bg-white rounded-2xl border border-white/10 hover:border-[#2563EB]/30 hover:shadow-sm transition text-left"
                 >
                   <span className="text-xs font-medium text-[#94A3B8] w-5">{i + 1}</span>
                   {token.image ? (
@@ -240,16 +240,16 @@ export default function Tokens() {
                   )}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5">
-                      <span className="text-sm font-semibold text-[#1A1A2E] truncate">{token.name}</span>
+                      <span className="text-sm font-semibold text-white truncate">{token.name}</span>
                       <span className="text-xs text-[#94A3B8]">${token.symbol}</span>
                     </div>
-                    <p className="text-xs text-[#64748B] truncate">{token.description}</p>
+                    <p className="text-xs text-gray-500 truncate">{token.description}</p>
                   </div>
                   <div className="flex items-center gap-1">
                     <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full ${
                       token.status === "MIGRATED" ? "bg-[#F0FDF4] text-[#16A34A]"
                         : token.status === "PRE_GRAD" ? "bg-[#FFFBEB] text-[#D97706]"
-                        : "bg-[#F1F5F9] text-[#64748B]"
+                        : "bg-[#F1F5F9] text-gray-500"
                     }`}>
                       {token.status === "MIGRATED" ? "Live" : token.status === "PRE_GRAD" ? "Pre-Grad" : token.status}
                     </span>
@@ -278,14 +278,14 @@ export default function Tokens() {
           ) : (
             <div>
               {/* Launch CTA */}
-              <div className="bg-white rounded-2xl border border-[#E2E8F0] p-4 sm:p-5 mb-4">
+              <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5 mb-4">
                 <div className="flex items-center gap-2 mb-2">
                   <div className="w-8 h-8 rounded-xl bg-[#EFF6FF] flex items-center justify-center">
                     <Star className="w-4 h-4 text-[#2563EB]" />
                   </div>
-                  <span className="text-sm font-semibold text-[#1A1A2E]">Launch Your Token</span>
+                  <span className="text-sm font-semibold text-white">Launch Your Token</span>
                 </div>
-                <p className="text-xs text-[#64748B] mb-3">
+                <p className="text-xs text-gray-500 mb-3">
                   Create your own token and earn fees every time someone trades it.
                 </p>
                 <button
@@ -323,7 +323,7 @@ export default function Tokens() {
                     <button
                       key={token.tokenMint}
                       onClick={() => setSelectedToken(token)}
-                      className="w-full flex items-center gap-3 p-3 bg-white rounded-2xl border border-[#E2E8F0] hover:border-[#2563EB]/30 hover:shadow-sm transition text-left"
+                      className="w-full flex items-center gap-3 p-3 bg-white rounded-2xl border border-white/10 hover:border-[#2563EB]/30 hover:shadow-sm transition text-left"
                     >
                       {token.image ? (
                         <img src={token.image} alt="" className="w-9 h-9 rounded-full object-cover" />
@@ -334,18 +334,18 @@ export default function Tokens() {
                       )}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-1.5">
-                          <span className="text-sm font-semibold text-[#1A1A2E] truncate">{token.name}</span>
+                          <span className="text-sm font-semibold text-white truncate">{token.name}</span>
                           <span className="text-xs text-[#94A3B8]">${token.symbol}</span>
                         </div>
                         {token.description && (
-                          <p className="text-xs text-[#64748B] truncate">{token.description}</p>
+                          <p className="text-xs text-gray-500 truncate">{token.description}</p>
                         )}
                       </div>
                       <div className="flex items-center gap-1">
                         <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded-full ${
                           token.status === "MIGRATED" ? "bg-[#F0FDF4] text-[#16A34A]"
                             : token.status === "PRE_GRAD" ? "bg-[#FFFBEB] text-[#D97706]"
-                            : "bg-[#F1F5F9] text-[#64748B]"
+                            : "bg-[#F1F5F9] text-gray-500"
                         }`}>
                           {token.status === "MIGRATED" ? "Live" : token.status === "PRE_GRAD" ? "Pre-Grad" : token.status}
                         </span>
@@ -381,17 +381,17 @@ export default function Tokens() {
             </div>
           ) : (
             <div>
-              <div className="bg-white rounded-2xl border border-[#E2E8F0] p-4 sm:p-5 mb-4">
+              <div className="bg-white rounded-2xl border border-white/10 p-4 sm:p-5 mb-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-8 h-8 rounded-xl bg-[#F0FDF4] flex items-center justify-center">
                         <DollarSign className="w-4 h-4 text-[#16A34A]" />
                       </div>
-                      <span className="text-xs font-medium text-[#64748B]">Total Claimable</span>
+                      <span className="text-xs font-medium text-gray-500">Total Claimable</span>
                     </div>
-                    <p className="text-2xl font-bold text-[#1A1A2E]">
-                      {formatSOL(totalClaimableSOL)} <span className="text-sm font-medium text-[#64748B]">SOL</span>
+                    <p className="text-2xl font-bold text-white">
+                      {formatSOL(totalClaimableSOL)} <span className="text-sm font-medium text-gray-500">SOL</span>
                     </p>
                     <p className="text-[10px] text-[#16A34A] flex items-center gap-1 mt-1">
                       <Shield className="w-2.5 h-2.5" /> Fee earnings from token trading
@@ -422,12 +422,12 @@ export default function Tokens() {
                       position.totalClaimableLamportsUserShare || position.virtualPoolClaimableAmount || 0
                     ) + Number(position.dammPoolClaimableAmount || 0);
                     return (
-                      <div key={position.baseMint} className="flex items-center justify-between p-3 bg-white rounded-2xl border border-[#E2E8F0]">
+                      <div key={position.baseMint} className="flex items-center justify-between p-3 bg-white rounded-2xl border border-white/10">
                         <div>
-                          <p className="text-xs font-mono text-[#64748B]">
+                          <p className="text-xs font-mono text-gray-500">
                             {position.baseMint.slice(0, 8)}...{position.baseMint.slice(-8)}
                           </p>
-                          <p className="text-sm font-semibold text-[#1A1A2E]">{formatSOL(claimableAmount)} SOL</p>
+                          <p className="text-sm font-semibold text-white">{formatSOL(claimableAmount)} SOL</p>
                         </div>
                         <button
                           onClick={() => handleClaim(position.baseMint)}
@@ -450,7 +450,7 @@ export default function Tokens() {
       {selectedToken && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md max-h-[85vh] overflow-y-auto">
-            <div className="p-5 border-b border-[#E2E8F0]">
+            <div className="p-5 border-b border-white/10">
               <div className="flex items-center gap-3">
                 {selectedToken.image ? (
                   <img src={selectedToken.image} alt="" className="w-12 h-12 rounded-full object-cover" />
@@ -460,9 +460,9 @@ export default function Tokens() {
                   </div>
                 )}
                 <div className="flex-1 min-w-0">
-                  <h2 className="text-lg font-bold text-[#1A1A2E]">{selectedToken.name}</h2>
+                  <h2 className="text-lg font-bold text-white">{selectedToken.name}</h2>
                   <div className="flex items-center gap-2">
-                    <span className="text-sm text-[#64748B]">${selectedToken.symbol}</span>
+                    <span className="text-sm text-gray-500">${selectedToken.symbol}</span>
                     <a href={`https://bags.fm/${selectedToken.tokenMint}`} target="_blank" rel="noopener noreferrer" className="text-xs text-[#2563EB] hover:underline flex items-center gap-0.5">
                       Bags <ExternalLink className="w-3 h-3" />
                     </a>
@@ -470,7 +470,7 @@ export default function Tokens() {
                 </div>
                 <button onClick={() => setSelectedToken(null)} className="p-2 hover:bg-[#F1F5F9] rounded-lg">✕</button>
               </div>
-              {selectedToken.description && <p className="text-xs text-[#64748B] mt-2">{selectedToken.description}</p>}
+              {selectedToken.description && <p className="text-xs text-gray-500 mt-2">{selectedToken.description}</p>}
             </div>
             <div className="p-4">
               <TokenTrade tokenMint={selectedToken.tokenMint} tokenSymbol={selectedToken.symbol} tokenImage={selectedToken.image} compact />

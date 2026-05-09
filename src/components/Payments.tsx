@@ -72,8 +72,8 @@ export default function Payments() {
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#EFF6FF] to-[#F0FDF4] flex items-center justify-center mx-auto mb-4">
             <Wallet className="w-8 h-8 text-[#2563EB]" />
           </div>
-          <h3 className="text-lg font-bold text-[#1A1A2E] mb-2">Payments</h3>
-          <p className="text-sm text-[#64748B]">Connect your wallet to send and receive payments</p>
+          <h3 className="text-lg font-bold text-white mb-2">Payments</h3>
+          <p className="text-sm text-gray-500">Connect your wallet to send and receive payments</p>
         </div>
       </div>
     );
@@ -83,26 +83,26 @@ export default function Payments() {
     <div className="max-w-2xl mx-auto space-y-3 sm:space-y-4">
       {/* Stats */}
       <div className="grid grid-cols-2 gap-3 sm:gap-4">
-        <div className="bg-white rounded-2xl border border-[#E2E8F0] p-3.5 sm:p-5">
+        <div className="bg-white rounded-2xl border border-white/10 p-3.5 sm:p-5">
           <div className="flex items-center gap-2 mb-2 sm:mb-3">
             <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#EFF6FF] flex items-center justify-center">
               <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2563EB]" />
             </div>
-            <span className="text-[10px] sm:text-xs font-medium text-[#64748B]">Total Sent</span>
+            <span className="text-[10px] sm:text-xs font-medium text-gray-500">Total Sent</span>
           </div>
-          <p className="text-xl sm:text-2xl font-bold text-[#1A1A2E]">{totalSent.toFixed(2)} <span className="text-xs sm:text-sm font-medium text-[#64748B]">SOL</span></p>
+          <p className="text-xl sm:text-2xl font-bold text-white">{totalSent.toFixed(2)} <span className="text-xs sm:text-sm font-medium text-gray-500">SOL</span></p>
           <p className="text-[10px] text-[#16A34A] flex items-center gap-1 mt-1">
             <Shield className="w-2.5 h-2.5" /> On-chain transfers
           </p>
         </div>
-        <div className="bg-white rounded-2xl border border-[#E2E8F0] p-3.5 sm:p-5">
+        <div className="bg-white rounded-2xl border border-white/10 p-3.5 sm:p-5">
           <div className="flex items-center gap-2 mb-2 sm:mb-3">
             <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#F0FDF4] flex items-center justify-center">
               <ArrowDownLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#16A34A]" />
             </div>
-            <span className="text-[10px] sm:text-xs font-medium text-[#64748B]">Received</span>
+            <span className="text-[10px] sm:text-xs font-medium text-gray-500">Received</span>
           </div>
-          <p className="text-xl sm:text-2xl font-bold text-[#1A1A2E]">{totalReceived.toFixed(2)} <span className="text-xs sm:text-sm font-medium text-[#64748B]">SOL</span></p>
+          <p className="text-xl sm:text-2xl font-bold text-white">{totalReceived.toFixed(2)} <span className="text-xs sm:text-sm font-medium text-gray-500">SOL</span></p>
           <p className="text-[10px] text-[#16A34A] flex items-center gap-1 mt-1">
             <Shield className="w-2.5 h-2.5" /> Received on-chain
           </p>
@@ -110,7 +110,7 @@ export default function Payments() {
       </div>
 
       {/* Send Payment */}
-      <div className="bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden">
+      <div className="bg-white rounded-2xl border border-white/10 overflow-hidden">
         <button
           onClick={() => setShowSendForm(!showSendForm)}
           className="touch-active w-full flex items-center justify-between px-4 sm:px-5 py-3.5 sm:py-4 hover:bg-[#F8FAFC] active:bg-[#F1F5F9] transition-colors"
@@ -120,8 +120,8 @@ export default function Payments() {
               <Send className="w-4 h-4 text-white" />
             </div>
             <div className="text-left">
-              <p className="text-sm font-semibold text-[#1A1A2E]">Send Payment</p>
-              <p className="text-[10px] sm:text-[11px] text-[#64748B]">Send SOL or private USDC to friends</p>
+              <p className="text-sm font-semibold text-white">Send Payment</p>
+              <p className="text-[10px] sm:text-[11px] text-gray-500">Send SOL or private USDC to friends</p>
             </div>
           </div>
           <ChevronDown className={`w-4 h-4 text-[#94A3B8] transition-transform flex-shrink-0 ${showSendForm ? "rotate-180" : ""}`} />
@@ -131,14 +131,14 @@ export default function Payments() {
           <div className="px-3.5 sm:px-5 pb-4 sm:pb-5 space-y-3 animate-fade-in border-t border-[#F1F5F9]">
             {/* Payment Mode Toggle */}
             <div className="pt-4">
-              <label className="text-xs font-medium text-[#64748B] mb-2 block">Payment Mode</label>
+              <label className="text-xs font-medium text-gray-500 mb-2 block">Payment Mode</label>
               <div className="flex gap-2">
                 <button
                   onClick={() => { setPaymentMode("public"); activeReset(); }}
                   className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-medium transition-all border ${
                     paymentMode === "public"
                       ? "bg-[#EFF6FF] border-[#2563EB] text-[#2563EB] shadow-sm"
-                      : "bg-[#F8FAFC] border-[#E2E8F0] text-[#64748B] hover:bg-[#F1F5F9]"
+                      : "bg-[#F8FAFC] border-white/10 text-gray-500 hover:bg-[#F1F5F9]"
                   }`}
                 >
                   <Eye className="w-3.5 h-3.5" />
@@ -149,7 +149,7 @@ export default function Payments() {
                   className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-medium transition-all border ${
                     paymentMode === "private"
                       ? "bg-[#F0FDF4] border-[#16A34A] text-[#16A34A] shadow-sm"
-                      : "bg-[#F8FAFC] border-[#E2E8F0] text-[#64748B] hover:bg-[#F1F5F9]"
+                      : "bg-[#F8FAFC] border-white/10 text-gray-500 hover:bg-[#F1F5F9]"
                   }`}
                 >
                   <EyeOff className="w-3.5 h-3.5" />
@@ -164,18 +164,18 @@ export default function Payments() {
             </div>
 
             <div>
-              <label className="text-xs font-medium text-[#64748B] mb-1.5 block">Recipient Address</label>
+              <label className="text-xs font-medium text-gray-500 mb-1.5 block">Recipient Address</label>
               <input
                 type="text"
                 value={recipient}
                 onChange={(e) => setRecipient(e.target.value)}
                 placeholder="Enter Solana wallet address..."
-                className="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB]"
+                className="w-full bg-[#F8FAFC] border border-white/10 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB]"
               />
             </div>
             <div>
-              <label className="text-xs font-medium text-[#64748B] mb-1.5 block">Amount</label>
-              <div className="flex items-center gap-2 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-2.5">
+              <label className="text-xs font-medium text-gray-500 mb-1.5 block">Amount</label>
+              <div className="flex items-center gap-2 bg-[#F8FAFC] border border-white/10 rounded-xl px-4 py-2.5">
                 <DollarSign className="w-4 h-4 text-[#94A3B8]" />
                 <input
                   type="number"
@@ -184,14 +184,14 @@ export default function Payments() {
                   placeholder="0.00"
                   className="flex-1 bg-transparent text-sm focus:outline-none"
                 />
-                <span className="text-xs font-medium text-[#64748B]">{paymentMode === "private" ? "USDC" : "SOL"}</span>
+                <span className="text-xs font-medium text-gray-500">{paymentMode === "private" ? "USDC" : "SOL"}</span>
               </div>
             </div>
 
             {/* Payment Flow visualization */}
             {paymentMode === "public" ? (
               <div className="bg-[#F8FAFC] rounded-xl p-4 space-y-2">
-                <p className="text-[10px] font-semibold text-[#64748B] uppercase tracking-wider">Payment Flow</p>
+                <p className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider">Payment Flow</p>
                 <div className="flex items-center gap-2 text-xs text-[#475569]">
                   <span className="w-5 h-5 rounded-full bg-[#2563EB] text-white flex items-center justify-center text-[10px] font-bold">1</span>
                   <span>Send SOL directly on Solana</span>
@@ -297,7 +297,7 @@ export default function Payments() {
                 >
                   View on Explorer <ExternalLink className="w-3 h-3" />
                 </a>
-                <button onClick={activeReset} className="mt-2 text-xs text-[#64748B] hover:text-[#1A1A2E]">
+                <button onClick={activeReset} className="mt-2 text-xs text-gray-500 hover:text-white">
                   Send another payment
                 </button>
               </div>
@@ -354,7 +354,7 @@ export default function Payments() {
       </div>
 
       {/* How it works */}
-      <div className="bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden">
+      <div className="bg-white rounded-2xl border border-white/10 overflow-hidden">
         <button
           onClick={() => setShowHowItWorks(!showHowItWorks)}
           className="w-full flex items-center justify-between px-5 py-4 hover:bg-[#F8FAFC] transition-colors"
@@ -363,7 +363,7 @@ export default function Payments() {
             <div className="w-10 h-10 rounded-xl bg-[#EFF6FF] flex items-center justify-center">
               <Eye className="w-4 h-4 text-[#2563EB]" />
             </div>
-            <p className="text-sm font-semibold text-[#1A1A2E]">How Payments Work</p>
+            <p className="text-sm font-semibold text-white">How Payments Work</p>
           </div>
           <ChevronDown className={`w-4 h-4 text-[#94A3B8] transition-transform ${showHowItWorks ? "rotate-180" : ""}`} />
         </button>
@@ -373,7 +373,7 @@ export default function Payments() {
             <div className="space-y-4">
               {/* Public Payment */}
               <div className="mb-3">
-                <p className="text-[10px] font-semibold text-[#64748B] uppercase tracking-wider mb-3 flex items-center gap-1">
+                <p className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-1">
                   <Eye className="w-3 h-3" /> Public Payments (SOL)
                 </p>
                 <div className="space-y-3 pl-1">
@@ -382,8 +382,8 @@ export default function Payments() {
                       <span className="text-xs font-bold text-[#2563EB]">1</span>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-[#1A1A2E]">Direct SOL Transfer</p>
-                      <p className="text-xs text-[#64748B] mt-0.5">SOL is sent directly to your friend&apos;s wallet on Solana. Fast, secure, and cost-effective.</p>
+                      <p className="text-sm font-medium text-white">Direct SOL Transfer</p>
+                      <p className="text-xs text-gray-500 mt-0.5">SOL is sent directly to your friend&apos;s wallet on Solana. Fast, secure, and cost-effective.</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
@@ -391,15 +391,15 @@ export default function Payments() {
                       <span className="text-xs font-bold text-[#2563EB]">2</span>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-[#1A1A2E]">Payment Recorded On-Chain</p>
-                      <p className="text-xs text-[#64748B] mt-0.5">The payment is recorded as a message in your chat so both participants can see the transaction history.</p>
+                      <p className="text-sm font-medium text-white">Payment Recorded On-Chain</p>
+                      <p className="text-xs text-gray-500 mt-0.5">The payment is recorded as a message in your chat so both participants can see the transaction history.</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Divider */}
-              <div className="border-t border-[#E2E8F0]" />
+              <div className="border-t border-white/10" />
 
               {/* Private Payment */}
               <div>
@@ -412,8 +412,8 @@ export default function Payments() {
                       <span className="text-xs font-bold text-[#16A34A]">1</span>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-[#1A1A2E]">Private Transaction Built</p>
-                      <p className="text-xs text-[#64748B] mt-0.5">MagicBlock&apos;s API builds a privacy-preserving USDC transfer using ephemeral rollups (TEE-based).</p>
+                      <p className="text-sm font-medium text-white">Private Transaction Built</p>
+                      <p className="text-xs text-gray-500 mt-0.5">MagicBlock&apos;s API builds a privacy-preserving USDC transfer using ephemeral rollups (TEE-based).</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
@@ -421,8 +421,8 @@ export default function Payments() {
                       <span className="text-xs font-bold text-[#16A34A]">2</span>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-[#1A1A2E]">Sign &amp; Send</p>
-                      <p className="text-xs text-[#64748B] mt-0.5">You sign the transaction — USDC is transferred with the amount hidden from on-chain observers.</p>
+                      <p className="text-sm font-medium text-white">Sign &amp; Send</p>
+                      <p className="text-xs text-gray-500 mt-0.5">You sign the transaction — USDC is transferred with the amount hidden from on-chain observers.</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
@@ -430,16 +430,16 @@ export default function Payments() {
                       <span className="text-xs font-bold text-[#16A34A]">3</span>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-[#1A1A2E]">Recipient Gets USDC</p>
-                      <p className="text-xs text-[#64748B] mt-0.5">USDC arrives in the recipient&apos;s wallet. The transfer amount stays private — only sender and receiver know.</p>
+                      <p className="text-sm font-medium text-white">Recipient Gets USDC</p>
+                      <p className="text-xs text-gray-500 mt-0.5">USDC arrives in the recipient&apos;s wallet. The transfer amount stays private — only sender and receiver know.</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="bg-[#F8FAFC] rounded-xl p-3 mt-2">
-                <p className="text-xs text-[#64748B]">
-                  <span className="font-semibold text-[#1A1A2E]">Your Keys, Your Funds:</span> All payments are user-to-user. <span className="text-[#16A34A] font-medium">You pay the fees, you sign the transaction — no middleman</span>.
+                <p className="text-xs text-gray-500">
+                  <span className="font-semibold text-white">Your Keys, Your Funds:</span> All payments are user-to-user. <span className="text-[#16A34A] font-medium">You pay the fees, you sign the transaction — no middleman</span>.
                 </p>
               </div>
             </div>
@@ -448,11 +448,11 @@ export default function Payments() {
       </div>
 
       {/* Payment History */}
-      <div className="bg-white rounded-2xl border border-[#E2E8F0]">
+      <div className="bg-white rounded-2xl border border-white/10">
         <div className="px-4 sm:px-5 py-3 sm:py-4 border-b border-[#F1F5F9] flex items-center justify-between">
           <div>
-            <h3 className="text-sm font-semibold text-[#1A1A2E]">Transaction History</h3>
-            <p className="text-[10px] sm:text-[11px] text-[#64748B]">All payments recorded on Solana</p>
+            <h3 className="text-sm font-semibold text-white">Transaction History</h3>
+            <p className="text-[10px] sm:text-[11px] text-gray-500">All payments recorded on Solana</p>
           </div>
           <button
             onClick={loadOnChainPayments}
@@ -460,13 +460,13 @@ export default function Payments() {
             className="p-2 rounded-lg hover:bg-[#F8FAFC] transition-colors disabled:opacity-50"
             title="Refresh from blockchain"
           >
-            <RefreshCw className={`w-4 h-4 text-[#64748B] ${loadingOnChain ? "animate-spin" : ""}`} />
+            <RefreshCw className={`w-4 h-4 text-gray-500 ${loadingOnChain ? "animate-spin" : ""}`} />
           </button>
         </div>
         {loadingOnChain && allPayments.length === 0 && (
           <div className="px-5 py-8 text-center">
             <div className="w-5 h-5 border-2 border-[#2563EB] border-t-transparent rounded-full animate-spin mx-auto mb-2" />
-            <p className="text-xs text-[#64748B]">Loading payment records from blockchain...</p>
+            <p className="text-xs text-gray-500">Loading payment records from blockchain...</p>
           </div>
         )}
         <div className="divide-y divide-[#F1F5F9]">
@@ -485,7 +485,7 @@ export default function Payments() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
-                    <p className="text-sm font-medium text-[#1A1A2E]">
+                    <p className="text-sm font-medium text-white">
                       {isSent ? "Sent" : "Received"} {payment.amount.toFixed(2)} {payment.token}
                     </p>
                     {payment.isPrivate && (
@@ -499,7 +499,7 @@ export default function Payments() {
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className={`text-sm font-semibold ${isSent ? "text-[#1A1A2E]" : "text-[#16A34A]"}`}>
+                  <p className={`text-sm font-semibold ${isSent ? "text-white" : "text-[#16A34A]"}`}>
                     {isSent ? "-" : "+"}{payment.amount.toFixed(2)}
                   </p>
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${

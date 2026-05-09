@@ -382,7 +382,7 @@ export function OnChainPostCard({
   };
 
   return (
-    <div className="clay-card p-4 sm:p-6 mb-4 sm:mb-5 animate-fade-in">
+    <div className="premium-card p-4 sm:p-6 mb-4 sm:mb-5 animate-fade-in">
       {/* Author */}
       <div className="flex items-center gap-2.5 sm:gap-3 mb-3">
         <ProfileHoverCard walletAddress={post.author} profile={profile}>
@@ -392,27 +392,27 @@ export function OnChainPostCard({
           className="flex items-center gap-2.5 sm:gap-3 flex-1 min-w-0 text-left group cursor-pointer"
         >
         {profile?.avatarUrl ? (
-          <img src={profile.avatarUrl} alt={displayName} className="w-11 h-11 sm:w-12 sm:h-12 rounded-[20px] object-cover border-2 border-purple-500/30 shadow-lg shadow-purple-500/20 flex-shrink-0 group-hover:scale-105 transition-all" />
+          <img src={profile.avatarUrl} alt={displayName} className="w-11 h-11 sm:w-12 sm:h-12 rounded-[20px] object-cover border-2 border-red-500/30 shadow-lg shadow-red-500/20 flex-shrink-0 group-hover:scale-105 transition-all" />
         ) : (
-          <div className={`w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center text-lg sm:text-xl border-2 border-white shadow-sm flex-shrink-0 group-hover:ring-2 group-hover:ring-[#2563EB]/30 transition-all ${
+          <div className={`w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center text-lg sm:text-xl border-2 border-white/10 shadow-sm flex-shrink-0 group-hover:ring-2 group-hover:ring-red-500/30 transition-all ${
             isMe
-              ? "bg-gradient-to-br from-[#EBF4FF] to-[#E0F2FE]"
-              : "bg-gradient-to-br from-[#F0FDF4] to-[#DCFCE7]"
+              ? "bg-gradient-to-br from-red-900/30 to-red-800/20"
+              : "bg-gradient-to-br from-red-900/20 to-red-800/10"
           }`}>
             {displayName.charAt(0)?.toUpperCase() || "?"}
           </div>
         )}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
-            <span className="font-semibold text-[#1A1A2E] text-sm truncate group-hover:text-[#2563EB] transition-colors">{displayName}</span>
-            <BadgeCheck className={`w-3.5 h-3.5 flex-shrink-0 ${GOLD_BADGE_USERNAMES.includes(realUsername.toLowerCase()) ? "text-[#F59E0B]" : "text-[#2563EB]"}`} />
-            <span className="text-xs text-[#94A3B8] truncate group-hover:text-[#2563EB]/70 transition-colors">@{username}</span>
+            <span className="font-semibold text-white text-sm truncate group-hover:text-red-400 transition-colors">{displayName}</span>
+            <BadgeCheck className={`w-3.5 h-3.5 flex-shrink-0 ${GOLD_BADGE_USERNAMES.includes(realUsername.toLowerCase()) ? "text-amber-500" : "text-red-500"}`} />
+            <span className="text-xs text-gray-500 truncate group-hover:text-red-400/70 transition-colors">@{username}</span>
           </div>
           <div className="flex items-center gap-1.5 mt-0.5">
-            <span className="text-xs text-[#94A3B8]">
+            <span className="text-xs text-gray-500">
               {post.createdAt !== "0" ? timeAgo(Number(post.createdAt) * 1000) : "recently"}
             </span>
-            <span className="inline-flex items-center gap-1 text-[10px] font-medium text-[#2563EB] bg-[#EFF6FF] px-2 py-0.5 rounded-full">
+            <span className="inline-flex items-center gap-1 text-[10px] font-medium text-red-400 bg-red-900/20 px-2 py-0.5 rounded-full">
               <Globe className="w-2.5 h-2.5" /> On-Chain
             </span>
             {isPaid && (
@@ -435,7 +435,7 @@ export function OnChainPostCard({
             onChange={e => setEditText(e.target.value)}
             maxLength={500}
             rows={4}
-            className="w-full rounded-2xl border border-purple-500/30 bg-purple-900/20 text-white text-sm p-4 resize-none focus:outline-none focus:ring-2 focus:ring-pink-500/50"
+            className="w-full rounded-2xl border border-red-900/30 bg-white/5 text-white text-sm p-4 resize-none focus:outline-none focus:ring-2 focus:ring-red-500/50"
           />
           <div className="flex items-center justify-between mt-2">
             <span className="text-xs text-[#94A3B8]">{editText.length}/500</span>
