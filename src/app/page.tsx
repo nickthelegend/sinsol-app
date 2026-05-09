@@ -40,10 +40,8 @@ export default function Home() {
     }
   }, [connected]);
 
-  // Check if user has an on-chain profile after connecting
   useEffect(() => {
     if (!connected || !program || !publicKey || showOnboarding) return;
-    // If we already have a currentUser in store, no need to check
     if (currentUser) {
       setNeedsProfile(false);
       return;
@@ -67,12 +65,12 @@ export default function Home() {
 
   if (!mounted) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-[#0A0A0A] flex items-center justify-center">
         <div className="text-center">
-          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#e11d48] via-[#c026d3] to-[#fbbf24] flex items-center justify-center mx-auto mb-3 animate-pulse shadow-lg shadow-purple-900/50">
-            <span className="text-white text-lg font-bold">S</span>
+          <div className="w-14 h-14 rounded-[28px] premium-orb flex items-center justify-center mx-auto mb-3 animate-breathe">
+            <span className="text-3xl">🔥</span>
           </div>
-          <p className="text-sm text-gray-400">Loading SinSol...</p>
+          <p className="text-sm text-gray-500 font-medium tracking-wide">Loading SinSol...</p>
         </div>
       </div>
     );
@@ -80,7 +78,7 @@ export default function Home() {
 
   if (!connected) {
     return (
-      <div className="h-screen flex flex-col overflow-hidden bg-black">
+      <div className="h-screen flex flex-col overflow-hidden bg-[#0A0A0A]">
         <ToastContainer />
         <div className="flex-1 overflow-y-auto overflow-x-hidden">
           <Landing />
@@ -102,9 +100,16 @@ export default function Home() {
         <ProfileSetup onComplete={() => setNeedsProfile(false)} />
       )}
       <Sidebar />
-      <div className="md:ml-20 h-screen flex flex-col bg-black overflow-hidden">
+      <div className="md:ml-20 lg:ml-22 h-screen flex flex-col bg-[#0A0A0A] overflow-hidden relative">
+        {/* Red Background Blobs */}
+        <div className="pointer-events-none fixed inset-0 overflow-hidden -z-10 opacity-30">
+          <div className="red-blob red-blob-crimson w-[40vw] h-[40vw] -top-[5%] -left-[5%]" />
+          <div className="red-blob red-blob-maroon w-[30vw] h-[30vw] top-[15%] -right-[5%]" style={{ animationDelay: '3s' }} />
+          <div className="red-blob red-blob-scarlet w-[25vw] h-[25vw] bottom-[10%] left-[25%]" style={{ animationDelay: '5s' }} />
+        </div>
+        
         <Header />
-        <main className="flex-1 overflow-y-auto overflow-x-hidden px-3 py-3 sm:px-4 sm:py-4 md:p-6 pb-[80px] md:pb-6 pt-0">
+        <main className="relative z-10 flex-1 overflow-y-auto overflow-x-hidden px-3 py-3 sm:px-4 sm:py-4 md:p-6 pb-[80px] md:pb-6 pt-0">
           {activeTab === "feed" && (
             <div className="flex gap-6 max-w-5xl mx-auto">
               <div className="flex-1 min-w-0">

@@ -382,7 +382,7 @@ export function OnChainPostCard({
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-[#E2E8F0] p-3.5 sm:p-5 mb-3 sm:mb-4 animate-fade-in hover:shadow-md transition-shadow duration-300">
+    <div className="clay-card p-4 sm:p-6 mb-4 sm:mb-5 animate-fade-in">
       {/* Author */}
       <div className="flex items-center gap-2.5 sm:gap-3 mb-3">
         <ProfileHoverCard walletAddress={post.author} profile={profile}>
@@ -392,7 +392,7 @@ export function OnChainPostCard({
           className="flex items-center gap-2.5 sm:gap-3 flex-1 min-w-0 text-left group cursor-pointer"
         >
         {profile?.avatarUrl ? (
-          <img src={profile.avatarUrl} alt={displayName} className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover border-2 border-white shadow-sm flex-shrink-0 group-hover:ring-2 group-hover:ring-[#2563EB]/30 transition-all" />
+          <img src={profile.avatarUrl} alt={displayName} className="w-11 h-11 sm:w-12 sm:h-12 rounded-[20px] object-cover border-2 border-purple-500/30 shadow-lg shadow-purple-500/20 flex-shrink-0 group-hover:scale-105 transition-all" />
         ) : (
           <div className={`w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center text-lg sm:text-xl border-2 border-white shadow-sm flex-shrink-0 group-hover:ring-2 group-hover:ring-[#2563EB]/30 transition-all ${
             isMe
@@ -435,7 +435,7 @@ export function OnChainPostCard({
             onChange={e => setEditText(e.target.value)}
             maxLength={500}
             rows={4}
-            className="w-full rounded-xl border border-[#2563EB] bg-[#F8FAFC] dark:bg-[#1E293B] text-[#0F172A] dark:text-white text-sm p-3 resize-none focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
+            className="w-full rounded-2xl border border-purple-500/30 bg-purple-900/20 text-white text-sm p-4 resize-none focus:outline-none focus:ring-2 focus:ring-pink-500/50"
           />
           <div className="flex items-center justify-between mt-2">
             <span className="text-xs text-[#94A3B8]">{editText.length}/500</span>
@@ -463,7 +463,7 @@ export function OnChainPostCard({
                   }
                   setSavingEdit(false);
                 }}
-                className="px-3 py-1.5 rounded-lg text-xs font-medium bg-[#2563EB] text-white hover:bg-[#1D4ED8] disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-1.5"
+                className="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-pink-600 to-purple-600 text-white hover:from-pink-500 hover:to-purple-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-1.5 shadow-lg shadow-pink-500/30"
               >
                 {savingEdit ? <Loader2 className="w-3 h-3 animate-spin" /> : null}
                 Save
@@ -1001,7 +1001,7 @@ export function OnChainPostCard({
                   maxLength={100}
                   placeholder={commenting ? "Posting on-chain..." : "Write a comment..."}
                   disabled={commenting}
-                  className="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB] disabled:opacity-50"
+                  className="w-full bg-purple-900/20 border border-purple-500/30 rounded-2xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 disabled:opacity-50 placeholder:text-gray-500"
                 />
                 {commentText.length > 80 && <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-[#94A3B8]">{100 - commentText.length}</span>}
               </div>
@@ -1110,7 +1110,7 @@ function PollCard({
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-[#E2E8F0] p-4 sm:p-5 mb-3 hover:shadow-sm transition-shadow">
+    <div className="clay-card p-4 sm:p-5 mb-3">
       {/* Header */}
       <div className="flex items-center gap-3 mb-3">
         {profile?.avatarUrl ? (
@@ -1702,7 +1702,7 @@ export default function Feed() {
 
       {/* Posts */}
       {!isConnected && (
-        <div className="bg-gradient-to-br from-[#EFF6FF] to-[#F0FDF4] rounded-2xl p-8 text-center border border-[#E2E8F0]">
+        <div className="bg-gradient-to-br from-pink-900/30 to-purple-900/30 rounded-3xl p-8 text-center border border-purple-500/20">
           <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center mx-auto mb-4">
             <Shield className="w-8 h-8 text-[#2563EB]" />
           </div>
@@ -1730,7 +1730,7 @@ export default function Feed() {
           </div>
 
           {onchainPosts.length === 0 && allPolls.length === 0 && !loadingOnchain && (
-            <div className="bg-[#F8FAFC] rounded-xl p-6 text-center border border-[#E2E8F0]">
+            <div className="bg-purple-900/20 rounded-2xl p-6 text-center border border-purple-500/20">
               <p className="text-sm text-[#94A3B8]">No public posts on-chain yet. Be the first!</p>
             </div>
           )}

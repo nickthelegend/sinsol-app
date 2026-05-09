@@ -497,7 +497,7 @@ export default function Profile() {
       <div className="max-w-[600px] mx-auto animate-pulse">
         {/* Banner skeleton */}
         <div className="h-[200px] bg-[#E2E8F0] rounded-b-none" />
-        <div className="px-4 pb-4 bg-white border-x border-b border-[#E2E8F0]">
+        <div className="px-5 pb-5 bg-black/60 border-x border-b border-purple-500/20 rounded-b-3xl">
           <div className="relative -mt-[42px] mb-3">
             <div className="w-[84px] h-[84px] rounded-full bg-[#E2E8F0] border-4 border-white" />
           </div>
@@ -635,7 +635,7 @@ export default function Profile() {
   return (
     <div className="max-w-[600px] mx-auto min-h-screen">
       {/* ── Top bar ── */}
-      <div className="sticky top-0 z-20 bg-white/80 backdrop-blur-md border-b border-[#E2E8F0] px-4 py-2.5 flex items-center gap-4">
+      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-xl border-b border-purple-500/20 px-5 py-3 flex items-center gap-4">
         {isViewingOther && (
           <button
             onClick={handleBackToFeed}
@@ -668,7 +668,7 @@ export default function Profile() {
       </div>
 
       {/* ── Profile Info Section ── */}
-      <div className="bg-white border-x border-[#E2E8F0] px-4 pb-4">
+      <div className="bg-black/60 border-x border-purple-500/20 px-5 pb-5">
         {/* Avatar + Edit/Follow button row */}
         <div className="flex justify-between items-start">
           <div className="relative -mt-[42px]">
@@ -812,7 +812,7 @@ export default function Profile() {
 
       {/* ── Wallet Management (own profile only) ── */}
       {!isViewingOther && (
-      <div className="bg-white border-x border-[#E2E8F0] px-4 py-4 border-b">
+      <div className="bg-black/60 border-x border-purple-500/20 px-5 py-4 border-b">
         <div className="bg-gradient-to-br from-[#F8FAFC] to-[#EFF6FF] rounded-2xl border border-[#E2E8F0] p-4">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">

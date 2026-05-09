@@ -592,7 +592,7 @@ export default function Chat() {
   }
 
   return (
-    <div className="chat-container flex h-[calc(100vh-120px)] sm:h-[calc(100vh-73px)] md:h-[calc(100vh-73px)] max-w-5xl mx-auto bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden">
+    <div className="chat-container flex h-[calc(100vh-120px)] sm:h-[calc(100vh-73px)] md:h-[calc(100vh-73px)] max-w-5xl mx-auto clay-card overflow-hidden">
       {/* Conversation List */}
       <div
         className={`w-full md:w-80 border-r border-[#E2E8F0] flex flex-col ${
@@ -691,7 +691,7 @@ export default function Chat() {
         {activeChat ? (
           <>
             {/* Chat Header */}
-            <div className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 sm:py-3 border-b border-[#E2E8F0] bg-white">
+            <div className="flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-3 border-b border-purple-500/20 bg-black/40">
               <button
                 onClick={() => { setActiveChat(null); setMessages([]); setPeerPubKey(null); }}
                 className="md:hidden w-9 h-9 rounded-lg hover:bg-[#F1F5F9] active:bg-[#E2E8F0] flex items-center justify-center flex-shrink-0"

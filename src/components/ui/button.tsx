@@ -4,23 +4,23 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[16px] text-sm font-semibold tracking-wide transition-all duration-200 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "clay-button-primary text-white shadow-lg",
-        destructive: "clay-button bg-gradient-to-b from-red-500 to-red-600 text-white hover:from-red-400 hover:to-red-500",
-        outline: "clay-button border border-purple-500/30 text-white hover:border-purple-400/50 hover:bg-purple-900/20",
-        secondary: "clay-button bg-purple-900/40 text-purple-200 border border-purple-700/30",
-        ghost: "text-gray-400 hover:text-white hover:bg-purple-900/20",
-        link: "text-pink-400 underline-offset-4 hover:underline",
+        default: "premium-button text-white shadow-lg hover:-translate-y-0.5 active:scale-[0.96]",
+        destructive: "premium-button-secondary bg-red-900/30 text-red-400 border-red-800/30 hover:bg-red-900/50 hover:border-red-700/50",
+        outline: "premium-button-secondary border border-red-900/30 text-red-400 hover:bg-red-900/20 hover:border-red-700/50",
+        secondary: "premium-button-secondary text-gray-200 bg-gray-800/50 border border-gray-700/30",
+        ghost: "text-gray-400 hover:text-white hover:bg-white/5",
+        link: "text-red-400 underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-11 px-6 py-2",
-        sm: "h-9 rounded-xl px-4",
-        lg: "h-14 rounded-3xl px-10 text-base",
-        xl: "h-16 rounded-3xl px-12 text-lg",
-        icon: "h-12 w-12 rounded-2xl",
+        default: "h-11 px-6 py-2.5",
+        sm: "h-9 rounded-xl px-4 text-xs",
+        lg: "h-13 rounded-2xl px-8 text-base",
+        xl: "h-14 rounded-[28px] px-10 text-lg",
+        icon: "h-11 w-11 rounded-xl",
       },
     },
     defaultVariants: {
