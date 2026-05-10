@@ -69,174 +69,174 @@ export default function Payments() {
     return (
       <div className="flex items-center justify-center h-[70vh]">
         <div className="text-center">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#EFF6FF] to-[#F0FDF4] flex items-center justify-center mx-auto mb-4">
-            <Wallet className="w-8 h-8 text-[#2563EB]" />
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500/20 to-red-950/40 border border-red-500/20 flex items-center justify-center mx-auto mb-4">
+            <Wallet className="w-8 h-8 text-red-400" strokeWidth={1.5} />
           </div>
-          <h3 className="text-lg font-bold text-white mb-2">Payments</h3>
-          <p className="text-sm text-gray-500">Connect your wallet to send and receive payments</p>
+          <h3 className="text-lg font-semibold text-white mb-2">Tribute</h3>
+          <p className="text-sm text-zinc-500">Connect your wallet to send and receive payments</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="max-w-2xl mx-auto space-y-3 sm:space-y-4">
+    <div className="max-w-2xl mx-auto space-y-4 sm:space-y-5">
       {/* Stats */}
       <div className="grid grid-cols-2 gap-3 sm:gap-4">
-        <div className="bg-white rounded-2xl border border-white/10 p-3.5 sm:p-5">
-          <div className="flex items-center gap-2 mb-2 sm:mb-3">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#EFF6FF] flex items-center justify-center">
-              <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#2563EB]" />
+        <div className="premium-card p-4 sm:p-5">
+          <div className="flex items-center gap-2.5 mb-2 sm:mb-3">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+              <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-red-400" strokeWidth={2} />
             </div>
-            <span className="text-[10px] sm:text-xs font-medium text-gray-500">Total Sent</span>
+            <span className="text-[10px] sm:text-xs font-medium text-zinc-500">Total Sent</span>
           </div>
-          <p className="text-xl sm:text-2xl font-bold text-white">{totalSent.toFixed(2)} <span className="text-xs sm:text-sm font-medium text-gray-500">SOL</span></p>
-          <p className="text-[10px] text-[#16A34A] flex items-center gap-1 mt-1">
-            <Shield className="w-2.5 h-2.5" /> On-chain transfers
+          <p className="text-xl sm:text-2xl font-bold text-white tabular-nums">{totalSent.toFixed(2)} <span className="text-xs sm:text-sm font-medium text-zinc-500">SOL</span></p>
+          <p className="text-[10px] text-emerald-400 flex items-center gap-1 mt-1.5">
+            <Shield className="w-2.5 h-2.5" strokeWidth={2} /> On-chain transfers
           </p>
         </div>
-        <div className="bg-white rounded-2xl border border-white/10 p-3.5 sm:p-5">
-          <div className="flex items-center gap-2 mb-2 sm:mb-3">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#F0FDF4] flex items-center justify-center">
-              <ArrowDownLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#16A34A]" />
+        <div className="premium-card p-4 sm:p-5">
+          <div className="flex items-center gap-2.5 mb-2 sm:mb-3">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+              <ArrowDownLeft className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" strokeWidth={2} />
             </div>
-            <span className="text-[10px] sm:text-xs font-medium text-gray-500">Received</span>
+            <span className="text-[10px] sm:text-xs font-medium text-zinc-500">Received</span>
           </div>
-          <p className="text-xl sm:text-2xl font-bold text-white">{totalReceived.toFixed(2)} <span className="text-xs sm:text-sm font-medium text-gray-500">SOL</span></p>
-          <p className="text-[10px] text-[#16A34A] flex items-center gap-1 mt-1">
-            <Shield className="w-2.5 h-2.5" /> Received on-chain
+          <p className="text-xl sm:text-2xl font-bold text-white tabular-nums">{totalReceived.toFixed(2)} <span className="text-xs sm:text-sm font-medium text-zinc-500">SOL</span></p>
+          <p className="text-[10px] text-emerald-400 flex items-center gap-1 mt-1.5">
+            <Shield className="w-2.5 h-2.5" strokeWidth={2} /> Received on-chain
           </p>
         </div>
       </div>
 
       {/* Send Payment */}
-      <div className="bg-white rounded-2xl border border-white/10 overflow-hidden">
+      <div className="premium-card overflow-hidden">
         <button
           onClick={() => setShowSendForm(!showSendForm)}
-          className="touch-active w-full flex items-center justify-between px-4 sm:px-5 py-3.5 sm:py-4 hover:bg-[#F8FAFC] active:bg-[#F1F5F9] transition-colors"
+          className="touch-active w-full flex items-center justify-between px-4 sm:px-5 py-4 sm:py-5 hover:bg-white/[0.02] active:bg-white/[0.04] transition-all"
         >
-          <div className="flex items-center gap-2.5 sm:gap-3">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#2563EB] to-[#16A34A] flex items-center justify-center flex-shrink-0">
-              <Send className="w-4 h-4 text-white" />
+          <div className="flex items-center gap-3 sm:gap-4">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center flex-shrink-0 shadow-lg shadow-red-900/20">
+              <Send className="w-4 h-4 text-white" strokeWidth={2} />
             </div>
             <div className="text-left">
-              <p className="text-sm font-semibold text-white">Send Payment</p>
-              <p className="text-[10px] sm:text-[11px] text-gray-500">Send SOL or private USDC to friends</p>
+              <p className="text-sm font-semibold text-white">Send Tribute</p>
+              <p className="text-[10px] sm:text-[11px] text-zinc-500">Send SOL or private USDC to creators</p>
             </div>
           </div>
-          <ChevronDown className={`w-4 h-4 text-[#94A3B8] transition-transform flex-shrink-0 ${showSendForm ? "rotate-180" : ""}`} />
+          <ChevronDown className={`w-4 h-4 text-zinc-600 transition-transform flex-shrink-0 ${showSendForm ? "rotate-180" : ""}`} strokeWidth={2} />
         </button>
 
         {showSendForm && (
-          <div className="px-3.5 sm:px-5 pb-4 sm:pb-5 space-y-3 animate-fade-in border-t border-[#F1F5F9]">
+          <div className="px-4 sm:px-5 pb-5 sm:pb-6 space-y-4 animate-fade-in border-t border-white/[0.06]">
             {/* Payment Mode Toggle */}
             <div className="pt-4">
-              <label className="text-xs font-medium text-gray-500 mb-2 block">Payment Mode</label>
+              <label className="text-xs font-medium text-zinc-500 mb-2 block">Payment Mode</label>
               <div className="flex gap-2">
                 <button
                   onClick={() => { setPaymentMode("public"); activeReset(); }}
-                  className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-medium transition-all border ${
+                  className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-medium transition-all border ${
                     paymentMode === "public"
-                      ? "bg-[#EFF6FF] border-[#2563EB] text-[#2563EB] shadow-sm"
-                      : "bg-[#F8FAFC] border-white/10 text-gray-500 hover:bg-[#F1F5F9]"
+                      ? "bg-red-500/15 border-red-500/30 text-red-400 shadow-lg shadow-red-900/10"
+                      : "bg-zinc-900/50 border-white/[0.08] text-zinc-500 hover:bg-zinc-800/50 hover:text-zinc-400"
                   }`}
                 >
-                  <Eye className="w-3.5 h-3.5" />
+                  <Eye className="w-3.5 h-3.5" strokeWidth={2} />
                   Public (SOL)
                 </button>
                 <button
                   onClick={() => { setPaymentMode("private"); activeReset(); }}
-                  className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-medium transition-all border ${
+                  className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-medium transition-all border ${
                     paymentMode === "private"
-                      ? "bg-[#F0FDF4] border-[#16A34A] text-[#16A34A] shadow-sm"
-                      : "bg-[#F8FAFC] border-white/10 text-gray-500 hover:bg-[#F1F5F9]"
+                      ? "bg-emerald-500/15 border-emerald-500/30 text-emerald-400 shadow-lg shadow-emerald-900/10"
+                      : "bg-zinc-900/50 border-white/[0.08] text-zinc-500 hover:bg-zinc-800/50 hover:text-zinc-400"
                   }`}
                 >
-                  <EyeOff className="w-3.5 h-3.5" />
+                  <EyeOff className="w-3.5 h-3.5" strokeWidth={2} />
                   Private (USDC)
                 </button>
               </div>
               {paymentMode === "private" && (
-                <p className="text-[10px] text-[#16A34A] mt-1.5 flex items-center gap-1">
-                  <Lock className="w-2.5 h-2.5" /> Powered by MagicBlock — privacy via ephemeral rollups
+                <p className="text-[10px] text-emerald-400/80 mt-2 flex items-center gap-1.5">
+                  <Lock className="w-2.5 h-2.5" strokeWidth={2} /> Powered by MagicBlock — privacy via ephemeral rollups
                 </p>
               )}
             </div>
 
             <div>
-              <label className="text-xs font-medium text-gray-500 mb-1.5 block">Recipient Address</label>
+              <label className="text-xs font-medium text-zinc-500 mb-1.5 block">Recipient Address</label>
               <input
                 type="text"
                 value={recipient}
                 onChange={(e) => setRecipient(e.target.value)}
                 placeholder="Enter Solana wallet address..."
-                className="w-full bg-[#F8FAFC] border border-white/10 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#2563EB]/20 focus:border-[#2563EB]"
+                className="w-full bg-zinc-900/50 border border-white/[0.08] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500/30 transition-all placeholder:text-zinc-600"
               />
             </div>
             <div>
-              <label className="text-xs font-medium text-gray-500 mb-1.5 block">Amount</label>
-              <div className="flex items-center gap-2 bg-[#F8FAFC] border border-white/10 rounded-xl px-4 py-2.5">
-                <DollarSign className="w-4 h-4 text-[#94A3B8]" />
+              <label className="text-xs font-medium text-zinc-500 mb-1.5 block">Amount</label>
+              <div className="flex items-center gap-2 bg-zinc-900/50 border border-white/[0.08] rounded-xl px-4 py-3 focus-within:ring-2 focus-within:ring-red-500/30 focus-within:border-red-500/30 transition-all">
+                <DollarSign className="w-4 h-4 text-zinc-600" strokeWidth={2} />
                 <input
                   type="number"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
                   placeholder="0.00"
-                  className="flex-1 bg-transparent text-sm focus:outline-none"
+                  className="flex-1 bg-transparent text-sm text-white focus:outline-none placeholder:text-zinc-600"
                 />
-                <span className="text-xs font-medium text-gray-500">{paymentMode === "private" ? "USDC" : "SOL"}</span>
+                <span className="text-xs font-medium text-zinc-500">{paymentMode === "private" ? "USDC" : "SOL"}</span>
               </div>
             </div>
 
             {/* Payment Flow visualization */}
             {paymentMode === "public" ? (
-              <div className="bg-[#F8FAFC] rounded-xl p-4 space-y-2">
-                <p className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider">Payment Flow</p>
-                <div className="flex items-center gap-2 text-xs text-[#475569]">
-                  <span className="w-5 h-5 rounded-full bg-[#2563EB] text-white flex items-center justify-center text-[10px] font-bold">1</span>
+              <div className="bg-zinc-900/30 rounded-xl p-4 space-y-2.5 border border-white/[0.06]">
+                <p className="text-[10px] font-semibold text-zinc-500 uppercase tracking-wider">Payment Flow</p>
+                <div className="flex items-center gap-3 text-xs text-zinc-400">
+                  <span className="w-6 h-6 rounded-full bg-red-500/20 border border-red-500/30 text-red-400 flex items-center justify-center text-[10px] font-bold">1</span>
                   <span>Send SOL directly on Solana</span>
-                  <Lock className="w-3 h-3 text-[#16A34A] ml-auto" />
+                  <Lock className="w-3 h-3 text-emerald-500 ml-auto" strokeWidth={2} />
                 </div>
-                <div className="flex items-center gap-2 text-xs text-[#475569]">
-                  <span className="w-5 h-5 rounded-full bg-[#7C3AED] text-white flex items-center justify-center text-[10px] font-bold">2</span>
+                <div className="flex items-center gap-3 text-xs text-zinc-400">
+                  <span className="w-6 h-6 rounded-full bg-red-500/20 border border-red-500/30 text-red-400 flex items-center justify-center text-[10px] font-bold">2</span>
                   <span>Record payment on-chain</span>
-                  <Lock className="w-3 h-3 text-[#16A34A] ml-auto" />
+                  <Lock className="w-3 h-3 text-emerald-500 ml-auto" strokeWidth={2} />
                 </div>
-                <div className="flex items-center gap-2 text-xs text-[#475569]">
-                  <span className="w-5 h-5 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-[10px] font-bold">3</span>
+                <div className="flex items-center gap-3 text-xs text-zinc-400">
+                  <span className="w-6 h-6 rounded-full bg-red-500/20 border border-red-500/30 text-red-400 flex items-center justify-center text-[10px] font-bold">3</span>
                   <span>Confirmed on Solana</span>
-                  <Shield className="w-3 h-3 text-[#16A34A] ml-auto" />
+                  <Shield className="w-3 h-3 text-emerald-500 ml-auto" strokeWidth={2} />
                 </div>
               </div>
             ) : (
-              <div className="bg-[#F0FDF4]/50 rounded-xl p-4 space-y-2 border border-[#16A34A]/10">
-                <p className="text-[10px] font-semibold text-[#16A34A] uppercase tracking-wider flex items-center gap-1">
-                  <EyeOff className="w-2.5 h-2.5" /> Private Payment Flow
+              <div className="bg-emerald-950/20 rounded-xl p-4 space-y-2.5 border border-emerald-500/20">
+                <p className="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <EyeOff className="w-3 h-3" strokeWidth={2} /> Private Payment Flow
                 </p>
-                <div className="flex items-center gap-2 text-xs text-[#475569]">
-                  <span className="w-5 h-5 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-[10px] font-bold">1</span>
+                <div className="flex items-center gap-3 text-xs text-zinc-400">
+                  <span className="w-6 h-6 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-[10px] font-bold">1</span>
                   <span>Build private tx via MagicBlock</span>
-                  <Lock className="w-3 h-3 text-[#16A34A] ml-auto" />
+                  <Lock className="w-3 h-3 text-emerald-500 ml-auto" strokeWidth={2} />
                 </div>
-                <div className="flex items-center gap-2 text-xs text-[#475569]">
-                  <span className="w-5 h-5 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-[10px] font-bold">2</span>
+                <div className="flex items-center gap-3 text-xs text-zinc-400">
+                  <span className="w-6 h-6 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-[10px] font-bold">2</span>
                   <span>Sign &amp; send through ephemeral rollup</span>
-                  <EyeOff className="w-3 h-3 text-[#16A34A] ml-auto" />
+                  <EyeOff className="w-3 h-3 text-emerald-500 ml-auto" strokeWidth={2} />
                 </div>
-                <div className="flex items-center gap-2 text-xs text-[#475569]">
-                  <span className="w-5 h-5 rounded-full bg-[#16A34A] text-white flex items-center justify-center text-[10px] font-bold">3</span>
+                <div className="flex items-center gap-3 text-xs text-zinc-400">
+                  <span className="w-6 h-6 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-[10px] font-bold">3</span>
                   <span>USDC arrives — amount hidden on-chain</span>
-                  <Shield className="w-3 h-3 text-[#16A34A] ml-auto" />
+                  <Shield className="w-3 h-3 text-emerald-500 ml-auto" strokeWidth={2} />
                 </div>
               </div>
             )}
 
             {/* Payment Status */}
             {activeStep !== "idle" && activeStep !== "done" && activeStep !== "error" && (
-              <div className={`rounded-xl p-4 space-y-2 animate-fade-in ${paymentMode === "private" ? "bg-[#F0FDF4]" : "bg-[#EFF6FF]"}`}>
+              <div className={`rounded-xl p-4 space-y-3 animate-fade-in border ${paymentMode === "private" ? "bg-emerald-950/10 border-emerald-500/20" : "bg-red-950/10 border-red-500/20"}`}>
                 <div className="flex items-center gap-2">
-                  <div className={`w-4 h-4 border-2 border-t-transparent rounded-full animate-spin ${paymentMode === "private" ? "border-[#16A34A]" : "border-[#2563EB]"}`} />
-                  <span className={`text-sm font-medium ${paymentMode === "private" ? "text-[#16A34A]" : "text-[#2563EB]"}`}>
+                  <div className={`w-4 h-4 border-2 border-t-transparent rounded-full animate-spin ${paymentMode === "private" ? "border-emerald-500" : "border-red-500"}`} />
+                  <span className={`text-sm font-medium ${paymentMode === "private" ? "text-emerald-400" : "text-red-400"}`}>
                     {paymentMode === "private" ? (
                       <>
                         {activeStep === "building" && "Building private transaction..."}
@@ -257,17 +257,17 @@ export default function Payments() {
                 <div className="flex gap-1">
                   {paymentMode === "private" ? (
                     <>
-                      <div className={`h-1.5 flex-1 rounded-full ${["building", "signing", "sending", "confirming"].includes(activeStep) ? "bg-[#16A34A]" : "bg-[#E2E8F0]"}`} />
-                      <div className={`h-1.5 flex-1 rounded-full ${["signing", "sending", "confirming"].includes(activeStep) ? "bg-[#16A34A]" : "bg-[#E2E8F0]"}`} />
-                      <div className={`h-1.5 flex-1 rounded-full ${["sending", "confirming"].includes(activeStep) ? "bg-[#16A34A]" : "bg-[#E2E8F0]"}`} />
-                      <div className={`h-1.5 flex-1 rounded-full ${activeStep === "confirming" ? "bg-[#16A34A]" : "bg-[#E2E8F0]"}`} />
+                      <div className={`h-1.5 flex-1 rounded-full ${["building", "signing", "sending", "confirming"].includes(activeStep) ? "bg-emerald-500" : "bg-zinc-800"}`} />
+                      <div className={`h-1.5 flex-1 rounded-full ${["signing", "sending", "confirming"].includes(activeStep) ? "bg-emerald-500" : "bg-zinc-800"}`} />
+                      <div className={`h-1.5 flex-1 rounded-full ${["sending", "confirming"].includes(activeStep) ? "bg-emerald-500" : "bg-zinc-800"}`} />
+                      <div className={`h-1.5 flex-1 rounded-full ${activeStep === "confirming" ? "bg-emerald-500" : "bg-zinc-800"}`} />
                     </>
                   ) : (
                     <>
-                      <div className={`h-1.5 flex-1 rounded-full ${["sending", "confirming", "recording", "finalizing"].includes(activeStep) ? "bg-[#2563EB]" : "bg-[#E2E8F0]"}`} />
-                      <div className={`h-1.5 flex-1 rounded-full ${["confirming", "recording", "finalizing"].includes(activeStep) ? "bg-[#7C3AED]" : "bg-[#E2E8F0]"}`} />
-                      <div className={`h-1.5 flex-1 rounded-full ${["recording", "finalizing"].includes(activeStep) ? "bg-[#7C3AED]" : "bg-[#E2E8F0]"}`} />
-                      <div className={`h-1.5 flex-1 rounded-full ${activeStep === "finalizing" ? "bg-[#16A34A]" : "bg-[#E2E8F0]"}`} />
+                      <div className={`h-1.5 flex-1 rounded-full ${["sending", "confirming", "recording", "finalizing"].includes(activeStep) ? "bg-red-500" : "bg-zinc-800"}`} />
+                      <div className={`h-1.5 flex-1 rounded-full ${["confirming", "recording", "finalizing"].includes(activeStep) ? "bg-red-500" : "bg-zinc-800"}`} />
+                      <div className={`h-1.5 flex-1 rounded-full ${["recording", "finalizing"].includes(activeStep) ? "bg-red-500" : "bg-zinc-800"}`} />
+                      <div className={`h-1.5 flex-1 rounded-full ${activeStep === "finalizing" ? "bg-red-500" : "bg-zinc-800"}`} />
                     </>
                   )}
                 </div>
@@ -275,17 +275,17 @@ export default function Payments() {
             )}
 
             {activeStep === "done" && activeTxSig && (
-              <div className="bg-[#F0FDF4] rounded-xl p-4 animate-fade-in">
+              <div className="bg-emerald-950/20 rounded-xl p-4 animate-fade-in border border-emerald-500/20">
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="w-5 h-5 rounded-full bg-[#16A34A] flex items-center justify-center">
-                    <Check className="w-3 h-3 text-white" />
+                  <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center">
+                    <Check className="w-3 h-3 text-white" strokeWidth={2} />
                   </div>
-                  <span className="text-sm font-semibold text-[#15803D]">
+                  <span className="text-sm font-semibold text-emerald-400">
                     {paymentMode === "private" ? "Private Payment Sent!" : "Payment Sent!"}
                   </span>
                   {paymentMode === "private" && (
-                    <span className="inline-flex items-center gap-0.5 text-[9px] font-medium text-[#16A34A] bg-[#DCFCE7] px-1.5 py-0.5 rounded-full">
-                      <EyeOff className="w-2 h-2" /> Private
+                    <span className="inline-flex items-center gap-0.5 text-[9px] font-medium text-emerald-400 bg-emerald-500/15 px-1.5 py-0.5 rounded-full border border-emerald-500/20">
+                      <EyeOff className="w-2 h-2" strokeWidth={2} /> Private
                     </span>
                   )}
                 </div>
@@ -293,21 +293,21 @@ export default function Payments() {
                   href={`https://explorer.solana.com/tx/${activeTxSig}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-[#2563EB] hover:underline flex items-center gap-1"
+                  className="text-xs text-red-400 hover:text-red-300 flex items-center gap-1 transition-colors"
                 >
-                  View on Explorer <ExternalLink className="w-3 h-3" />
+                  View on Explorer <ExternalLink className="w-3 h-3" strokeWidth={2} />
                 </a>
-                <button onClick={activeReset} className="mt-2 text-xs text-gray-500 hover:text-white">
+                <button onClick={activeReset} className="mt-2 text-xs text-zinc-500 hover:text-white transition-colors">
                   Send another payment
                 </button>
               </div>
             )}
 
             {activeStep === "error" && activeError && (
-              <div className="bg-red-50 rounded-xl p-4 animate-fade-in">
-                <p className="text-sm text-red-600 font-medium">Payment failed</p>
-                <p className="text-xs text-red-500 mt-1">{activeError}</p>
-                <button onClick={activeReset} className="mt-2 text-xs text-[#2563EB] hover:underline">
+              <div className="bg-red-950/20 rounded-xl p-4 animate-fade-in border border-red-500/20">
+                <p className="text-sm text-red-400 font-medium">Payment failed</p>
+                <p className="text-xs text-red-400/70 mt-1">{activeError}</p>
+                <button onClick={activeReset} className="mt-2 text-xs text-red-400 hover:text-red-300 transition-colors">
                   Try again
                 </button>
               </div>
@@ -322,11 +322,7 @@ export default function Payments() {
                 }
               }}
               disabled={!recipient || !amount || !["idle", "done", "error"].includes(activeStep)}
-              className={`w-full py-3 text-white text-sm font-semibold rounded-xl hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-md ${
-                paymentMode === "private"
-                  ? "bg-gradient-to-r from-[#16A34A] to-[#059669]"
-                  : "bg-gradient-to-r from-[#2563EB] to-[#16A34A]"
-              }`}
+              className="w-full py-3.5 text-white text-sm font-semibold rounded-xl disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-lg premium-button"
             >
               {["building", "signing", "sending", "confirming", "recording", "finalizing"].includes(activeStep)
                 ? paymentMode === "private"
@@ -339,14 +335,14 @@ export default function Payments() {
                     : "Processing..."
                 : paymentMode === "private"
                   ? `Send Private ${amount || "0"} USDC`
-                  : "Send Payment"
+                  : "Send Tribute"
               }
             </button>
-            <p className="text-[10px] text-center text-[#94A3B8] flex items-center justify-center gap-1">
+            <p className="text-[10px] text-center text-zinc-600 flex items-center justify-center gap-1">
               {paymentMode === "private" ? (
-                <><EyeOff className="w-2.5 h-2.5" /> Private USDC transfer via MagicBlock</>
+                <><EyeOff className="w-2.5 h-2.5" strokeWidth={2} /> Private USDC transfer via MagicBlock</>
               ) : (
-                <><Shield className="w-2.5 h-2.5" /> Payment recorded on Solana</>
+                <><Shield className="w-2.5 h-2.5" strokeWidth={2} /> Payment recorded on Solana</>
               )}
             </p>
           </div>
@@ -354,92 +350,92 @@ export default function Payments() {
       </div>
 
       {/* How it works */}
-      <div className="bg-white rounded-2xl border border-white/10 overflow-hidden">
+      <div className="premium-card overflow-hidden">
         <button
           onClick={() => setShowHowItWorks(!showHowItWorks)}
-          className="w-full flex items-center justify-between px-5 py-4 hover:bg-[#F8FAFC] transition-colors"
+          className="w-full flex items-center justify-between px-5 py-4 hover:bg-white/[0.02] transition-all"
         >
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#EFF6FF] flex items-center justify-center">
-              <Eye className="w-4 h-4 text-[#2563EB]" />
+            <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+              <Eye className="w-4 h-4 text-red-400" strokeWidth={2} />
             </div>
-            <p className="text-sm font-semibold text-white">How Payments Work</p>
+            <p className="text-sm font-semibold text-white">How Tributes Work</p>
           </div>
-          <ChevronDown className={`w-4 h-4 text-[#94A3B8] transition-transform ${showHowItWorks ? "rotate-180" : ""}`} />
+          <ChevronDown className={`w-4 h-4 text-zinc-600 transition-transform ${showHowItWorks ? "rotate-180" : ""}`} strokeWidth={2} />
         </button>
 
         {showHowItWorks && (
-          <div className="px-5 pb-5 border-t border-[#F1F5F9] pt-4 animate-fade-in">
+          <div className="px-5 pb-5 border-t border-white/[0.06] pt-4 animate-fade-in">
             <div className="space-y-4">
               {/* Public Payment */}
               <div className="mb-3">
-                <p className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-1">
-                  <Eye className="w-3 h-3" /> Public Payments (SOL)
+                <p className="text-[10px] font-semibold text-zinc-500 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                  <Eye className="w-3 h-3" strokeWidth={2} /> Public Payments (SOL)
                 </p>
                 <div className="space-y-3 pl-1">
                   <div className="flex gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#EFF6FF] flex items-center justify-center flex-shrink-0">
-                      <span className="text-xs font-bold text-[#2563EB]">1</span>
+                    <div className="w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center flex-shrink-0">
+                      <span className="text-xs font-bold text-red-400">1</span>
                     </div>
                     <div>
                       <p className="text-sm font-medium text-white">Direct SOL Transfer</p>
-                      <p className="text-xs text-gray-500 mt-0.5">SOL is sent directly to your friend&apos;s wallet on Solana. Fast, secure, and cost-effective.</p>
+                      <p className="text-xs text-zinc-500 mt-0.5">SOL is sent directly to your creator&apos;s wallet on Solana. Fast, secure, and cost-effective.</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#EFF6FF] flex items-center justify-center flex-shrink-0">
-                      <span className="text-xs font-bold text-[#2563EB]">2</span>
+                    <div className="w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center flex-shrink-0">
+                      <span className="text-xs font-bold text-red-400">2</span>
                     </div>
                     <div>
                       <p className="text-sm font-medium text-white">Payment Recorded On-Chain</p>
-                      <p className="text-xs text-gray-500 mt-0.5">The payment is recorded as a message in your chat so both participants can see the transaction history.</p>
+                      <p className="text-xs text-zinc-500 mt-0.5">The payment is recorded as a message so both participants can see the transaction history.</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Divider */}
-              <div className="border-t border-white/10" />
+              <div className="border-t border-white/[0.06]" />
 
               {/* Private Payment */}
               <div>
-                <p className="text-[10px] font-semibold text-[#16A34A] uppercase tracking-wider mb-3 flex items-center gap-1">
-                  <EyeOff className="w-3 h-3" /> Private Payments (USDC via MagicBlock)
+                <p className="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                  <EyeOff className="w-3 h-3" strokeWidth={2} /> Private Payments (USDC via MagicBlock)
                 </p>
                 <div className="space-y-3 pl-1">
                   <div className="flex gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#F0FDF4] flex items-center justify-center flex-shrink-0">
-                      <span className="text-xs font-bold text-[#16A34A]">1</span>
+                    <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                      <span className="text-xs font-bold text-emerald-400">1</span>
                     </div>
                     <div>
                       <p className="text-sm font-medium text-white">Private Transaction Built</p>
-                      <p className="text-xs text-gray-500 mt-0.5">MagicBlock&apos;s API builds a privacy-preserving USDC transfer using ephemeral rollups (TEE-based).</p>
+                      <p className="text-xs text-zinc-500 mt-0.5">MagicBlock&apos;s API builds a privacy-preserving USDC transfer using ephemeral rollups (TEE-based).</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#F0FDF4] flex items-center justify-center flex-shrink-0">
-                      <span className="text-xs font-bold text-[#16A34A]">2</span>
+                    <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                      <span className="text-xs font-bold text-emerald-400">2</span>
                     </div>
                     <div>
                       <p className="text-sm font-medium text-white">Sign &amp; Send</p>
-                      <p className="text-xs text-gray-500 mt-0.5">You sign the transaction — USDC is transferred with the amount hidden from on-chain observers.</p>
+                      <p className="text-xs text-zinc-500 mt-0.5">You sign the transaction — USDC is transferred with the amount hidden from on-chain observers.</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#F0FDF4] flex items-center justify-center flex-shrink-0">
-                      <span className="text-xs font-bold text-[#16A34A]">3</span>
+                    <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                      <span className="text-xs font-bold text-emerald-400">3</span>
                     </div>
                     <div>
                       <p className="text-sm font-medium text-white">Recipient Gets USDC</p>
-                      <p className="text-xs text-gray-500 mt-0.5">USDC arrives in the recipient&apos;s wallet. The transfer amount stays private — only sender and receiver know.</p>
+                      <p className="text-xs text-zinc-500 mt-0.5">USDC arrives in the recipient&apos;s wallet. The transfer amount stays private — only sender and receiver know.</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-[#F8FAFC] rounded-xl p-3 mt-2">
-                <p className="text-xs text-gray-500">
-                  <span className="font-semibold text-white">Your Keys, Your Funds:</span> All payments are user-to-user. <span className="text-[#16A34A] font-medium">You pay the fees, you sign the transaction — no middleman</span>.
+              <div className="bg-zinc-900/30 rounded-xl p-3 mt-2 border border-white/[0.06]">
+                <p className="text-xs text-zinc-500">
+                  <span className="font-semibold text-white">Your Keys, Your Funds:</span> All payments are user-to-user. <span className="text-emerald-400 font-medium">You pay the fees, you sign the transaction — no middleman</span>.
                 </p>
               </div>
             </div>
@@ -448,39 +444,39 @@ export default function Payments() {
       </div>
 
       {/* Payment History */}
-      <div className="bg-white rounded-2xl border border-white/10">
-        <div className="px-4 sm:px-5 py-3 sm:py-4 border-b border-[#F1F5F9] flex items-center justify-between">
+      <div className="premium-card">
+        <div className="px-4 sm:px-5 py-3 sm:py-4 border-b border-white/[0.06] flex items-center justify-between">
           <div>
             <h3 className="text-sm font-semibold text-white">Transaction History</h3>
-            <p className="text-[10px] sm:text-[11px] text-gray-500">All payments recorded on Solana</p>
+            <p className="text-[10px] sm:text-[11px] text-zinc-500">All payments recorded on Solana</p>
           </div>
           <button
             onClick={loadOnChainPayments}
             disabled={loadingOnChain}
-            className="p-2 rounded-lg hover:bg-[#F8FAFC] transition-colors disabled:opacity-50"
+            className="p-2 rounded-xl hover:bg-white/5 transition-colors disabled:opacity-50"
             title="Refresh from blockchain"
           >
-            <RefreshCw className={`w-4 h-4 text-gray-500 ${loadingOnChain ? "animate-spin" : ""}`} />
+            <RefreshCw className={`w-4 h-4 text-zinc-500 ${loadingOnChain ? "animate-spin" : ""}`} strokeWidth={2} />
           </button>
         </div>
         {loadingOnChain && allPayments.length === 0 && (
           <div className="px-5 py-8 text-center">
-            <div className="w-5 h-5 border-2 border-[#2563EB] border-t-transparent rounded-full animate-spin mx-auto mb-2" />
-            <p className="text-xs text-gray-500">Loading payment records from blockchain...</p>
+            <div className="w-5 h-5 border-2 border-red-500 border-t-transparent rounded-full animate-spin mx-auto mb-2" />
+            <p className="text-xs text-zinc-500">Loading payment records from blockchain...</p>
           </div>
         )}
-        <div className="divide-y divide-[#F1F5F9]">
+        <div className="divide-y divide-white/[0.04]">
           {allPayments.map((payment) => {
             const isSent = payment.sender === "me";
             return (
-              <div key={payment.id} className="flex items-center gap-2.5 sm:gap-3 px-3.5 sm:px-5 py-3 sm:py-3.5 hover:bg-[#F8FAFC] transition-colors">
-                <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                  isSent ? "bg-[#EFF6FF]" : "bg-[#F0FDF4]"
+              <div key={payment.id} className="flex items-center gap-2.5 sm:gap-3 px-3.5 sm:px-5 py-3 sm:py-3.5 hover:bg-white/[0.02] transition-colors">
+                <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center flex-shrink-0 border ${
+                  isSent ? "bg-red-500/10 border-red-500/20" : "bg-emerald-500/10 border-emerald-500/20"
                 }`}>
                   {isSent ? (
-                    <ArrowUpRight className="w-4 h-4 text-[#2563EB]" />
+                    <ArrowUpRight className="w-4 h-4 text-red-400" strokeWidth={2} />
                   ) : (
-                    <ArrowDownLeft className="w-4 h-4 text-[#16A34A]" />
+                    <ArrowDownLeft className="w-4 h-4 text-emerald-400" strokeWidth={2} />
                   )}
                 </div>
                 <div className="flex-1 min-w-0">
@@ -489,23 +485,23 @@ export default function Payments() {
                       {isSent ? "Sent" : "Received"} {payment.amount.toFixed(2)} {payment.token}
                     </p>
                     {payment.isPrivate && (
-                      <span className="inline-flex items-center gap-0.5 text-[9px] font-medium text-[#16A34A] bg-[#F0FDF4] px-1.5 py-0.5 rounded-full">
-                        <Lock className="w-2 h-2" /> Private
+                      <span className="inline-flex items-center gap-0.5 text-[9px] font-medium text-emerald-400 bg-emerald-500/15 px-1.5 py-0.5 rounded-full border border-emerald-500/20">
+                        <Lock className="w-2 h-2" strokeWidth={2} /> Private
                       </span>
                     )}
                   </div>
-                  <p className="text-[11px] text-[#94A3B8] truncate">
+                  <p className="text-[11px] text-zinc-600 truncate">
                     {isSent ? `To: ${payment.recipient}` : `From: ${payment.sender}`} · {timeAgo(payment.timestamp)}
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className={`text-sm font-semibold ${isSent ? "text-white" : "text-[#16A34A]"}`}>
+                  <p className={`text-sm font-semibold tabular-nums ${isSent ? "text-white" : "text-emerald-400"}`}>
                     {isSent ? "-" : "+"}{payment.amount.toFixed(2)}
                   </p>
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${
                     payment.status === "completed"
-                      ? "bg-[#F0FDF4] text-[#16A34A]"
-                      : "bg-[#FEF3C7] text-[#D97706]"
+                      ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/20"
+                      : "bg-amber-500/15 text-amber-400 border border-amber-500/20"
                   }`}>
                     {payment.status}
                   </span>
@@ -515,8 +511,8 @@ export default function Payments() {
           })}
           {!loadingOnChain && allPayments.length === 0 && (
             <div className="px-5 py-8 text-center">
-              <p className="text-sm text-[#94A3B8]">No payment records yet</p>
-              <p className="text-xs text-[#CBD5E1] mt-1">Send a payment to get started</p>
+              <p className="text-sm text-zinc-600">No payment records yet</p>
+              <p className="text-xs text-zinc-700 mt-1">Send a tribute to get started</p>
             </div>
           )}
         </div>

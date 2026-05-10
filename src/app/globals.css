@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 @theme {
   --color-background: hsl(var(--background));
@@ -27,127 +28,135 @@
 
 @layer base {
   :root {
-    /* Dark Premium Theme - Black & Red */
-    --background: 0 0% 4%;
+    /* Premium Dark Theme - Sinful & Seductive */
+    --background: 0 0% 3%;
     --foreground: 0 0% 98%;
     
-    --card: 0 0% 8%;
+    --card: 0 0% 6%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 8%;
+    --popover: 0 0% 5%;
     --popover-foreground: 0 0% 98%;
     
-    /* Primary Red */
-    --primary: 0 72% 51%;
+    /* Primary - Deep Crimson with warmth */
+    --primary: 350 85% 55%;
     --primary-foreground: 0 0% 100%;
     
-    /* Secondary - Dark Red */
-    --secondary: 0 63% 31%;
+    /* Secondary - Rich Burgundy */
+    --secondary: 350 60% 25%;
     --secondary-foreground: 0 0% 100%;
     
-    /* Muted */
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    /* Muted - Sophisticated darks */
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
     
-    /* Accent - Crimson */
-    --accent: 0 72% 51%;
+    /* Accent - Vibrant Rose */
+    --accent: 340 80% 60%;
     --accent-foreground: 0 0% 100%;
     
-    /* Status Colors */
-    --destructive: 0 84% 60%;
+    /* Status Colors - Refined */
+    --destructive: 0 85% 60%;
     --destructive-foreground: 0 0% 100%;
-    --success: 142 71% 45%;
+    --success: 150 60% 45%;
     --success-foreground: 0 0% 100%;
-    --warning: 38 92% 50%;
+    --warning: 35 90% 55%;
     --warning-foreground: 0 0% 0%;
     
-    --border: 0 0% 18%;
-    --input: 0 0% 12%;
-    --ring: 0 72% 51%;
+    --border: 0 0% 15%;
+    --input: 0 0% 10%;
+    --ring: 350 85% 55%;
     
-    --radius: 20px;
+    --radius: 24px;
     
-    /* Custom Red Design Tokens */
-    --clay-canvas: 0 0% 4%;
-    --clay-surface: 0 0% 8%;
-    --clay-surface-elevated: 0 0% 12%;
+    /* Premium Design Tokens - Seductive Dark */
+    --clay-canvas: 0 0% 3%;
+    --clay-surface: 0 0% 6%;
+    --clay-surface-elevated: 0 0% 10%;
     
     --clay-text-primary: 0 0% 98%;
     --clay-text-secondary: 0 0% 60%;
     --clay-text-muted: 0 0% 40%;
     
-    --clay-border: 0 0% 18%;
-    --clay-border-light: 0 0% 22%;
+    --clay-border: 0 0% 15%;
+    --clay-border-light: 0 0% 20%;
     
-    /* Radius System */
-    --clay-radius-xs: 8px;
-    --clay-radius-sm: 12px;
-    --clay-radius-md: 16px;
-    --clay-radius-lg: 20px;
-    --clay-radius-xl: 28px;
-    --clay-radius-2xl: 36px;
-    --clay-radius-3xl: 48px;
+    /* Luxury Accent Colors */
+    --sin-champagne: 35 30% 85%;
+    --sin-velvet: 340 70% 35%;
+    --sin-neon: 350 100% 60%;
+    --sin-gold: 45 80% 60%;
+    
+    /* Radius System - Softer */
+    --clay-radius-xs: 10px;
+    --clay-radius-sm: 14px;
+    --clay-radius-md: 18px;
+    --clay-radius-lg: 24px;
+    --clay-radius-xl: 32px;
+    --clay-radius-2xl: 40px;
+    --clay-radius-3xl: 52px;
     --clay-radius-full: 9999px;
     
-    /* Red Shadow Presets */
+    /* Premium Shadow Presets - Seductive Glows */
     --shadow-clayCard: 
-      0 4px 20px rgba(220, 38, 38, 0.15),
-      0 2px 8px rgba(0, 0, 0, 0.3),
-      inset 0 1px 1px rgba(255, 255, 255, 0.05);
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      0 2px 12px rgba(220, 38, 38, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
     
     --shadow-clayCardHover: 
-      0 8px 30px rgba(220, 38, 38, 0.25),
-      0 4px 12px rgba(0, 0, 0, 0.4),
-      inset 0 1px 2px rgba(255, 255, 255, 0.08);
+      0 12px 48px rgba(0, 0, 0, 0.5),
+      0 4px 20px rgba(220, 38, 38, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
     
     --shadow-clayButton: 
-      0 4px 12px rgba(220, 38, 38, 0.25),
-      0 2px 6px rgba(0, 0, 0, 0.3),
-      inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      0 4px 16px rgba(220, 38, 38, 0.35),
+      0 2px 8px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
     
     --shadow-clayButtonHover: 
-      0 6px 20px rgba(220, 38, 38, 0.35),
-      0 3px 8px rgba(0, 0, 0, 0.35),
-      inset 0 1px 2px rgba(255, 255, 255, 0.15);
+      0 8px 28px rgba(220, 38, 38, 0.45),
+      0 4px 12px rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
     
     --shadow-clayButtonPrimary: 
-      0 4px 16px rgba(220, 38, 38, 0.4),
-      0 2px 6px rgba(0, 0, 0, 0.3),
-      inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      0 6px 24px rgba(220, 38, 38, 0.5),
+      0 3px 10px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
     
     --shadow-clayPressed: 
-      inset 0 2px 4px rgba(0, 0, 0, 0.4),
-      inset 0 1px 2px rgba(0, 0, 0, 0.3);
+      inset 0 3px 6px rgba(0, 0, 0, 0.5),
+      inset 0 1px 3px rgba(0, 0, 0, 0.4);
     
     --shadow-clayFloating: 
-      0 20px 40px rgba(220, 38, 38, 0.3),
-      0 10px 20px rgba(0, 0, 0, 0.4),
-      inset 0 1px 2px rgba(255, 255, 255, 0.05);
+      0 24px 60px rgba(220, 38, 38, 0.25),
+      0 12px 30px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
     
     --clay-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
     --clay-squish: cubic-bezier(0.4, 0, 0.2, 1);
+    --clay-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    --clay-luxury: cubic-bezier(0.23, 1, 0.32, 1);
   }
   
   .dark {
-    --background: 0 0% 4%;
+    --background: 0 0% 3%;
     --foreground: 0 0% 98%;
-    --card: 0 0% 8%;
+    --card: 0 0% 6%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 8%;
+    --popover: 0 0% 5%;
     --popover-foreground: 0 0% 98%;
-    --primary: 0 72% 51%;
+    --primary: 350 85% 55%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 63% 31%;
+    --secondary: 350 60% 25%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 0 72% 51%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 340 80% 60%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
+    --destructive: 0 85% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 18%;
-    --input: 0 0% 12%;
-    --ring: 0 72% 51%;
-    --radius: 20px;
+    --border: 0 0% 15%;
+    --input: 0 0% 10%;
+    --ring: 350 85% 55%;
+    --radius: 24px;
   }
 }
 
@@ -158,19 +167,30 @@
   
   body {
     @apply bg-background text-foreground;
-    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Inter', 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Bebas Neue', 'Outfit', sans-serif;
+  h1, h2, h3 {
+    font-family: 'Bebas Neue', 'Inter', sans-serif;
     font-weight: 400;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.06em;
+    line-height: 1.1;
+  }
+  
+  h4, h5, h6 {
+    font-family: 'Inter', 'Outfit', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.01em;
   }
 }
 
-/* Dark Premium Theme */
+/* Premium Dark Theme - Sinful & Seductive */
 .dark-premium {
-  background: hsl(0 0% 4%);
+  background: hsl(0 0% 3%);
   position: relative;
   overflow: hidden;
 }
@@ -180,89 +200,111 @@
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(ellipse 60% 40% at 20% -10%, rgba(220, 38, 38, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse 40% 30% at 80% 100%, rgba(127, 29, 29, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(0, 0, 0, 0) 0%, transparent 70%);
+    radial-gradient(ellipse 80% 50% at 10% -5%, rgba(220, 38, 60, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 90% 105%, rgba(160, 20, 50, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 30% at 50% 50%, rgba(80, 10, 30, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 70% 20%, rgba(220, 38, 60, 0.06) 0%, transparent 40%);
   pointer-events: none;
   z-index: 0;
+  animation: ambientShift 20s ease-in-out infinite;
 }
 
-/* Red Animated Blobs */
+@keyframes ambientShift {
+  0%, 100% { opacity: 1; transform: translateY(0) scale(1); }
+  50% { opacity: 0.85; transform: translateY(-10px) scale(1.02); }
+}
+
+/* Seductive Animated Blobs */
 .red-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
+  filter: blur(100px);
   pointer-events: none;
   z-index: 0;
 }
 
 .red-blob-crimson {
-  background: radial-gradient(circle, rgba(220, 38, 38, 0.3) 0%, rgba(220, 38, 38, 0.1) 50%, transparent 70%);
-  animation: redFloat 10s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(220, 38, 70, 0.35) 0%, rgba(180, 30, 60, 0.15) 40%, transparent 70%);
+  animation: redFloat 12s ease-in-out infinite;
 }
 
 .red-blob-maroon {
-  background: radial-gradient(circle, rgba(127, 29, 29, 0.25) 0%, rgba(127, 29, 29, 0.08) 50%, transparent 70%);
-  animation: redFloatDelayed 12s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(140, 25, 50, 0.3) 0%, rgba(100, 20, 40, 0.1) 50%, transparent 70%);
+  animation: redFloatDelayed 15s ease-in-out infinite;
 }
 
 .red-blob-scarlet {
-  background: radial-gradient(circle, rgba(185, 28, 28, 0.2) 0%, rgba(185, 28, 28, 0.06) 50%, transparent 70%);
-  animation: redFloatSlow 14s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(200, 40, 70, 0.25) 0%, rgba(160, 35, 55, 0.08) 50%, transparent 70%);
+  animation: redFloatSlow 18s ease-in-out infinite;
 }
 
 @keyframes redFloat {
-  0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
-  25% { transform: translateY(-20px) translateX(10px) rotate(2deg); }
-  50% { transform: translateY(10px) translateX(-5px) rotate(-2deg); }
-  75% { transform: translateY(-10px) translateX(-10px) rotate(1deg); }
+  0%, 100% { transform: translateY(0) translateX(0) rotate(0deg) scale(1); }
+  25% { transform: translateY(-25px) translateX(15px) rotate(3deg) scale(1.05); }
+  50% { transform: translateY(15px) translateX(-8px) rotate(-2deg) scale(0.98); }
+  75% { transform: translateY(-12px) translateX(-12px) rotate(2deg) scale(1.02); }
 }
 
 @keyframes redFloatDelayed {
-  0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
-  33% { transform: translateY(-25px) translateX(15px) rotate(-3deg); }
-  66% { transform: translateY(15px) translateX(-10px) rotate(2deg); }
+  0%, 100% { transform: translateY(0) translateX(0) rotate(0deg) scale(1); }
+  33% { transform: translateY(-30px) translateX(20px) rotate(-4deg) scale(1.08); }
+  66% { transform: translateY(20px) translateX(-15px) rotate(3deg) scale(0.95); }
 }
 
 @keyframes redFloatSlow {
-  0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
-  50% { transform: translateY(-30px) translateX(20px) rotate(4deg); }
+  0%, 100% { transform: translateY(0) translateX(0) rotate(0deg) scale(1); }
+  50% { transform: translateY(-35px) translateX(25px) rotate(5deg) scale(1.06); }
 }
 
-/* Premium Dark Card */
+/* Premium Dark Card - Seductive Glass */
 .premium-card {
-  background: rgba(20, 20, 20, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: linear-gradient(145deg, rgba(22, 22, 24, 0.95), rgba(12, 12, 14, 0.98));
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   border-radius: var(--clay-radius-xl);
-  box-shadow: var(--shadow-clayCard);
-  border: 1px solid rgba(220, 38, 38, 0.1);
-  transition: all 0.3s ease;
+  box-shadow: 
+    var(--shadow-clayCard),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(220, 38, 60, 0.12);
+  transition: all 0.4s var(--clay-luxury);
 }
 
 .premium-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-clayCardHover);
+  transform: translateY(-3px);
+  box-shadow: 
+    var(--shadow-clayCardHover),
+    0 0 40px rgba(220, 38, 60, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border-color: rgba(220, 38, 60, 0.2);
 }
 
-/* Premium Dark Button - Red */
+/* Premium Dark Button - Seductive Red */
 .premium-button {
-  background: linear-gradient(145deg, #DC2626, #B91C1C);
+  background: linear-gradient(135deg, #E53555 0%, #C41E3A 50%, #A01830 100%);
   border-radius: var(--clay-radius-md);
-  box-shadow: var(--shadow-clayButtonPrimary);
-  border: 1px solid rgba(220, 38, 38, 0.3);
-  transition: all 0.2s ease;
+  box-shadow: 
+    var(--shadow-clayButtonPrimary),
+    0 0 20px rgba(220, 38, 60, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 100, 120, 0.3);
+  transition: all 0.3s var(--clay-luxury);
   color: white;
   cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .premium-button:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-clayButtonHover);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    var(--shadow-clayButtonHover),
+    0 0 30px rgba(220, 38, 60, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  background: linear-gradient(135deg, #F04565 0%, #D02848 50%, #B02038 100%);
 }
 
 .premium-button:active {
-  transform: scale(0.96);
+  transform: scale(0.97);
   box-shadow: var(--shadow-clayPressed);
 }
 
@@ -377,12 +419,15 @@
   background: linear-gradient(145deg, #F87171, #EF4444);
 }
 
-/* Glass Effect - Dark */
+/* Glass Effect - Premium Dark */
 .glass-dark {
-  background: rgba(20, 20, 20, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(220, 38, 38, 0.08);
+  background: linear-gradient(145deg, rgba(24, 24, 26, 0.9), rgba(14, 14, 16, 0.95));
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(220, 38, 60, 0.12);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 /* Core Elements */
@@ -406,23 +451,26 @@ body {
   font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Scrollbar - Dark */
+/* Scrollbar - Premium Dark */
 @media (min-width: 768px) {
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, rgba(220, 38, 38, 0.3), rgba(220, 38, 38, 0.15));
-    border-radius: 6px;
+    background: linear-gradient(180deg, rgba(220, 38, 60, 0.25), rgba(160, 20, 50, 0.15));
+    border-radius: 10px;
     border: 2px solid transparent;
     background-clip: padding-box;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, rgba(220, 38, 38, 0.4), rgba(220, 38, 38, 0.2));
+    background: linear-gradient(180deg, rgba(220, 38, 60, 0.4), rgba(200, 40, 70, 0.25));
     background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
   }
 }
 
@@ -472,19 +520,44 @@ body {
   }
 }
 
-/* Premium Typography Classes */
+/* Premium Typography Classes - Seductive & Refined */
 .font-premium-headline {
-  font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 0.05em;
+  font-family: 'Bebas Neue', 'Inter', sans-serif;
+  letter-spacing: 0.08em;
+  font-weight: 400;
 }
 
 .font-premium-body {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Inter', 'Outfit', sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 .font-premium-accent {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', 'Montserrat', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.font-display-luxury {
+  font-family: 'Playfair Display', 'Bebas Neue', serif;
   font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Text gradients for luxury effect */
+.text-gradient-sin {
+  background: linear-gradient(135deg, #FF6B8A 0%, #E53555 50%, #C41E3A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #F5E6D3 0%, #E8D4B8 50%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Focus Ring */
@@ -563,4 +636,194 @@ body {
 .badge-green {
   background: linear-gradient(145deg, #10B981, #059669);
   color: white;
+}
+
+/* Premium selection color */
+::selection {
+  background: rgba(220, 38, 60, 0.3);
+  color: white;
+}
+
+/* Premium focus styles */
+*:focus-visible {
+  outline: none;
+  ring: 2px;
+  ring-color: rgba(220, 38, 60, 0.5);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Premium placeholder styling */
+::placeholder {
+  color: rgba(120, 120, 130, 0.6);
+  font-weight: 400;
+}
+
+/* ── Premium Unlock CTA - Seductive Glow Animation ── */
+@keyframes unlock-cta-shimmer {
+  0%, 100% { 
+    box-shadow: 
+      0 0 30px rgba(220, 38, 60, 0.5), 
+      0 0 60px rgba(220, 38, 60, 0.25), 
+      0 0 90px rgba(220, 38, 60, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15); 
+  }
+  50% { 
+    box-shadow: 
+      0 0 40px rgba(255, 70, 90, 0.6), 
+      0 0 80px rgba(255, 70, 90, 0.35), 
+      0 0 120px rgba(255, 70, 90, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22); 
+  }
+}
+
+@keyframes subtle-border-glow {
+  0%, 100% { border-color: rgba(220, 38, 60, 0.3); }
+  50% { border-color: rgba(255, 100, 120, 0.55); }
+}
+
+@keyframes pulse-seductive {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(1.02);
+    opacity: 0.95;
+  }
+}
+
+.animate-pulse-seductive {
+  animation: pulse-seductive 2.2s ease-in-out infinite;
+}
+
+/* Landing CTA: combined glow + brightness pulse (don’t animate transform — hover uses transform) */
+@keyframes landing-connect-pulse {
+  0%, 100% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.12) saturate(1.08);
+  }
+}
+
+.connect-wallet-cta {
+  animation:
+    unlock-cta-shimmer 2.8s ease-in-out infinite,
+    landing-connect-pulse 2s ease-in-out infinite;
+  transition: transform 0.3s var(--clay-luxury), filter 0.3s ease;
+  background: linear-gradient(135deg, #e53555 0%, #c41e3a 50%, #a01830 100%);
+  border: 1px solid rgba(255, 120, 140, 0.45);
+}
+
+.connect-wallet-cta:hover {
+  animation-play-state: paused;
+  transform: translateY(-3px) scale(1.03);
+  filter: brightness(1.1) saturate(1.1);
+}
+
+.connect-wallet-cta:active {
+  animation-play-state: paused;
+  transform: scale(0.97);
+}
+
+.unlock-cta-production {
+  animation: unlock-cta-shimmer 3s ease-in-out infinite;
+  transition: transform 0.3s var(--clay-luxury), filter 0.3s ease;
+  background: linear-gradient(135deg, #E53555 0%, #C41E3A 50%, #A01830 100%);
+  border: 1px solid rgba(255, 120, 140, 0.4);
+}
+
+.unlock-cta-production:hover {
+  transform: translateY(-3px) scale(1.03);
+  filter: brightness(1.1) saturate(1.1);
+}
+
+.unlock-cta-production:active {
+  transform: scale(0.97);
+}
+
+.feed-compose-glow {
+  animation: subtle-border-glow 5s ease-in-out infinite;
+}
+
+/* Premium shimmer for loading states */
+@keyframes shimmer-premium {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer-premium {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 20, 22, 0.8) 0%,
+    rgba(35, 35, 38, 0.9) 25%,
+    rgba(45, 45, 48, 1) 50%,
+    rgba(35, 35, 38, 0.9) 75%,
+    rgba(20, 20, 22, 0.8) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-premium 1.5s ease-in-out infinite;
+}
+
+/* Seductive hover lift effect */
+.hover-lift-seductive {
+  transition: transform 0.4s var(--clay-luxury), box-shadow 0.4s ease;
+}
+
+.hover-lift-seductive:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 16px 48px rgba(0, 0, 0, 0.4),
+    0 8px 24px rgba(220, 38, 60, 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .unlock-cta-production,
+  .feed-compose-glow,
+  .animate-shimmer-premium,
+  .animate-glow-pulse,
+  .animate-glow-spin,
+  .animate-pulse-seductive,
+  .connect-wallet-cta {
+    animation: none;
+  }
+  .connect-wallet-cta:hover,
+  .unlock-cta-production:hover,
+  .hover-lift-seductive:hover {
+    transform: none;
+    filter: none;
+  }
+}
+
+/* ── Spark Button Animations ── */
+@keyframes glow-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+@keyframes glow-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-glow-spin {
+  animation: glow-spin 8s linear infinite;
 }
